@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCC Lecture Search - AVC Courses</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🎓 GCC Lecture Search</h1>
+            <p class="subtitle">Search timestamps across AVC 185, AVC 200, and AVC 240 lectures</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="search-section">
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search for topics, techniques, or keywords..."
+                    autofocus
+                >
+                <button id="searchButton">Search</button>
+            </div>
+
+            <div class="filters">
+                <label>
+                    <input type="checkbox" id="filterAVC185" checked>
+                    AVC 185
+                </label>
+                <label>
+                    <input type="checkbox" id="filterAVC200" checked>
+                    AVC 200
+                </label>
+                <label>
+                    <input type="checkbox" id="filterAVC240" checked>
+                    AVC 240
+                </label>
+            </div>
+        </div>
+
+        <div id="stats" class="stats"></div>
+
+        <div id="results" class="results">
+            <div class="loading">Loading lecture data...</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>GCC Digital Media Arts and Animation</p>
+            <p>Searchable lecture timestamps - Updated weekly</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+    <script src="search.js"></script>
+</body>
+</html>

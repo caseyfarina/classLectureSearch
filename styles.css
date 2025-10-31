@@ -71,7 +71,7 @@ main {
 
 #searchInput:focus {
     outline: none;
-    border-color: #fcb040;
+    border-color: #a1186a;
     background: #0d0d0d;
 }
 
@@ -91,13 +91,13 @@ main {
 }
 
 #searchButton:hover {
-    background: #fcb040;
-    color: #000000;
-    border-color: #fcb040;
+    background: #a1186a;
+    color: #ffffff;
+    border-color: #a1186a;
 }
 
 #searchButton:active {
-    background: #e0a030;
+    background: #8a1459;
 }
 
 /* Filters */
@@ -118,14 +118,14 @@ main {
 }
 
 .filters label:hover {
-    color: #fcb040;
+    color: #a1186a;
 }
 
 .filters input[type="checkbox"] {
     width: 18px;
     height: 18px;
     cursor: pointer;
-    accent-color: #fcb040;
+    accent-color: #a1186a;
 }
 
 /* Stats */
@@ -160,7 +160,7 @@ main {
 }
 
 .no-results h3 {
-    color: #fcb040;
+    color: #a1186a;
     margin-bottom: 1rem;
 }
 
@@ -197,21 +197,21 @@ main {
     border-radius: 0;
     font-size: 0.85rem;
     font-weight: 600;
-    color: #000000;
-    background: #fcb040;
-    border: 1px solid #fcb040;
+    color: #ffffff;
+    background: #a1186a;
+    border: 1px solid #a1186a;
 }
 
 .course-badge.avc185 {
-    background: #fcb040;
+    background: #a1186a;
 }
 
 .course-badge.avc200 {
-    background: #fcb040;
+    background: #a1186a;
 }
 
 .course-badge.avc240 {
-    background: #fcb040;
+    background: #a1186a;
 }
 
 .result-date {
@@ -242,14 +242,14 @@ main {
 }
 
 .result-link:hover {
-    background: #fcb040;
-    color: #000000;
-    border-color: #fcb040;
+    background: #a1186a;
+    color: #ffffff;
+    border-color: #a1186a;
     text-decoration: underline;
 }
 
 .result-link:active {
-    background: #e0a030;
+    background: #8a1459;
 }
 
 .timestamp {

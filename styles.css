@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
     color: #ffffff;
     background: #000000;
@@ -198,20 +198,22 @@ main {
     font-size: 0.85rem;
     font-weight: 600;
     color: #ffffff;
-    background: #a1186a;
-    border: 1px solid #a1186a;
+    border: 1px solid;
 }
 
 .course-badge.avc185 {
-    background: #a1186a;
+    background: #D904A0;
+    border-color: #D904A0;
 }
 
 .course-badge.avc200 {
-    background: #a1186a;
+    background: #04B2D9;
+    border-color: #04B2D9;
 }
 
 .course-badge.avc240 {
-    background: #a1186a;
+    background: #8C0368;
+    border-color: #8C0368;
 }
 
 .result-date {

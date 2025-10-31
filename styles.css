@@ -125,7 +125,18 @@ main {
     width: 18px;
     height: 18px;
     cursor: pointer;
-    accent-color: #a1186a;
+}
+
+.filters input.checkbox-avc185 {
+    accent-color: #D904A0;
+}
+
+.filters input.checkbox-avc200 {
+    accent-color: #04B2D9;
+}
+
+.filters input.checkbox-avc240 {
+    accent-color: #590242;
 }
 
 /* Stats */
@@ -212,8 +223,8 @@ main {
 }
 
 .course-badge.avc240 {
-    background: #8C0368;
-    border-color: #8C0368;
+    background: #590242;
+    border-color: #590242;
 }
 
 .result-date {

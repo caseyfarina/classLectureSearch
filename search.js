@@ -51,15 +51,15 @@ function performSearch() {
 
     if (query === '') {
         // No search query - show all (filtered by course)
-        results = allChapters;
+        results = allChapters.map(chapter => ({ item: chapter, query: '' }));
     } else {
         // Perform fuzzy search
         const searchResults = fuse.search(query);
-        results = searchResults.map(result => result.item);
+        results = searchResults.map(result => ({ item: result.item, query: query }));
     }
 
     // Filter by enabled courses
-    results = results.filter(chapter => enabledCourses.includes(chapter.course));
+    results = results.filter(result => enabledCourses.includes(result.item.course));
 
     // Display results
     displayResults(results);
@@ -89,11 +89,48 @@ function displayResults(results) {
         return;
     }
 
-    resultsDiv.innerHTML = results.map(chapter => createResultHTML(chapter)).join('');
+    resultsDiv.innerHTML = results.map(result => createResultHTML(result.item, result.query)).join('');
+}
+
+// Find matching excerpt from transcript
+function findMatchingExcerpt(transcriptSegment, query, maxLength = 150) {
+    if (!query || !transcriptSegment) return null;
+
+    const lowerTranscript = transcriptSegment.toLowerCase();
+    const lowerQuery = query.toLowerCase();
+
+    // Find the position of the match
+    const matchIndex = lowerTranscript.indexOf(lowerQuery);
+
+    if (matchIndex === -1) return null;
+
+    // Extract context around the match
+    const contextBefore = 50;
+    const contextAfter = maxLength - query.length - contextBefore;
+
+    const start = Math.max(0, matchIndex - contextBefore);
+    const end = Math.min(transcriptSegment.length, matchIndex + query.length + contextAfter);
+
+    let excerpt = transcriptSegment.substring(start, end);
+
+    // Add ellipsis if truncated
+    if (start > 0) excerpt = '...' + excerpt;
+    if (end < transcriptSegment.length) excerpt = excerpt + '...';
+
+    // Highlight the matching term
+    const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+    excerpt = escapeHtml(excerpt).replace(regex, '<mark>$1</mark>');
+
+    return excerpt;
+}
+
+// Escape regex special characters
+function escapeRegex(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 // Create HTML for a single result
-function createResultHTML(chapter) {
+function createResultHTML(chapter, query = '') {
     const courseLower = chapter.course.toLowerCase();
     const videoLink = chapter.video_id
         ? `https://www.youtube.com/watch?v=${chapter.video_id}&t=${chapter.seconds}s`
@@ -101,20 +138,32 @@ function createResultHTML(chapter) {
 
     const linkDisabled = !chapter.video_id;
 
+    // Find matching excerpt from transcript
+    const excerpt = query ? findMatchingExcerpt(chapter.transcript_segment, query) : null;
+
+    // Thumbnail HTML
+    const thumbnailHTML = chapter.thumbnail
+        ? `<img src="${chapter.thumbnail}" alt="Chapter thumbnail" class="result-thumbnail" loading="lazy">`
+        : '';
+
     return `
         <div class="result-item">
-            <div class="result-header">
-                <span class="course-badge ${courseLower}">${chapter.course}</span>
-                <span class="result-date">${chapter.formatted_date}</span>
+            ${thumbnailHTML}
+            <div class="result-content">
+                <div class="result-header">
+                    <span class="course-badge ${courseLower}">${chapter.course}</span>
+                    <span class="result-date">${chapter.formatted_date}</span>
+                </div>
+                <div class="result-title">${escapeHtml(chapter.title)}</div>
+                ${excerpt ? `<div class="result-excerpt">${excerpt}</div>` : ''}
+                ${linkDisabled
+                    ? `<span style="color: #999; font-size: 0.9rem;">Video link not available</span>`
+                    : `<a href="${videoLink}" class="result-link" target="_blank" rel="noopener">
+                        <span class="timestamp">${chapter.timestamp}</span>
+                        <span>Watch in YouTube</span>
+                    </a>`
+                }
             </div>
-            <div class="result-title">${escapeHtml(chapter.title)}</div>
-            ${linkDisabled
-                ? `<span style="color: #999; font-size: 0.9rem;">Video link not available</span>`
-                : `<a href="${videoLink}" class="result-link" target="_blank" rel="noopener">
-                    <span class="timestamp">${chapter.timestamp}</span>
-                    <span>Watch in YouTube</span>
-                </a>`
-            }
         </div>
     `;
 }

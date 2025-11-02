@@ -181,6 +181,8 @@ main {
 
 /* Result Item */
 .result-item {
+    display: flex;
+    gap: 1.5rem;
     padding: 1.5rem;
     border-bottom: 1px solid #252222;
     transition: all 0.25s ease;
@@ -193,6 +195,19 @@ main {
 .result-item:hover {
     background-color: #1a1a1a;
     border-color: #555555;
+}
+
+.result-thumbnail {
+    width: 320px;
+    height: 180px;
+    object-fit: cover;
+    border: 1px solid #252222;
+    flex-shrink: 0;
+}
+
+.result-content {
+    flex: 1;
+    min-width: 0;
 }
 
 .result-header {
@@ -237,6 +252,22 @@ main {
     color: #ffffff;
     margin-bottom: 0.75rem;
     line-height: 1.4;
+}
+
+.result-excerpt {
+    font-size: 0.95rem;
+    color: #999999;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+    font-style: italic;
+}
+
+.result-excerpt mark {
+    background-color: #a1186a;
+    color: #ffffff;
+    padding: 0.15rem 0.3rem;
+    font-style: normal;
+    font-weight: 500;
 }
 
 .result-link {
@@ -311,5 +342,15 @@ footer p {
     .result-header {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .result-item {
+        flex-direction: column;
+    }
+
+    .result-thumbnail {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
     }
 }

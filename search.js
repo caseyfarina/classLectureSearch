@@ -25,11 +25,12 @@ async function loadChapters() {
                 { name: 'formatted_date', weight: 1 },
                 { name: 'search_text', weight: 3 }
             ],
-            threshold: 0.4,
+            threshold: 0.3,  // Stricter matching (was 0.4)
             includeScore: true,
             includeMatches: true,
-            minMatchCharLength: 2,
-            ignoreLocation: true
+            minMatchCharLength: 3,  // Require at least 3 characters (was 2)
+            ignoreLocation: true,
+            distance: 100  // Limit how far apart matched characters can be
         });
 
         // Display initial results (all chapters)
@@ -110,19 +111,21 @@ function findMatchingExcerpt(transcriptSegment, query, maxLength = 150) {
     const lowerTranscript = transcriptSegment.toLowerCase();
     const lowerQuery = query.toLowerCase();
 
-    // Try exact match first
+    // Try exact match first (whole phrase)
     let matchIndex = lowerTranscript.indexOf(lowerQuery);
     let matchedText = query;
+    let matchType = 'exact';
 
     // If no exact match, try to find individual words
     if (matchIndex === -1) {
         // Split query into words and find the first word that appears
-        const words = lowerQuery.split(/\s+/).filter(w => w.length > 2);
+        const words = lowerQuery.split(/\s+/).filter(w => w.length >= 3);
 
         for (const word of words) {
             matchIndex = lowerTranscript.indexOf(word);
             if (matchIndex !== -1) {
                 matchedText = word;
+                matchType = 'word';
                 break;
             }
         }
@@ -144,17 +147,23 @@ function findMatchingExcerpt(transcriptSegment, query, maxLength = 150) {
     if (start > 0) excerpt = '...' + excerpt;
     if (end < transcriptSegment.length) excerpt = excerpt + '...';
 
-    // Highlight the matching term (use word boundary for better matching)
+    // Highlight the matching term
+    // Escape the excerpt first
+    const escapedExcerpt = escapeHtml(excerpt);
+
+    // Build highlighting pattern
     const escapedQuery = escapeRegex(query);
-    // Try to match the full query or individual words
     const words = query.split(/\s+/).filter(w => w.length > 0).map(escapeRegex);
+
+    // Match the query as a phrase or individual words (case insensitive, including within words)
     const pattern = words.length > 1
         ? `(${escapedQuery}|${words.join('|')})`
         : `(${escapedQuery})`;
     const regex = new RegExp(pattern, 'gi');
-    excerpt = escapeHtml(excerpt).replace(regex, '<mark>$1</mark>');
 
-    return excerpt;
+    const highlightedExcerpt = escapedExcerpt.replace(regex, '<mark>$1</mark>');
+
+    return highlightedExcerpt;
 }
 
 // Escape regex special characters

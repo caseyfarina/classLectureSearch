@@ -108,6 +108,9 @@ function displayResults(results) {
 function findMatchingExcerpt(transcriptSegment, query, maxLength = 150) {
     if (!query || !transcriptSegment) return null;
 
+    // Strip quotation marks from the query
+    query = query.replace(/["""'']/g, '');
+
     const lowerTranscript = transcriptSegment.toLowerCase();
     const lowerQuery = query.toLowerCase();
 

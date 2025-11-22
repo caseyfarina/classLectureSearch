@@ -181,9 +181,8 @@ function createResultHTML(chapter, query = '', matches = []) {
     const linkDisabled = !chapter.video_id;
 
     // Find matching excerpt from transcript
-    // Check if there's a match in search_text field (which contains transcript)
-    const hasTranscriptMatch = matches.some(m => m.key === 'search_text');
-    const excerpt = query && hasTranscriptMatch
+    // Always try to find excerpt if there's a query, regardless of which field matched
+    const excerpt = query
         ? findMatchingExcerpt(chapter.transcript_segment, query)
         : null;
 

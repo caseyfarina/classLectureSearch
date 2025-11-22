@@ -122,11 +122,24 @@ function findMatchingExcerpt(transcriptSegment, query, maxLength = 150) {
         const words = lowerQuery.split(/\s+/).filter(w => w.length >= 3);
 
         for (const word of words) {
+            // Try exact word match first
             matchIndex = lowerTranscript.indexOf(word);
             if (matchIndex !== -1) {
                 matchedText = word;
                 matchType = 'word';
                 break;
+            }
+
+            // If no exact match, try stemming (remove common suffixes)
+            // This helps match "samples" to "sample", "rendering" to "render", etc.
+            const stem = word.replace(/(ing|ed|s|es|ies)$/, '');
+            if (stem.length >= 3 && stem !== word) {
+                matchIndex = lowerTranscript.indexOf(stem);
+                if (matchIndex !== -1) {
+                    matchedText = stem;
+                    matchType = 'stem';
+                    break;
+                }
             }
         }
     }

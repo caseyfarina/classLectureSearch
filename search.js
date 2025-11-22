@@ -104,82 +104,89 @@ function displayResults(results) {
     resultsDiv.innerHTML = results.map(result => createResultHTML(result.item, result.query, result.matches)).join('');
 }
 
-// Find matching excerpt from transcript
-function findMatchingExcerpt(transcriptSegment, query, maxLength = 150) {
-    if (!query || !transcriptSegment) return null;
+// Extract excerpt using Fuse.js match indices
+function extractExcerptFromMatches(text, matches, maxLength = 200) {
+    if (!matches || matches.length === 0 || !text) return null;
 
-    // Strip quotation marks from the query
-    query = query.replace(/["""'']/g, '');
+    // Find the first match position to center the excerpt around
+    const firstMatchStart = matches[0][0];
 
-    const lowerTranscript = transcriptSegment.toLowerCase();
-    const lowerQuery = query.toLowerCase();
+    // Calculate excerpt boundaries (centered on first match)
+    const contextBefore = 60;
+    const contextAfter = maxLength - contextBefore;
 
-    // Try exact match first (whole phrase)
-    let matchIndex = lowerTranscript.indexOf(lowerQuery);
-    let matchedText = query;
-    let matchType = 'exact';
+    const start = Math.max(0, firstMatchStart - contextBefore);
+    const end = Math.min(text.length, firstMatchStart + contextAfter);
 
-    // If no exact match, try to find individual words
-    if (matchIndex === -1) {
-        // Split query into words and find the first word that appears
-        const words = lowerQuery.split(/\s+/).filter(w => w.length >= 3);
+    // Extract the excerpt
+    let excerpt = text.substring(start, end);
 
-        for (const word of words) {
-            // Try exact word match first
-            matchIndex = lowerTranscript.indexOf(word);
-            if (matchIndex !== -1) {
-                matchedText = word;
-                matchType = 'word';
-                break;
-            }
+    // Adjust match indices relative to excerpt start
+    const adjustedMatches = matches
+        .map(([matchStart, matchEnd]) => [matchStart - start, matchEnd - start + 1])
+        .filter(([matchStart, matchEnd]) => matchStart >= 0 && matchEnd <= excerpt.length);
 
-            // If no exact match, try stemming (remove common suffixes)
-            // This helps match "samples" to "sample", "rendering" to "render", etc.
-            const stem = word.replace(/(ing|ed|s|es|ies)$/, '');
-            if (stem.length >= 3 && stem !== word) {
-                matchIndex = lowerTranscript.indexOf(stem);
-                if (matchIndex !== -1) {
-                    matchedText = stem;
-                    matchType = 'stem';
-                    break;
-                }
+    // Add ellipsis
+    if (start > 0) excerpt = '...' + excerpt;
+    if (end < text.length) excerpt = excerpt + '...';
+
+    // Escape HTML
+    const escapedExcerpt = escapeHtml(excerpt);
+
+    // Highlight matches using indices
+    // Process matches in reverse to maintain correct positions
+    let highlighted = escapedExcerpt;
+    const ellipsisOffset = start > 0 ? 3 : 0; // Account for "..." at start
+
+    for (let i = adjustedMatches.length - 1; i >= 0; i--) {
+        let [matchStart, matchEnd] = adjustedMatches[i];
+        matchStart += ellipsisOffset;
+        matchEnd += ellipsisOffset;
+
+        // Extract the matched text
+        const before = highlighted.substring(0, matchStart);
+        const match = highlighted.substring(matchStart, matchEnd);
+        const after = highlighted.substring(matchEnd);
+
+        highlighted = before + '<mark>' + match + '</mark>' + after;
+    }
+
+    return highlighted;
+}
+
+// Find matching excerpt from Fuse.js matches
+function findMatchingExcerpt(transcriptSegment, matches, chapter) {
+    if (!matches || !transcriptSegment) return null;
+
+    // Try to find matches in transcript_segment first (most accurate)
+    let transcriptMatches = matches.find(m => m.key === 'transcript_segment');
+
+    // If not found, try search_text field
+    if (!transcriptMatches) {
+        transcriptMatches = matches.find(m => m.key === 'search_text');
+
+        // If match is in search_text, need to offset indices
+        // search_text = course + date + title + transcript_segment
+        if (transcriptMatches && chapter) {
+            const prefix = `${chapter.course} ${chapter.formatted_date} ${chapter.title} `;
+            const offset = prefix.length;
+
+            // Adjust indices to be relative to transcript_segment
+            const adjustedIndices = transcriptMatches.indices
+                .map(([start, end]) => [start - offset, end - offset])
+                .filter(([start, end]) => start >= 0 && end <= transcriptSegment.length);
+
+            if (adjustedIndices.length > 0) {
+                return extractExcerptFromMatches(transcriptSegment, adjustedIndices);
             }
         }
     }
 
-    // If still no match, return null
-    if (matchIndex === -1) return null;
+    if (!transcriptMatches || !transcriptMatches.indices || transcriptMatches.indices.length === 0) {
+        return null;
+    }
 
-    // Extract context around the match
-    const contextBefore = 50;
-    const contextAfter = maxLength - matchedText.length - contextBefore;
-
-    const start = Math.max(0, matchIndex - contextBefore);
-    const end = Math.min(transcriptSegment.length, matchIndex + matchedText.length + contextAfter);
-
-    let excerpt = transcriptSegment.substring(start, end);
-
-    // Add ellipsis if truncated
-    if (start > 0) excerpt = '...' + excerpt;
-    if (end < transcriptSegment.length) excerpt = excerpt + '...';
-
-    // Highlight the matching term
-    // Escape the excerpt first
-    const escapedExcerpt = escapeHtml(excerpt);
-
-    // Build highlighting pattern
-    const escapedQuery = escapeRegex(query);
-    const words = query.split(/\s+/).filter(w => w.length > 0).map(escapeRegex);
-
-    // Match the query as a phrase or individual words (case insensitive, including within words)
-    const pattern = words.length > 1
-        ? `(${escapedQuery}|${words.join('|')})`
-        : `(${escapedQuery})`;
-    const regex = new RegExp(pattern, 'gi');
-
-    const highlightedExcerpt = escapedExcerpt.replace(regex, '<mark>$1</mark>');
-
-    return highlightedExcerpt;
+    return extractExcerptFromMatches(transcriptSegment, transcriptMatches.indices);
 }
 
 // Escape regex special characters
@@ -196,10 +203,9 @@ function createResultHTML(chapter, query = '', matches = []) {
 
     const linkDisabled = !chapter.video_id;
 
-    // Find matching excerpt from transcript
-    // Always try to find excerpt if there's a query, regardless of which field matched
-    const excerpt = query
-        ? findMatchingExcerpt(chapter.transcript_segment, query)
+    // Find matching excerpt from transcript using Fuse.js match indices
+    const excerpt = matches && matches.length > 0
+        ? findMatchingExcerpt(chapter.transcript_segment, matches, chapter)
         : null;
 
     // Thumbnail HTML

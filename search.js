@@ -1,6 +1,6 @@
-// Lecture Search Application
+// Lecture Search Application - Using MiniSearch
 let allChapters = [];
-let fuse = null;
+let miniSearch = null;
 
 // DOM Elements
 const searchInput = document.getElementById('searchInput');
@@ -17,24 +17,28 @@ async function loadChapters() {
         const response = await fetch('chapters.json');
         allChapters = await response.json();
 
-        // Initialize Fuse.js for fuzzy search
-        fuse = new Fuse(allChapters, {
-            keys: [
-                { name: 'title', weight: 2 },
-                { name: 'course', weight: 1 },
-                { name: 'formatted_date', weight: 1 },
-                { name: 'search_text', weight: 3 }
-            ],
-            threshold: 0.3,  // Stricter matching (was 0.4)
-            includeScore: true,
-            includeMatches: true,
-            minMatchCharLength: 3,  // Require at least 3 characters (was 2)
-            ignoreLocation: true,
-            distance: 100  // Limit how far apart matched characters can be
+        // Add unique ID to each chapter for MiniSearch
+        allChapters = allChapters.map((chapter, index) => ({
+            ...chapter,
+            id: index
+        }));
+
+        // Initialize MiniSearch
+        miniSearch = new MiniSearch({
+            fields: ['title', 'transcript_segment', 'course', 'formatted_date'],
+            storeFields: ['course', 'date', 'formatted_date', 'sort_date', 'timestamp', 'seconds', 'title', 'video_id', 'transcript_segment', 'thumbnail'],
+            searchOptions: {
+                boost: { title: 3, transcript_segment: 1 },
+                prefix: true,  // Enable prefix matching ("rend" matches "render")
+                fuzzy: 0.2     // Light fuzzy matching for typos only
+            }
         });
 
+        // Index all chapters
+        miniSearch.addAll(allChapters);
+
         // Display initial results (all chapters)
-        displayResults(allChapters);
+        displayResults(allChapters.map(ch => ({ item: ch, query: '' })));
 
         // Update stats
         updateStats(allChapters.length, allChapters.length);
@@ -59,19 +63,20 @@ function performSearch() {
 
     if (query === '') {
         // No search query - show all (filtered by course)
-        results = allChapters.map(chapter => ({ item: chapter, query: '', matches: [] }));
+        results = allChapters
+            .filter(chapter => enabledCourses.includes(chapter.course))
+            .map(chapter => ({ item: chapter, query: '' }));
     } else {
-        // Perform fuzzy search
-        const searchResults = fuse.search(query);
+        // Perform MiniSearch
+        const searchResults = miniSearch.search(query, {
+            filter: (result) => enabledCourses.includes(result.course)
+        });
+
         results = searchResults.map(result => ({
-            item: result.item,
-            query: query,
-            matches: result.matches || []
+            item: result,
+            query: query
         }));
     }
-
-    // Filter by enabled courses
-    results = results.filter(result => enabledCourses.includes(result.item.course));
 
     // Display results
     displayResults(results);
@@ -101,101 +106,69 @@ function displayResults(results) {
         return;
     }
 
-    resultsDiv.innerHTML = results.map(result => createResultHTML(result.item, result.query, result.matches)).join('');
+    resultsDiv.innerHTML = results.map(result => createResultHTML(result.item, result.query)).join('');
 }
 
-// Extract excerpt using Fuse.js match indices
-function extractExcerptFromMatches(text, matches, maxLength = 200) {
-    if (!matches || matches.length === 0 || !text) return null;
+// Highlight search terms in text
+function highlightTerms(text, query) {
+    if (!query || !text) return escapeHtml(text);
 
-    // Find the first match position to center the excerpt around
-    const firstMatchStart = matches[0][0];
+    // Split query into words and escape for regex
+    const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 0);
+    if (terms.length === 0) return escapeHtml(text);
 
-    // Calculate excerpt boundaries (centered on first match)
+    // Escape HTML first
+    let result = escapeHtml(text);
+
+    // Create pattern that matches whole words or prefixes
+    for (const term of terms) {
+        const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        // Match word boundaries - the term at start of word
+        const pattern = new RegExp(`(\\b${escapedTerm}\\w*)`, 'gi');
+        result = result.replace(pattern, '<mark>$1</mark>');
+    }
+
+    return result;
+}
+
+// Extract excerpt around matching terms
+function extractExcerpt(text, query, maxLength = 200) {
+    if (!text) return null;
+    if (!query) return null;
+
+    const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 0);
+    if (terms.length === 0) return null;
+
+    const lowerText = text.toLowerCase();
+
+    // Find the first matching term
+    let firstMatchIndex = -1;
+    for (const term of terms) {
+        const idx = lowerText.indexOf(term);
+        if (idx !== -1 && (firstMatchIndex === -1 || idx < firstMatchIndex)) {
+            firstMatchIndex = idx;
+        }
+    }
+
+    if (firstMatchIndex === -1) return null;
+
+    // Calculate excerpt boundaries centered on match
     const contextBefore = 60;
-    const contextAfter = maxLength - contextBefore;
+    const start = Math.max(0, firstMatchIndex - contextBefore);
+    const end = Math.min(text.length, start + maxLength);
 
-    const start = Math.max(0, firstMatchStart - contextBefore);
-    const end = Math.min(text.length, firstMatchStart + contextAfter);
-
-    // Extract the excerpt
     let excerpt = text.substring(start, end);
-
-    // Adjust match indices relative to excerpt start
-    const adjustedMatches = matches
-        .map(([matchStart, matchEnd]) => [matchStart - start, matchEnd - start + 1])
-        .filter(([matchStart, matchEnd]) => matchStart >= 0 && matchEnd <= excerpt.length);
 
     // Add ellipsis
     if (start > 0) excerpt = '...' + excerpt;
     if (end < text.length) excerpt = excerpt + '...';
 
-    // Escape HTML
-    const escapedExcerpt = escapeHtml(excerpt);
-
-    // Highlight matches using indices
-    // Process matches in reverse to maintain correct positions
-    let highlighted = escapedExcerpt;
-    const ellipsisOffset = start > 0 ? 3 : 0; // Account for "..." at start
-
-    for (let i = adjustedMatches.length - 1; i >= 0; i--) {
-        let [matchStart, matchEnd] = adjustedMatches[i];
-        matchStart += ellipsisOffset;
-        matchEnd += ellipsisOffset;
-
-        // Extract the matched text
-        const before = highlighted.substring(0, matchStart);
-        const match = highlighted.substring(matchStart, matchEnd);
-        const after = highlighted.substring(matchEnd);
-
-        highlighted = before + '<mark>' + match + '</mark>' + after;
-    }
-
-    return highlighted;
-}
-
-// Find matching excerpt from Fuse.js matches
-function findMatchingExcerpt(transcriptSegment, matches, chapter) {
-    if (!matches || !transcriptSegment) return null;
-
-    // Try to find matches in transcript_segment first (most accurate)
-    let transcriptMatches = matches.find(m => m.key === 'transcript_segment');
-
-    // If not found, try search_text field
-    if (!transcriptMatches) {
-        transcriptMatches = matches.find(m => m.key === 'search_text');
-
-        // If match is in search_text, need to offset indices
-        // search_text = course + date + title + transcript_segment
-        if (transcriptMatches && chapter) {
-            const prefix = `${chapter.course} ${chapter.formatted_date} ${chapter.title} `;
-            const offset = prefix.length;
-
-            // Adjust indices to be relative to transcript_segment
-            const adjustedIndices = transcriptMatches.indices
-                .map(([start, end]) => [start - offset, end - offset])
-                .filter(([start, end]) => start >= 0 && end <= transcriptSegment.length);
-
-            if (adjustedIndices.length > 0) {
-                return extractExcerptFromMatches(transcriptSegment, adjustedIndices);
-            }
-        }
-    }
-
-    if (!transcriptMatches || !transcriptMatches.indices || transcriptMatches.indices.length === 0) {
-        return null;
-    }
-
-    return extractExcerptFromMatches(transcriptSegment, transcriptMatches.indices);
-}
-
-// Escape regex special characters
-function escapeRegex(str) {
-    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // Highlight the terms
+    return highlightTerms(excerpt, query);
 }
 
 // Create HTML for a single result
-function createResultHTML(chapter, query = '', matches = []) {
+function createResultHTML(chapter, query = '') {
     const courseLower = chapter.course.toLowerCase();
     const videoLink = chapter.video_id
         ? `https://www.youtube.com/watch?v=${chapter.video_id}&t=${chapter.seconds}s`
@@ -203,10 +176,8 @@ function createResultHTML(chapter, query = '', matches = []) {
 
     const linkDisabled = !chapter.video_id;
 
-    // Find matching excerpt from transcript using Fuse.js match indices
-    const excerpt = matches && matches.length > 0
-        ? findMatchingExcerpt(chapter.transcript_segment, matches, chapter)
-        : null;
+    // Extract and highlight excerpt from transcript
+    const excerpt = query ? extractExcerpt(chapter.transcript_segment, query) : null;
 
     // Thumbnail HTML
     const thumbnailHTML = chapter.thumbnail

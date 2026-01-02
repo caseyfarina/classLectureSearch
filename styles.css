@@ -139,6 +139,37 @@ main {
     accent-color: #590242;
 }
 
+/* Course Links */
+.course-links {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #252222;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.course-links-label {
+    color: #888888;
+    font-size: 0.95rem;
+}
+
+.course-link {
+    color: #4a9eff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #4a9eff;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+}
+
+.course-link:hover {
+    background: #4a9eff;
+    color: #000000;
+}
+
 /* Stats */
 .stats {
     background: #0d0d0d;

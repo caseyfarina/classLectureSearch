@@ -10,6 +10,9 @@ const statsDiv = document.getElementById('stats');
 const filterAVC185 = document.getElementById('filterAVC185');
 const filterAVC200 = document.getElementById('filterAVC200');
 const filterAVC240 = document.getElementById('filterAVC240');
+const filterAVC287 = document.getElementById('filterAVC287');
+const filterSpring2026 = document.getElementById('filterSpring2026');
+const filterFall2025 = document.getElementById('filterFall2025');
 
 // Load chapter data
 async function loadChapters() {
@@ -26,7 +29,7 @@ async function loadChapters() {
         // Initialize MiniSearch
         miniSearch = new MiniSearch({
             fields: ['title', 'transcript_segment', 'course', 'formatted_date'],
-            storeFields: ['course', 'date', 'formatted_date', 'sort_date', 'timestamp', 'seconds', 'title', 'video_id', 'transcript_segment', 'thumbnail'],
+            storeFields: ['course', 'semester', 'date', 'formatted_date', 'sort_date', 'timestamp', 'seconds', 'title', 'video_id', 'transcript_segment', 'thumbnail'],
             searchOptions: {
                 boost: { title: 3, transcript_segment: 1 },
                 prefix: true,  // Enable prefix matching ("rend" matches "render")
@@ -37,11 +40,8 @@ async function loadChapters() {
         // Index all chapters
         miniSearch.addAll(allChapters);
 
-        // Display initial results (all chapters)
-        displayResults(allChapters.map(ch => ({ item: ch, query: '' })));
-
-        // Update stats
-        updateStats(allChapters.length, allChapters.length);
+        // Display initial results (respecting default filter state)
+        performSearch();
 
     } catch (error) {
         resultsDiv.innerHTML = `
@@ -58,18 +58,24 @@ async function loadChapters() {
 function performSearch() {
     const query = searchInput.value.trim();
     const enabledCourses = getEnabledCourses();
+    const enabledSemesters = getEnabledSemesters();
 
     let results;
 
     if (query === '') {
-        // No search query - show all (filtered by course)
+        // No search query - show all (filtered by course and semester)
         results = allChapters
-            .filter(chapter => enabledCourses.includes(chapter.course))
+            .filter(chapter =>
+                enabledCourses.includes(chapter.course) &&
+                enabledSemesters.includes(chapter.semester)
+            )
             .map(chapter => ({ item: chapter, query: '' }));
     } else {
-        // Perform MiniSearch
+        // Perform MiniSearch with course and semester filter
         const searchResults = miniSearch.search(query, {
-            filter: (result) => enabledCourses.includes(result.course)
+            filter: (result) =>
+                enabledCourses.includes(result.course) &&
+                enabledSemesters.includes(result.semester)
         });
 
         results = searchResults.map(result => ({
@@ -91,7 +97,16 @@ function getEnabledCourses() {
     if (filterAVC185.checked) courses.push('AVC185');
     if (filterAVC200.checked) courses.push('AVC200');
     if (filterAVC240.checked) courses.push('AVC240');
+    if (filterAVC287.checked) courses.push('AVC287');
     return courses;
+}
+
+// Get enabled semesters from checkboxes
+function getEnabledSemesters() {
+    const semesters = [];
+    if (filterSpring2026.checked) semesters.push('Spring 2026');
+    if (filterFall2025.checked) semesters.push('Fall 2025');
+    return semesters;
 }
 
 // Display results
@@ -210,11 +225,18 @@ function createResultHTML(chapter, query = '') {
 function updateStats(shown, total) {
     const query = searchInput.value.trim();
     const enabledCourses = getEnabledCourses();
+    const enabledSemesters = getEnabledSemesters();
+    const allCoursesSelected = enabledCourses.length === 4;
+    const allSemestersSelected = enabledSemesters.length === 2;
 
-    if (query === '' && enabledCourses.length === 3) {
+    if (query === '' && allCoursesSelected && allSemestersSelected) {
         statsDiv.innerHTML = `Showing all <strong>${total}</strong> chapters`;
     } else if (query === '') {
-        statsDiv.innerHTML = `Showing <strong>${shown}</strong> of <strong>${total}</strong> chapters (filtered by course)`;
+        const filters = [];
+        if (!allSemestersSelected) filters.push('semester');
+        if (!allCoursesSelected) filters.push('course');
+        const filterText = filters.join(' and ');
+        statsDiv.innerHTML = `Showing <strong>${shown}</strong> of <strong>${total}</strong> chapters (filtered by ${filterText})`;
     } else {
         statsDiv.innerHTML = `Found <strong>${shown}</strong> results for "${escapeHtml(query)}"`;
     }
@@ -243,10 +265,15 @@ searchInput.addEventListener('input', () => {
     searchTimeout = setTimeout(performSearch, 300);
 });
 
-// Filter changes
+// Filter changes - courses
 filterAVC185.addEventListener('change', performSearch);
 filterAVC200.addEventListener('change', performSearch);
 filterAVC240.addEventListener('change', performSearch);
+filterAVC287.addEventListener('change', performSearch);
+
+// Filter changes - semesters
+filterSpring2026.addEventListener('change', performSearch);
+filterFall2025.addEventListener('change', performSearch);
 
 // Initialize
 loadChapters();

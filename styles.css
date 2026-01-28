@@ -105,6 +105,17 @@ main {
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
+    align-items: center;
+}
+
+.filter-label {
+    color: #888888;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.semester-filters {
+    margin-bottom: 1rem;
 }
 
 .filters label {
@@ -137,6 +148,14 @@ main {
 
 .filters input.checkbox-avc240 {
     accent-color: #590242;
+}
+
+.filters input.checkbox-avc287 {
+    accent-color: #F5A623;
+}
+
+.filters input.checkbox-semester {
+    accent-color: #a1186a;
 }
 
 /* Course Links */
@@ -271,6 +290,11 @@ main {
 .course-badge.avc240 {
     background: #590242;
     border-color: #590242;
+}
+
+.course-badge.avc287 {
+    background: #F5A623;
+    border-color: #F5A623;
 }
 
 .result-date {

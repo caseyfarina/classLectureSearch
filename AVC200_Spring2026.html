@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC200 - Spring 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #333;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .stats {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #4a9eff;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .lectures {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .lecture {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lecture-header {
+            background: #252525;
+            padding: 12px 15px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .lecture-title {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+
+        .lecture-meta {
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        .chapters {
+            padding: 10px 15px;
+            flex: 1;
+        }
+
+        .chapter {
+            padding: 2px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .chapter:hover {
+            background: #222;
+            margin: 0 -5px;
+            padding: 2px 5px;
+        }
+
+        .timestamp {
+            font-family: 'Courier New', monospace;
+            color: #4a9eff;
+            font-size: 0.85rem;
+            min-width: 55px;
+            flex-shrink: 0;
+        }
+
+        .chapter-title {
+            flex: 1;
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            line-height: 1.2;
+        }
+
+        .chapter-link {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .chapter-link:hover .chapter-title {
+            color: #4a9eff;
+        }
+
+        .thumbnail {
+            width: 120px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Search</a>
+
+        <header>
+            <h1>AVC200 - Spring 2026</h1>
+            <div class="stats">2 lectures • 59 chapters</div>
+        </header>
+
+        <div class="lectures">
+
+            <div class="lecture">
+                <div class="lecture-header">
+                    <div class="lecture-title">January 26, 2026</div>
+                    <div class="lecture-meta">34 chapters • Video ID: M70BKTlXeGM</div>
+                </div>
+                <div class="chapters">
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=0s" target="_blank" class="chapter-link">
+                            <span class="timestamp">0:00</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=0s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Introduction and Setup</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=153s" target="_blank" class="chapter-link">
+                            <span class="timestamp">2:33</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=153s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Class Roll Call and Announcements</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=241s" target="_blank" class="chapter-link">
+                            <span class="timestamp">4:01</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=241s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Assignment Due Dates and Workflow</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=414s" target="_blank" class="chapter-link">
+                            <span class="timestamp">6:54</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=414s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Unity Scene Management Basics</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=497s" target="_blank" class="chapter-link">
+                            <span class="timestamp">8:17</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=497s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Real-Time Rendering vs Offline Rendering</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=664s" target="_blank" class="chapter-link">
+                            <span class="timestamp">11:04</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=664s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Frame Rate and Performance Concepts</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=816s" target="_blank" class="chapter-link">
+                            <span class="timestamp">13:36</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=816s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Creating Basic 3D Objects</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1015s" target="_blank" class="chapter-link">
+                            <span class="timestamp">16:55</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1015s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Game Objects vs Assets Overview</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1081s" target="_blank" class="chapter-link">
+                            <span class="timestamp">18:01</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1081s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Play Mode Behavior and Viewport Tinting</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1262s" target="_blank" class="chapter-link">
+                            <span class="timestamp">21:02</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1262s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Materials and Asset Management</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1462s" target="_blank" class="chapter-link">
+                            <span class="timestamp">24:22</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1462s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Camera Controls and Positioning</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1524s" target="_blank" class="chapter-link">
+                            <span class="timestamp">25:24</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1524s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Physics System Introduction</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1621s" target="_blank" class="chapter-link">
+                            <span class="timestamp">27:01</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1621s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Rigid Body Component Basics</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1776s" target="_blank" class="chapter-link">
+                            <span class="timestamp">29:36</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1776s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Collider Physics Interactions</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=2053s" target="_blank" class="chapter-link">
+                            <span class="timestamp">34:13</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=2053s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Collider Size Manipulation</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=2197s" target="_blank" class="chapter-link">
+                            <span class="timestamp">36:37</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=2197s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Parent-Child Relationships</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=2463s" target="_blank" class="chapter-link">
+                            <span class="timestamp">41:03</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=2463s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Asset Creation Workflow Discussion</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=2786s" target="_blank" class="chapter-link">
+                            <span class="timestamp">46:26</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=2786s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Lighting System Fundamentals</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=2931s" target="_blank" class="chapter-link">
+                            <span class="timestamp">48:51</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=2931s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Directional vs Point Lights</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=3181s" target="_blank" class="chapter-link">
+                            <span class="timestamp">53:01</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=3181s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Shadow Settings and Performance</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=3505s" target="_blank" class="chapter-link">
+                            <span class="timestamp">58:25</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=3505s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Advanced Ball Animation Setup</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=3600s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:00:00</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=3600s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Anchor Points and Mesh Limitations</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=3854s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:04:14</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=3854s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Custom Sphere with Bottom Anchor</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=4023s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:07:03</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=4023s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Animation Hierarchy Best Practices</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=4620s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:17:00</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=4620s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Curve Editor and Bezier Handles</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=4983s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:23:03</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=4983s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Physics vs Exaggerated Animation</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=5416s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:30:16</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=5416s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Squash and Stretch Implementation</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=6103s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:41:43</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=6103s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Advanced Timing and Wobble Effects</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=6756s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:52:36</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=6756s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Interactive Animation Setup</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=7021s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:57:01</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=7021s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">State Machine Configuration</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=7200s" target="_blank" class="chapter-link">
+                            <span class="timestamp">2:00:00</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=7200s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Click Event Scripting</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=7465s" target="_blank" class="chapter-link">
+                            <span class="timestamp">2:04:25</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=7465s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Unity Events and Multiple Actions</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=8117s" target="_blank" class="chapter-link">
+                            <span class="timestamp">2:15:17</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=8117s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">UI Button Creation and Setup</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=8621s" target="_blank" class="chapter-link">
+                            <span class="timestamp">2:23:41</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=8621s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Final Testing and Course Wrap-up</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="lecture">
+                <div class="lecture-header">
+                    <div class="lecture-title">January 21, 2026</div>
+                    <div class="lecture-meta">25 chapters • Video ID: DCSrT1aV2ec</div>
+                </div>
+                <div class="chapters">
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=0s" target="_blank" class="chapter-link">
+                            <span class="timestamp">0:00</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=0s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Introduction and Class Format</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=74s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:14</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=74s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Class Structure and Schedule</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=298s" target="_blank" class="chapter-link">
+                            <span class="timestamp">4:58</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=298s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Attendance Options and Expectations</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=485s" target="_blank" class="chapter-link">
+                            <span class="timestamp">8:05</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=485s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Communication and Discord Setup</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=626s" target="_blank" class="chapter-link">
+                            <span class="timestamp">10:26</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=626s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Weekly Project Workflow</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=841s" target="_blank" class="chapter-link">
+                            <span class="timestamp">14:01</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=841s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Sharing Work and Critique Sessions</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=963s" target="_blank" class="chapter-link">
+                            <span class="timestamp">16:03</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=963s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Semester Schedule and Dates</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1007s" target="_blank" class="chapter-link">
+                            <span class="timestamp">16:47</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1007s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Required Materials and Equipment</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1221s" target="_blank" class="chapter-link">
+                            <span class="timestamp">20:21</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1221s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Computer Requirements and Options</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1598s" target="_blank" class="chapter-link">
+                            <span class="timestamp">26:38</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1598s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Grading and Late Work Policy</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1716s" target="_blank" class="chapter-link">
+                            <span class="timestamp">28:36</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1716s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">AI and Machine Learning Tools</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1742s" target="_blank" class="chapter-link">
+                            <span class="timestamp">29:02</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1742s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Technology Orientation Assignment</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=2205s" target="_blank" class="chapter-link">
+                            <span class="timestamp">36:45</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=2205s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Instructor Introduction</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=2257s" target="_blank" class="chapter-link">
+                            <span class="timestamp">37:37</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=2257s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Student Introductions</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=2827s" target="_blank" class="chapter-link">
+                            <span class="timestamp">47:07</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=2827s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Discord Names and Video Presentation Guidelines</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=3218s" target="_blank" class="chapter-link">
+                            <span class="timestamp">53:38</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=3218s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Unity Game Engine Overview</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=3853s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:04:13</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=3853s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Unity Installation and Setup</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=4662s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:17:42</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=4662s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Unity Interface and Project Structure</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=5553s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:32:33</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=5553s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Creating and Animating Objects</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=6073s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:41:13</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=6073s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Materials and Color Assignment</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=6472s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:47:52</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=6472s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Animation Fundamentals in Unity</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=6901s" target="_blank" class="chapter-link">
+                            <span class="timestamp">1:55:01</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=6901s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Creating Smooth Animation Loops</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=7623s" target="_blank" class="chapter-link">
+                            <span class="timestamp">2:07:03</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=7623s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Animation Controller and State Machine</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=8085s" target="_blank" class="chapter-link">
+                            <span class="timestamp">2:14:45</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=8085s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Adding Interactivity with Scripts</span>
+                        </a>
+                    </div>
+
+                    <div class="chapter">
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=8752s" target="_blank" class="chapter-link">
+                            <span class="timestamp">2:25:52</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=8752s" target="_blank" class="chapter-link">
+                            <span class="chapter-title">Testing and Avoiding the Big Bang Approach</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

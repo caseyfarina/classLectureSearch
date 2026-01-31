@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 200 - Week 2 - Spring 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px;
+        }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 30px; }
+        .lecture-header { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #333; }
+        .lecture-day { display: inline-block; padding: 4px 12px; background: #10B981; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .lecture-date { font-size: 0.85rem; color: #888; margin-bottom: 8px; }
+        .lecture-title { font-size: 1.4rem; color: #fff; margin-bottom: 12px; }
+        .lecture-summary { color: #999; font-size: 0.95rem; line-height: 1.7; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #10B981; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.9rem; }
+        .video-link:hover { background: #059669; }
+        .section { margin-bottom: 30px; }
+        .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .section-number { background: #10B981; color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85rem; flex-shrink: 0; }
+        .section-title { font-size: 1.1rem; color: #fff; flex: 1; }
+        .section-time { color: #666; font-size: 0.8rem; }
+        .section-description { color: #888; margin-bottom: 12px; padding-left: 40px; font-size: 0.9rem; }
+        .timestamps { padding-left: 40px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px solid #1a1a1a; }
+        .timestamp-item:last-child { border-bottom: none; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -8px; padding: 6px 8px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 55px; font-size: 0.85rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.9rem; }
+        .key-concepts { background: #1a1a1a; border-left: 3px solid #10B981; padding: 12px 16px; margin: 15px 0 15px 40px; border-radius: 0 6px 6px 0; }
+        .key-concepts h4 { color: #10B981; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .key-concepts ul { list-style: none; color: #999; font-size: 0.85rem; }
+        .key-concepts li { padding: 2px 0; padding-left: 12px; position: relative; }
+        .key-concepts li::before { content: "•"; position: absolute; left: 0; color: #10B981; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 200 • Spring 2026</div>
+            <h1 class="week-title">Week 2: Unity Fundamentals</h1>
+            <div class="week-dates">January 26 – 28, 2026</div>
+            <div class="week-nav">
+                <a href="AVC200_week01.html">← Week 1</a>
+                <a href="AVC200_week03.html">Week 3 →</a>
+            </div>
+        </div>
+
+        <div class="columns">
+            <!-- MONDAY COLUMN -->
+            <div class="day-column">
+                <div class="lecture-header">
+                    <div class="lecture-day">Monday</div>
+                    <div class="lecture-date">January 26, 2026</div>
+                    <h2 class="lecture-title">Physics, Animation & Interactivity</h2>
+                    <p class="lecture-summary">
+                        Deep dive into Unity's physics system, animation curves, squash and stretch
+                        implementation, and creating interactive elements with scripts.
+                    </p>
+                    <a href="https://www.youtube.com/watch?v=M70BKTlXeGM" target="_blank" class="video-link">
+                        Watch Full Lecture →
+                    </a>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">1</div>
+                        <div class="section-title">Class Business & Unity Basics</div>
+                        <div class="section-time">~25 min</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=153s" target="_blank" class="timestamp-link">2:33</a>
+                            <span class="timestamp-title">Class Roll Call and Announcements</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=241s" target="_blank" class="timestamp-link">4:01</a>
+                            <span class="timestamp-title">Assignment Due Dates and Workflow</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=414s" target="_blank" class="timestamp-link">6:54</a>
+                            <span class="timestamp-title">Unity Scenes and Project Structure</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=497s" target="_blank" class="timestamp-link">8:17</a>
+                            <span class="timestamp-title">Real-Time vs Offline Rendering</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=664s" target="_blank" class="timestamp-link">11:04</a>
+                            <span class="timestamp-title">Frame Rate and Performance Basics</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=816s" target="_blank" class="timestamp-link">13:36</a>
+                            <span class="timestamp-title">Creating Basic 3D Objects</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=981s" target="_blank" class="timestamp-link">16:21</a>
+                            <span class="timestamp-title">Game Objects vs Assets</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1081s" target="_blank" class="timestamp-link">18:01</a>
+                            <span class="timestamp-title">Unity Version Discussion</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1262s" target="_blank" class="timestamp-link">21:02</a>
+                            <span class="timestamp-title">Materials and Asset Management</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1320s" target="_blank" class="timestamp-link">22:00</a>
+                            <span class="timestamp-title">Components Overview</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1402s" target="_blank" class="timestamp-link">23:22</a>
+                            <span class="timestamp-title">Camera Controls and Positioning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">2</div>
+                        <div class="section-title">Physics & Colliders</div>
+                        <div class="section-time">~24 min</div>
+                    </div>
+                    <div class="key-concepts">
+                        <h4>Key Concepts</h4>
+                        <ul>
+                            <li>Rigid body component</li>
+                            <li>Collider physics and sizing</li>
+                            <li>Parent-child relationships</li>
+                        </ul>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1500s" target="_blank" class="timestamp-link">25:00</a>
+                            <span class="timestamp-title">Physics Engine Introduction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1621s" target="_blank" class="timestamp-link">27:01</a>
+                            <span class="timestamp-title">Rigid Body Component Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=1776s" target="_blank" class="timestamp-link">29:36</a>
+                            <span class="timestamp-title">Collider Physics Demonstration</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=2053s" target="_blank" class="timestamp-link">34:13</a>
+                            <span class="timestamp-title">Collider Size Manipulation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=2179s" target="_blank" class="timestamp-link">36:19</a>
+                            <span class="timestamp-title">Parent-Child Relationships</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=2774s" target="_blank" class="timestamp-link">46:14</a>
+                            <span class="timestamp-title">Asset Creation Workflow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">3</div>
+                        <div class="section-title">Lighting & Animation</div>
+                        <div class="section-time">~34 min</div>
+                    </div>
+                    <div class="key-concepts">
+                        <h4>Key Concepts</h4>
+                        <ul>
+                            <li>Lighting system and shadows</li>
+                            <li>Anchor points and hierarchy</li>
+                            <li>Curve editor and Bezier handles</li>
+                            <li>Squash and stretch</li>
+                        </ul>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=2942s" target="_blank" class="timestamp-link">49:02</a>
+                            <span class="timestamp-title">Lighting System Basics</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=3181s" target="_blank" class="timestamp-link">53:01</a>
+                            <span class="timestamp-title">Shadow Settings and Options</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=3492s" target="_blank" class="timestamp-link">58:12</a>
+                            <span class="timestamp-title">Bouncing Ball Animation Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=3600s" target="_blank" class="timestamp-link">1:00:00</a>
+                            <span class="timestamp-title">Anchor Points and Mesh Limitations</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=3857s" target="_blank" class="timestamp-link">1:04:17</a>
+                            <span class="timestamp-title">Custom Sphere with Bottom Anchor</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=4023s" target="_blank" class="timestamp-link">1:07:03</a>
+                            <span class="timestamp-title">Animation Hierarchy Best Practices</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=4620s" target="_blank" class="timestamp-link">1:17:00</a>
+                            <span class="timestamp-title">Curve Editor and Bezier Handles</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=4983s" target="_blank" class="timestamp-link">1:23:03</a>
+                            <span class="timestamp-title">Physics vs Exaggerated Animation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">4</div>
+                        <div class="section-title">Interactivity & UI</div>
+                        <div class="section-time">~56 min</div>
+                    </div>
+                    <div class="key-concepts">
+                        <h4>Key Concepts</h4>
+                        <ul>
+                            <li>Animation state machine</li>
+                            <li>Click event scripting</li>
+                            <li>Unity events system</li>
+                            <li>UI button creation</li>
+                        </ul>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=5133s" target="_blank" class="timestamp-link">1:28:33</a>
+                            <span class="timestamp-title">Squash and Stretch Implementation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=6103s" target="_blank" class="timestamp-link">1:41:43</a>
+                            <span class="timestamp-title">Advanced Animation Timing</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=6422s" target="_blank" class="timestamp-link">1:47:02</a>
+                            <span class="timestamp-title">Interactive Animation Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=6816s" target="_blank" class="timestamp-link">1:53:36</a>
+                            <span class="timestamp-title">Animation State Machine</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=7200s" target="_blank" class="timestamp-link">2:00:00</a>
+                            <span class="timestamp-title">Click Event Scripting</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=7465s" target="_blank" class="timestamp-link">2:04:25</a>
+                            <span class="timestamp-title">Unity Events and Multiple Actions</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=8110s" target="_blank" class="timestamp-link">2:15:10</a>
+                            <span class="timestamp-title">User Interface and Button Creation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=M70BKTlXeGM&t=8621s" target="_blank" class="timestamp-link">2:23:41</a>
+                            <span class="timestamp-title">Final Review and Assignment Reminders</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WEDNESDAY COLUMN -->
+            <div class="day-column">
+                <div class="lecture-header">
+                    <div class="lecture-day">Wednesday</div>
+                    <div class="lecture-date">January 28, 2026</div>
+                    <h2 class="lecture-title">Prefabs, Spawners & Modular Design</h2>
+                    <p class="lecture-summary">
+                        Student project presentations followed by prefab workflows, HDR materials,
+                        object spawning with scripts, and modular design principles.
+                    </p>
+                    <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0" target="_blank" class="video-link">
+                        Watch Full Lecture →
+                    </a>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">1</div>
+                        <div class="section-title">Class Business & Student Feedback</div>
+                        <div class="section-time">~41 min</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Class Logistics</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=230s" target="_blank" class="timestamp-link">3:50</a>
+                            <span class="timestamp-title">OBS File Naming Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=250s" target="_blank" class="timestamp-link">4:10</a>
+                            <span class="timestamp-title">Student Feedback: Bouncing Ball Projects</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=540s" target="_blank" class="timestamp-link">9:00</a>
+                            <span class="timestamp-title">Troubleshooting Unity Package Errors</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=640s" target="_blank" class="timestamp-link">10:40</a>
+                            <span class="timestamp-title">Student Feedback: Input System Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=870s" target="_blank" class="timestamp-link">14:30</a>
+                            <span class="timestamp-title">Audio Recording Tips and Microphone Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=1060s" target="_blank" class="timestamp-link">17:40</a>
+                            <span class="timestamp-title">Student Feedback: Animation Experiences</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=1440s" target="_blank" class="timestamp-link">24:00</a>
+                            <span class="timestamp-title">Student Feedback: Technical Challenges</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=1680s" target="_blank" class="timestamp-link">28:00</a>
+                            <span class="timestamp-title">Student Feedback: Squash and Stretch</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=1900s" target="_blank" class="timestamp-link">31:40</a>
+                            <span class="timestamp-title">Student Feedback: Hardware and Setup Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=2060s" target="_blank" class="timestamp-link">34:20</a>
+                            <span class="timestamp-title">Student Feedback: Project Presentations Continue</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">2</div>
+                        <div class="section-title">Unity Concepts Review</div>
+                        <div class="section-time">~15 min</div>
+                    </div>
+                    <div class="key-concepts">
+                        <h4>Key Concepts</h4>
+                        <ul>
+                            <li>World space vs local space</li>
+                            <li>Global vs local transforms</li>
+                            <li>Parent-child relationships</li>
+                        </ul>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=2490s" target="_blank" class="timestamp-link">41:30</a>
+                            <span class="timestamp-title">Unity Events and UI Concepts Review</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=2670s" target="_blank" class="timestamp-link">44:30</a>
+                            <span class="timestamp-title">Parent-Child Relationships in Unity</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=2940s" target="_blank" class="timestamp-link">49:00</a>
+                            <span class="timestamp-title">World Space vs Local Space Explained</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=3370s" target="_blank" class="timestamp-link">56:10</a>
+                            <span class="timestamp-title">Global vs Local Transform Tools</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">3</div>
+                        <div class="section-title">Prefabs & Materials</div>
+                        <div class="section-time">~20 min</div>
+                    </div>
+                    <div class="key-concepts">
+                        <h4>Key Concepts</h4>
+                        <ul>
+                            <li>Creating and editing prefabs</li>
+                            <li>HDR materials and emission</li>
+                            <li>Animating material properties</li>
+                            <li>Prefab variations</li>
+                        </ul>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=3420s" target="_blank" class="timestamp-link">57:00</a>
+                            <span class="timestamp-title">Introduction to Prefabs</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=3600s" target="_blank" class="timestamp-link">1:00:00</a>
+                            <span class="timestamp-title">Creating and Editing Prefabs</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=3880s" target="_blank" class="timestamp-link">1:04:40</a>
+                            <span class="timestamp-title">HDR Materials and Emission Effects</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=4210s" target="_blank" class="timestamp-link">1:10:10</a>
+                            <span class="timestamp-title">Animating Material Properties</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=4580s" target="_blank" class="timestamp-link">1:16:20</a>
+                            <span class="timestamp-title">Prefab Variations and Unpacking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">4</div>
+                        <div class="section-title">Spawners & Scripting</div>
+                        <div class="section-time">~43 min</div>
+                    </div>
+                    <div class="key-concepts">
+                        <h4>Key Concepts</h4>
+                        <ul>
+                            <li>Object spawning with scripts</li>
+                            <li>Multiple spawner types</li>
+                            <li>Physics and animation interaction</li>
+                            <li>Time destroy scripts</li>
+                        </ul>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=4620s" target="_blank" class="timestamp-link">1:17:00</a>
+                            <span class="timestamp-title">Spawning Objects with Scripts</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=5040s" target="_blank" class="timestamp-link">1:24:00</a>
+                            <span class="timestamp-title">Troubleshooting Spawner Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=5480s" target="_blank" class="timestamp-link">1:31:20</a>
+                            <span class="timestamp-title">Creating Multiple Spawner Types</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=5980s" target="_blank" class="timestamp-link">1:39:40</a>
+                            <span class="timestamp-title">Keyframe Animation with Spinning Objects</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=6380s" target="_blank" class="timestamp-link">1:46:20</a>
+                            <span class="timestamp-title">Physics and Animation Interaction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=6740s" target="_blank" class="timestamp-link">1:52:20</a>
+                            <span class="timestamp-title">Modular Design Principles</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=6880s" target="_blank" class="timestamp-link">1:54:40</a>
+                            <span class="timestamp-title">Assets vs Game Objects Explained</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=7060s" target="_blank" class="timestamp-link">1:57:40</a>
+                            <span class="timestamp-title">Object Instantiation and Management</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=7200s" target="_blank" class="timestamp-link">2:00:00</a>
+                            <span class="timestamp-title">Time Destroy Script Implementation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=7380s" target="_blank" class="timestamp-link">2:03:00</a>
+                            <span class="timestamp-title">Interactive Design Philosophy</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0QEsiTxcQW0&t=7560s" target="_blank" class="timestamp-link">2:06:00</a>
+                            <span class="timestamp-title">Course Concepts Review</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

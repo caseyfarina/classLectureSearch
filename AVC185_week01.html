@@ -22,6 +22,8 @@
         .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
         .week-nav a:hover { text-decoration: underline; }
         .week-nav span { color: #444; font-size: 0.9rem; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
         .day-column { background: #111; border-radius: 12px; padding: 30px; }
         .lecture-header { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #333; }
         .lecture-day { display: inline-block; padding: 4px 12px; background: #D904A0; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
@@ -29,7 +31,7 @@
         .lecture-title { font-size: 1.4rem; color: #fff; margin-bottom: 12px; }
         .lecture-summary { color: #999; font-size: 0.95rem; line-height: 1.7; }
         .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #D904A0; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.9rem; }
-        .video-link:hover { background: #b8038a; }
+        .video-link:hover { opacity: 0.9; }
         .section { margin-bottom: 30px; }
         .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
         .section-number { background: #D904A0; color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85rem; flex-shrink: 0; }
@@ -42,11 +44,6 @@
         .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 55px; font-size: 0.85rem; }
         .timestamp-link:hover { text-decoration: underline; }
         .timestamp-title { color: #bbb; flex: 1; font-size: 0.9rem; }
-        .key-concepts { background: #1a1a1a; border-left: 3px solid #D904A0; padding: 12px 16px; margin: 15px 0 15px 40px; border-radius: 0 6px 6px 0; }
-        .key-concepts h4 { color: #D904A0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-        .key-concepts ul { list-style: none; color: #999; font-size: 0.85rem; }
-        .key-concepts li { padding: 2px 0; padding-left: 12px; position: relative; }
-        .key-concepts li::before { content: "•"; position: absolute; left: 0; color: #D904A0; }
     </style>
 </head>
 <body>
@@ -55,24 +52,23 @@
 
         <div class="week-header">
             <div class="week-label">AVC 185 • Spring 2026</div>
-            <h1 class="week-title">Week 1: Course Introduction</h1>
+            <h1 class="week-title">Week 1</h1>
             <div class="week-dates">January 21, 2026</div>
-            <div class="week-note">Monday was Martin Luther King Jr. Day - No class</div>
+            <div class="week-note">Monday was a holiday - No class</div>
             <div class="week-nav">
                 <span>← No previous week</span>
                 <a href="AVC185_week02.html">Week 2 →</a>
             </div>
         </div>
 
+        
         <div class="day-column">
+            
             <div class="lecture-header">
                 <div class="lecture-day">Wednesday</div>
                 <div class="lecture-date">January 21, 2026</div>
-                <h2 class="lecture-title">Course Overview & Blender Basics</h2>
-                <p class="lecture-summary">
-                    First day of class covering course format, policies, required materials, and an introduction
-                    to Blender fundamentals including 3D space, object/edit modes, and basic transformations.
-                </p>
+                <h2 class="lecture-title">Course Format and Attendance Options</h2>
+                <p class="lecture-summary">Introduction and Class Overview, Course Format and Attendance Options, Class Density and Best Practices...</p>
                 <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ" target="_blank" class="video-link">
                     Watch Full Lecture →
                 </a>
@@ -81,144 +77,106 @@
             <div class="section">
                 <div class="section-header">
                     <div class="section-number">1</div>
-                    <div class="section-title">Course Policies & Logistics</div>
-                    <div class="section-time">~51 min</div>
-                </div>
-                <div class="key-concepts">
-                    <h4>Key Topics</h4>
-                    <ul>
-                        <li>Attendance options and class format</li>
-                        <li>Discord communication setup</li>
-                        <li>Hardware requirements</li>
-                        <li>Grading philosophy and AI policy</li>
-                    </ul>
+                    <div class="section-title">Lecture Content</div>
+                    <div class="section-time">~24 chapters</div>
                 </div>
                 <div class="timestamps">
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=0s" target="_blank" class="timestamp-link">0:00</a>
-                        <span class="timestamp-title">Introduction and Class Overview</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=127s" target="_blank" class="timestamp-link">2:07</a>
-                        <span class="timestamp-title">Course Format and Attendance Options</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=456s" target="_blank" class="timestamp-link">7:36</a>
-                        <span class="timestamp-title">Class Density and Best Practices</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=981s" target="_blank" class="timestamp-link">16:21</a>
-                        <span class="timestamp-title">Communication Strategies and Discord</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=1140s" target="_blank" class="timestamp-link">19:00</a>
-                        <span class="timestamp-title">Weekly Work Schedule Structure</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=1339s" target="_blank" class="timestamp-link">22:19</a>
-                        <span class="timestamp-title">Semester Calendar and Important Dates</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=1441s" target="_blank" class="timestamp-link">24:01</a>
-                        <span class="timestamp-title">Required Materials and Equipment</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=1648s" target="_blank" class="timestamp-link">27:28</a>
-                        <span class="timestamp-title">Computer Requirements and Hardware</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=1986s" target="_blank" class="timestamp-link">33:06</a>
-                        <span class="timestamp-title">Technology Orientation Assignment</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=2326s" target="_blank" class="timestamp-link">38:46</a>
-                        <span class="timestamp-title">Class Participation and Sharing Work</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=2467s" target="_blank" class="timestamp-link">41:07</a>
-                        <span class="timestamp-title">AI Tools and Transparency Policy</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=2671s" target="_blank" class="timestamp-link">44:31</a>
-                        <span class="timestamp-title">Late Work and Grading Philosophy</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=3060s" target="_blank" class="timestamp-link">51:00</a>
-                        <span class="timestamp-title">Tutor Information and Support</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <div class="section-header">
-                    <div class="section-number">2</div>
-                    <div class="section-title">OBS & Introductions</div>
-                    <div class="section-time">~31 min</div>
-                </div>
-                <div class="timestamps">
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=3253s" target="_blank" class="timestamp-link">54:13</a>
-                        <span class="timestamp-title">OBS Setup and Video Presentations</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=4048s" target="_blank" class="timestamp-link">1:07:28</a>
-                        <span class="timestamp-title">Student Introductions</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <div class="section-header">
-                    <div class="section-number">3</div>
-                    <div class="section-title">Blender Fundamentals</div>
-                    <div class="section-time">~65 min</div>
-                </div>
-                <div class="key-concepts">
-                    <h4>Key Concepts</h4>
-                    <ul>
-                        <li>Points, edges, and faces</li>
-                        <li>Object mode vs edit mode</li>
-                        <li>Orthographic vs perspective views</li>
-                        <li>Array modifier basics</li>
-                    </ul>
-                </div>
-                <div class="timestamps">
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=5139s" target="_blank" class="timestamp-link">1:25:39</a>
-                        <span class="timestamp-title">First Principles and Software Philosophy</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=5311s" target="_blank" class="timestamp-link">1:28:31</a>
-                        <span class="timestamp-title">Blender 5 Installation and Add-ons</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=5959s" target="_blank" class="timestamp-link">1:39:19</a>
-                        <span class="timestamp-title">Points, Edges, and Faces Fundamentals</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=6377s" target="_blank" class="timestamp-link">1:46:17</a>
-                        <span class="timestamp-title">3D Space and 2D Interface Limitations</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=6836s" target="_blank" class="timestamp-link">1:53:56</a>
-                        <span class="timestamp-title">Object Mode vs Edit Mode</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=7632s" target="_blank" class="timestamp-link">2:07:12</a>
-                        <span class="timestamp-title">Orthographic vs Perspective Views</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=8447s" target="_blank" class="timestamp-link">2:20:47</a>
-                        <span class="timestamp-title">Abstract Art Assignment Introduction</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=8725s" target="_blank" class="timestamp-link">2:25:25</a>
-                        <span class="timestamp-title">Moving Objects with Precision</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=9032s" target="_blank" class="timestamp-link">2:30:32</a>
-                        <span class="timestamp-title">Array Modifier Demonstration</span>
-                    </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Class Overview</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=127s" target="_blank" class="timestamp-link">2:07</a>
+                            <span class="timestamp-title">Course Format and Attendance Options</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=456s" target="_blank" class="timestamp-link">7:36</a>
+                            <span class="timestamp-title">Class Density and Best Practices</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=981s" target="_blank" class="timestamp-link">16:21</a>
+                            <span class="timestamp-title">Communication Strategies and Discord</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=1140s" target="_blank" class="timestamp-link">19:00</a>
+                            <span class="timestamp-title">Weekly Work Schedule Structure</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=1339s" target="_blank" class="timestamp-link">22:19</a>
+                            <span class="timestamp-title">Semester Calendar and Important Dates</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=1441s" target="_blank" class="timestamp-link">24:01</a>
+                            <span class="timestamp-title">Required Materials and Equipment</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=1648s" target="_blank" class="timestamp-link">27:28</a>
+                            <span class="timestamp-title">Computer Requirements and Hardware</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=1986s" target="_blank" class="timestamp-link">33:06</a>
+                            <span class="timestamp-title">Technology Orientation Assignment</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=2326s" target="_blank" class="timestamp-link">38:46</a>
+                            <span class="timestamp-title">Class Participation and Sharing Work</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=2467s" target="_blank" class="timestamp-link">41:07</a>
+                            <span class="timestamp-title">AI Tools and Transparency Policy</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=2671s" target="_blank" class="timestamp-link">44:31</a>
+                            <span class="timestamp-title">Late Work and Grading Philosophy</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=3060s" target="_blank" class="timestamp-link">51:00</a>
+                            <span class="timestamp-title">Tutor Information and Support</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=3253s" target="_blank" class="timestamp-link">54:13</a>
+                            <span class="timestamp-title">OBS Setup and Video Presentations</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=4048s" target="_blank" class="timestamp-link">1:07:28</a>
+                            <span class="timestamp-title">Student Introductions</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=5139s" target="_blank" class="timestamp-link">1:25:39</a>
+                            <span class="timestamp-title">First Principles and Software Philosophy</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=5311s" target="_blank" class="timestamp-link">1:28:31</a>
+                            <span class="timestamp-title">Blender 5 Installation and Add-ons</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=5959s" target="_blank" class="timestamp-link">1:39:19</a>
+                            <span class="timestamp-title">Points, Edges, and Faces Fundamentals</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=6377s" target="_blank" class="timestamp-link">1:46:17</a>
+                            <span class="timestamp-title">3D Space and 2D Interface Limitations</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=6836s" target="_blank" class="timestamp-link">1:53:56</a>
+                            <span class="timestamp-title">Object Mode vs Edit Mode</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=7632s" target="_blank" class="timestamp-link">2:07:12</a>
+                            <span class="timestamp-title">Orthographic vs Perspective Views</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=8447s" target="_blank" class="timestamp-link">2:20:47</a>
+                            <span class="timestamp-title">Abstract Art Assignment Introduction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=8725s" target="_blank" class="timestamp-link">2:25:25</a>
+                            <span class="timestamp-title">Moving Objects with Precision</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=sqb9xKeeIPQ&t=9032s" target="_blank" class="timestamp-link">2:30:32</a>
+                            <span class="timestamp-title">Array Modifier Demonstration</span>
+                        </div>
                 </div>
             </div>
         </div>

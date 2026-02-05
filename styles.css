@@ -189,55 +189,6 @@ main {
     color: #000000;
 }
 
-/* Week Links */
-.week-links {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-}
-
-.week-links-course {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.week-links-course a {
-    color: #4a9eff;
-    text-decoration: none;
-    font-size: 0.9rem;
-    padding: 0.3rem 0.6rem;
-    border: 1px solid #333;
-    transition: all 0.25s ease;
-}
-
-.week-links-course a:hover {
-    background: #4a9eff;
-    color: #000;
-    border-color: #4a9eff;
-}
-
-.course-label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 0.25rem 0.5rem;
-    color: #fff;
-}
-
-.course-label.avc185 {
-    background: #D904A0;
-}
-
-.course-label.avc200 {
-    background: #10B981;
-}
-
-.course-label.avc287 {
-    background: #F59E0B;
-    color: #000;
-}
-
 /* Stats */
 .stats {
     background: #0d0d0d;

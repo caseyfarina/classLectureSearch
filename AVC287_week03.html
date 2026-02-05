@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 287 - Week 3 - Spring 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px;
+        }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 30px; }
+        .lecture-header { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #333; }
+        .lecture-day { display: inline-block; padding: 4px 12px; background: #F59E0B; color: #000; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .lecture-date { font-size: 0.85rem; color: #888; margin-bottom: 8px; }
+        .lecture-title { font-size: 1.4rem; color: #fff; margin-bottom: 12px; }
+        .lecture-summary { color: #999; font-size: 0.95rem; line-height: 1.7; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #F59E0B; color: #000; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.9rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section { margin-bottom: 30px; }
+        .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .section-number { background: #F59E0B; color: #000; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85rem; flex-shrink: 0; }
+        .section-title { font-size: 1.1rem; color: #fff; flex: 1; }
+        .section-time { color: #666; font-size: 0.8rem; }
+        .timestamps { padding-left: 40px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px solid #1a1a1a; }
+        .timestamp-item:last-child { border-bottom: none; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -8px; padding: 6px 8px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 55px; font-size: 0.85rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 287 • Spring 2026</div>
+            <h1 class="week-title">Week 3</h1>
+            <div class="week-dates">February 02 – 04, 2026</div>
+            
+            <div class="week-nav">
+                <a href="AVC287_week02.html">← Week 2</a>
+                <a href="AVC287_week04.html">Week 4 →</a>
+            </div>
+        </div>
+
+        
+        <div class="columns">
+            <div class="day-column">
+                
+            <div class="lecture-header">
+                <div class="lecture-day">Monday</div>
+                <div class="lecture-date">February 02, 2026</div>
+                <h2 class="lecture-title">Live Stream Audio Check</h2>
+                <p class="lecture-summary">Introduction and Setup, Live Stream Audio Check, Discord Feedback Review...</p>
+                <a href="https://www.youtube.com/watch?v=GMuekActxUg" target="_blank" class="video-link">
+                    Watch Full Lecture →
+                </a>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">1</div>
+                    <div class="section-title">Lecture Content</div>
+                    <div class="section-time">~43 chapters</div>
+                </div>
+                <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=71s" target="_blank" class="timestamp-link">1:11</a>
+                            <span class="timestamp-title">Live Stream Audio Check</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=125s" target="_blank" class="timestamp-link">2:05</a>
+                            <span class="timestamp-title">Discord Feedback Review</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=161s" target="_blank" class="timestamp-link">2:41</a>
+                            <span class="timestamp-title">Motion Design Principles Overview</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=165s" target="_blank" class="timestamp-link">2:45</a>
+                            <span class="timestamp-title">Anticipation Fundamentals</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=247s" target="_blank" class="timestamp-link">4:07</a>
+                            <span class="timestamp-title">Gradations of Anticipation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=277s" target="_blank" class="timestamp-link">4:37</a>
+                            <span class="timestamp-title">Blender Setup and Sphere Creation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=364s" target="_blank" class="timestamp-link">6:04</a>
+                            <span class="timestamp-title">Basic Anticipation Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=425s" target="_blank" class="timestamp-link">7:05</a>
+                            <span class="timestamp-title">Graph Editor and Bezier Handles</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=540s" target="_blank" class="timestamp-link">9:00</a>
+                            <span class="timestamp-title">Insert Keyframe Techniques</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=660s" target="_blank" class="timestamp-link">11:00</a>
+                            <span class="timestamp-title">Simple Anticipation Example</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=833s" target="_blank" class="timestamp-link">13:53</a>
+                            <span class="timestamp-title">Windup Anticipation Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=1088s" target="_blank" class="timestamp-link">18:08</a>
+                            <span class="timestamp-title">Motion Blur Settings</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=1220s" target="_blank" class="timestamp-link">20:20</a>
+                            <span class="timestamp-title">Comparing Anticipation Levels</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=1376s" target="_blank" class="timestamp-link">22:56</a>
+                            <span class="timestamp-title">Frame-by-Frame Animation Concepts</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=1508s" target="_blank" class="timestamp-link">25:08</a>
+                            <span class="timestamp-title">Visual Design Principles</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=1637s" target="_blank" class="timestamp-link">27:17</a>
+                            <span class="timestamp-title">Multi-Dimensional Anticipation Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=1711s" target="_blank" class="timestamp-link">28:31</a>
+                            <span class="timestamp-title">Origin Point Adjustment</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=1820s" target="_blank" class="timestamp-link">30:20</a>
+                            <span class="timestamp-title">Rotation and Position Keyframing</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=2042s" target="_blank" class="timestamp-link">34:02</a>
+                            <span class="timestamp-title">Timing Relationship Adjustments</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=2461s" target="_blank" class="timestamp-link">41:01</a>
+                            <span class="timestamp-title">Rotation Anticipation Physics</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=2661s" target="_blank" class="timestamp-link">44:21</a>
+                            <span class="timestamp-title">Hammer Swing Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=2951s" target="_blank" class="timestamp-link">49:11</a>
+                            <span class="timestamp-title">Normalize Graph Editor</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=2981s" target="_blank" class="timestamp-link">49:41</a>
+                            <span class="timestamp-title">Hammer Setup and Materials</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=3286s" target="_blank" class="timestamp-link">54:46</a>
+                            <span class="timestamp-title">Pendulum Physics Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=3461s" target="_blank" class="timestamp-link">57:41</a>
+                            <span class="timestamp-title">Swing Timing Adjustments</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=3848s" target="_blank" class="timestamp-link">1:04:08</a>
+                            <span class="timestamp-title">Full Rotation Hammer Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=4659s" target="_blank" class="timestamp-link">1:17:39</a>
+                            <span class="timestamp-title">Rotation Direction Concepts</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=4750s" target="_blank" class="timestamp-link">1:19:10</a>
+                            <span class="timestamp-title">Squash and Stretch Introduction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=4975s" target="_blank" class="timestamp-link">1:22:55</a>
+                            <span class="timestamp-title">Origin Point for Squash Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=5101s" target="_blank" class="timestamp-link">1:25:01</a>
+                            <span class="timestamp-title">Isometric Camera Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=5200s" target="_blank" class="timestamp-link">1:26:40</a>
+                            <span class="timestamp-title">Material and Lighting Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=5423s" target="_blank" class="timestamp-link">1:30:23</a>
+                            <span class="timestamp-title">Basic Bounce Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=5762s" target="_blank" class="timestamp-link">1:36:02</a>
+                            <span class="timestamp-title">Squash and Stretch Continuum</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=5882s" target="_blank" class="timestamp-link">1:38:02</a>
+                            <span class="timestamp-title">Volume Preservation Principles</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=6261s" target="_blank" class="timestamp-link">1:44:21</a>
+                            <span class="timestamp-title">Exaggerated Squash Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=6742s" target="_blank" class="timestamp-link">1:52:22</a>
+                            <span class="timestamp-title">Ground Contact Timing</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=7039s" target="_blank" class="timestamp-link">1:57:19</a>
+                            <span class="timestamp-title">Physics to Cartoon Labels</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=7171s" target="_blank" class="timestamp-link">1:59:31</a>
+                            <span class="timestamp-title">Anticipation in Scale</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=7468s" target="_blank" class="timestamp-link">2:04:28</a>
+                            <span class="timestamp-title">Jiggle Animation Techniques</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=7876s" target="_blank" class="timestamp-link">2:11:16</a>
+                            <span class="timestamp-title">Advanced Wobble Effects</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=8081s" target="_blank" class="timestamp-link">2:14:41</a>
+                            <span class="timestamp-title">Squash and Stretch Summary</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=8196s" target="_blank" class="timestamp-link">2:16:36</a>
+                            <span class="timestamp-title">Lecture Search Tool Demo</span>
+                        </div>
+                </div>
+            </div>
+            </div>
+            <div class="day-column">
+                
+            <div class="lecture-header">
+                <div class="lecture-day">Wednesday</div>
+                <div class="lecture-date">February 04, 2026</div>
+                <h2 class="lecture-title">Student Feedback: Hammer Animation Projects</h2>
+                <p class="lecture-summary">Introduction and Technical Setup, Student Feedback: Hammer Animation Projects, Blender Interface Tips and Add-ons...</p>
+                <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ" target="_blank" class="video-link">
+                    Watch Full Lecture →
+                </a>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">1</div>
+                    <div class="section-title">Lecture Content</div>
+                    <div class="section-time">~19 chapters</div>
+                </div>
+                <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Technical Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=178s" target="_blank" class="timestamp-link">2:58</a>
+                            <span class="timestamp-title">Student Feedback: Hammer Animation Projects</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=508s" target="_blank" class="timestamp-link">8:28</a>
+                            <span class="timestamp-title">Blender Interface Tips and Add-ons</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=1056s" target="_blank" class="timestamp-link">17:36</a>
+                            <span class="timestamp-title">Student Feedback: Graph Editor Best Practices</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=1536s" target="_blank" class="timestamp-link">25:36</a>
+                            <span class="timestamp-title">Student Feedback: Animation Timing Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=2160s" target="_blank" class="timestamp-link">36:00</a>
+                            <span class="timestamp-title">Student Feedback: File Management Discussion</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=2966s" target="_blank" class="timestamp-link">49:26</a>
+                            <span class="timestamp-title">Student Feedback: Professional Presentation Tips</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=3428s" target="_blank" class="timestamp-link">57:08</a>
+                            <span class="timestamp-title">Student Feedback: Laptop Performance Optimization</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=3728s" target="_blank" class="timestamp-link">1:02:08</a>
+                            <span class="timestamp-title">Student Feedback: Revision Process Overview</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=5136s" target="_blank" class="timestamp-link">1:25:36</a>
+                            <span class="timestamp-title">Squash and Stretch Introduction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=5163s" target="_blank" class="timestamp-link">1:26:03</a>
+                            <span class="timestamp-title">Creating Quad Topology Spheres</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=5401s" target="_blank" class="timestamp-link">1:30:01</a>
+                            <span class="timestamp-title">Invisible Box Rigging Technique</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=5678s" target="_blank" class="timestamp-link">1:34:38</a>
+                            <span class="timestamp-title">Parent-Child Hierarchy Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=6065s" target="_blank" class="timestamp-link">1:41:05</a>
+                            <span class="timestamp-title">Bouncing Ball Animation Blockout</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=6603s" target="_blank" class="timestamp-link">1:50:03</a>
+                            <span class="timestamp-title">Rolling Animation Implementation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=6864s" target="_blank" class="timestamp-link">1:54:24</a>
+                            <span class="timestamp-title">Squash and Stretch Application</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=7362s" target="_blank" class="timestamp-link">2:02:42</a>
+                            <span class="timestamp-title">Advanced Timing and Ground Contact</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=7670s" target="_blank" class="timestamp-link">2:07:50</a>
+                            <span class="timestamp-title">Multiple Ball System Creation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=7876s" target="_blank" class="timestamp-link">2:11:16</a>
+                            <span class="timestamp-title">Wrap-up and Assignment Overview</span>
+                        </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

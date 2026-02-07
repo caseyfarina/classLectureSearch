@@ -6,82 +6,99 @@
     <title>AVC 185 - Week 3 - Spring 2026</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
         .container { max-width: 1600px; margin: 0 auto; }
         .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
         .back-link:hover { text-decoration: underline; }
-        .week-header { text-align: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
         .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
         .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #D904A0; margin-bottom: 10px; font-weight: 500; }
         .week-dates { color: #666; font-size: 1rem; }
-        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
         .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
         .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
         .week-nav a:hover { text-decoration: underline; }
         .week-nav span { color: #444; font-size: 0.9rem; }
-        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #D904A0; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; margin-bottom: 12px; }
+        .overview p:last-child { margin-bottom: 0; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #D904A0; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
-        .day-column { background: #111; border-radius: 12px; padding: 30px; }
-        .lecture-header { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #333; }
-        .lecture-day { display: inline-block; padding: 4px 12px; background: #D904A0; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-        .lecture-date { font-size: 0.85rem; color: #888; margin-bottom: 8px; }
-        .lecture-title { font-size: 1.4rem; color: #fff; margin-bottom: 12px; }
-        .lecture-summary { color: #999; font-size: 0.95rem; line-height: 1.7; }
-        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #D904A0; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.9rem; }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #D904A0; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #D904A0; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
         .video-link:hover { opacity: 0.9; }
-        .section { margin-bottom: 30px; }
-        .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-        .section-number { background: #D904A0; color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85rem; flex-shrink: 0; }
-        .section-title { font-size: 1.1rem; color: #fff; flex: 1; }
-        .section-time { color: #666; font-size: 0.8rem; }
-        .timestamps { padding-left: 40px; }
-        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px solid #1a1a1a; }
-        .timestamp-item:last-child { border-bottom: none; }
-        .timestamp-item:hover { background: #1a1a1a; margin: 0 -8px; padding: 6px 8px; }
-        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 55px; font-size: 0.85rem; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #D904A0; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
         .timestamp-link:hover { text-decoration: underline; }
-        .timestamp-title { color: #bbb; flex: 1; font-size: 0.9rem; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #D904A0; }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="back-link">← Back to Search</a>
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
 
         <div class="week-header">
-            <div class="week-label">AVC 185 • Spring 2026</div>
+            <div class="week-label">AVC 185 &bull; Spring 2026</div>
             <h1 class="week-title">Week 3</h1>
-            <div class="week-dates">February 02 – 04, 2026</div>
-            
+            <div class="week-subtitle">Topology, Mesh Editing &amp; Interior Construction</div>
+            <div class="week-dates">February 02 &ndash; 04, 2026</div>
             <div class="week-nav">
-                <a href="AVC185_week02.html">← Week 2</a>
-                <a href="AVC185_week04.html">Week 4 →</a>
+                <a href="AVC185_week02.html">&larr; Week 2</a>
+                <a href="AVC185_week04.html">Week 4 &rarr;</a>
             </div>
         </div>
 
-        
-        <div class="columns">
-            <div class="day-column">
-                
-            <div class="lecture-header">
-                <div class="lecture-day">Monday</div>
-                <div class="lecture-date">February 02, 2026</div>
-                <h2 class="lecture-title">Lecture Search Engine Demo</h2>
-                <p class="lecture-summary">Introduction, Lecture Search Engine Demo, Weekend Assignment Check-in...</p>
-                <a href="https://www.youtube.com/watch?v=26Jzwgu6Txk" target="_blank" class="video-link">
-                    Watch Full Lecture →
-                </a>
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>This week transitions from basic object manipulation to mesh editing and topology awareness. Monday introduces the fundamental mesh editing tools (Extrude, Inset, Loop Cut), explains face types and normals, and demonstrates building architectural geometry like windows. Wednesday features extensive student project feedback followed by advanced techniques including interior room construction, global illumination, weight painting for scatter distribution, and introductory sculpting tools.</p>
+            <div class="key-topics">
+                <span class="topic-tag">Topology &amp; Face Types</span>
+                <span class="topic-tag">Extrude, Inset &amp; Loop Cut</span>
+                <span class="topic-tag">Face Normals</span>
+                <span class="topic-tag">Global Illumination</span>
+                <span class="topic-tag">Weight Painting</span>
+                <span class="topic-tag">Sculpting Tools</span>
             </div>
+        </div>
 
-            <div class="section">
-                <div class="section-header">
-                    <div class="section-number">1</div>
-                    <div class="section-title">Lecture Content</div>
-                    <div class="section-time">~23 chapters</div>
+        <div class="columns">
+            <!-- MONDAY -->
+            <div class="day-column">
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">February 2, 2026</div>
+                    <h2 class="day-title">Topology Fundamentals &amp; Mesh Editing Tools</h2>
+                    <p class="day-summary">Deep dive into topology concepts, face types, subdivision strategies, face normals, and the essential mesh editing toolkit: Extrude, Inset, and Loop Cut.</p>
+                    <a href="https://www.youtube.com/watch?v=26Jzwgu6Txk" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
                 </div>
-                <div class="timestamps">
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Class Business &amp; Tools</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=26Jzwgu6Txk&t=0s" target="_blank" class="timestamp-link">0:00</a>
                             <span class="timestamp-title">Introduction</span>
@@ -98,6 +115,15 @@
                             <a href="https://www.youtube.com/watch?v=26Jzwgu6Txk&t=665s" target="_blank" class="timestamp-link">11:05</a>
                             <span class="timestamp-title">Materials on Object Parts</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Topology Fundamentals</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=26Jzwgu6Txk&t=840s" target="_blank" class="timestamp-link">14:00</a>
                             <span class="timestamp-title">Topology Fundamentals: Quads vs Triangles</span>
@@ -108,8 +134,21 @@
                         </div>
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=26Jzwgu6Txk&t=1443s" target="_blank" class="timestamp-link">24:03</a>
-                            <span class="timestamp-title">Engons and Topology Issues</span>
+                            <span class="timestamp-title">N-gons and Topology Issues</span>
                         </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=26Jzwgu6Txk&t=3020s" target="_blank" class="timestamp-link">50:20</a>
+                            <span class="timestamp-title">Planar vs Non-Planar Faces</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Object Management &amp; Modifiers</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=26Jzwgu6Txk&t=1937s" target="_blank" class="timestamp-link">32:17</a>
                             <span class="timestamp-title">Tree Texturing Example</span>
@@ -127,10 +166,6 @@
                             <span class="timestamp-title">Origin Point Management</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=26Jzwgu6Txk&t=3020s" target="_blank" class="timestamp-link">50:20</a>
-                            <span class="timestamp-title">Planar vs Non-Planar Faces</span>
-                        </div>
-                        <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=26Jzwgu6Txk&t=3360s" target="_blank" class="timestamp-link">56:00</a>
                             <span class="timestamp-title">Tools vs Modifiers Comparison</span>
                         </div>
@@ -138,6 +173,15 @@
                             <a href="https://www.youtube.com/watch?v=26Jzwgu6Txk&t=3884s" target="_blank" class="timestamp-link">1:04:44</a>
                             <span class="timestamp-title">Subdivision Strategies</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Face Normals &amp; Direction</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=26Jzwgu6Txk&t=4639s" target="_blank" class="timestamp-link">1:17:19</a>
                             <span class="timestamp-title">Tree and Ground Scene Setup</span>
@@ -150,6 +194,15 @@
                             <a href="https://www.youtube.com/watch?v=26Jzwgu6Txk&t=5845s" target="_blank" class="timestamp-link">1:37:25</a>
                             <span class="timestamp-title">Red Equals Bad Rule</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Mesh Editing Tools</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=26Jzwgu6Txk&t=6311s" target="_blank" class="timestamp-link">1:45:11</a>
                             <span class="timestamp-title">Extrude Tool Fundamentals</span>
@@ -174,28 +227,39 @@
                             <a href="https://www.youtube.com/watch?v=26Jzwgu6Txk&t=8579s" target="_blank" class="timestamp-link">2:22:59</a>
                             <span class="timestamp-title">Assignment Clarification and Wrap-up</span>
                         </div>
+                    </div>
                 </div>
-            </div>
-            </div>
-            <div class="day-column">
-                
-            <div class="lecture-header">
-                <div class="lecture-day">Wednesday</div>
-                <div class="lecture-date">February 04, 2026</div>
-                <h2 class="lecture-title">Student Feedback: Indoor Scene with Arrays</h2>
-                <p class="lecture-summary">Introduction and Setup, Student Feedback: Indoor Scene with Arrays, Student Feedback: Candle Lighting and Emission...</p>
-                <a href="https://www.youtube.com/watch?v=00uLjH6ImkM" target="_blank" class="video-link">
-                    Watch Full Lecture →
-                </a>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Quads are preferred topology; N-gons cause shading and subdivision issues</li>
+                        <li>Edge loops create clean topology that follows object shape</li>
+                        <li>Face normals must point outward (blue=good, red=bad)</li>
+                        <li>Extrude, Inset, and Loop Cut are the core mesh editing tools</li>
+                        <li>Apply Scale (Ctrl+A) before using modifiers or editing tools</li>
+                        <li>Tools edit geometry directly; modifiers are procedural and non-destructive</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="section">
-                <div class="section-header">
-                    <div class="section-number">1</div>
-                    <div class="section-title">Lecture Content</div>
-                    <div class="section-time">~30 chapters</div>
+            <!-- WEDNESDAY -->
+            <div class="day-column">
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">February 4, 2026</div>
+                    <h2 class="day-title">Student Feedback &amp; Advanced Techniques</h2>
+                    <p class="day-summary">Extensive student project critiques followed by interior construction techniques, global illumination, weight painting for scatter distribution, and introduction to sculpting.</p>
+                    <a href="https://www.youtube.com/watch?v=00uLjH6ImkM" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
                 </div>
-                <div class="timestamps">
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Student Project Feedback</div>
+                        <span class="section-count">18 projects</span>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=0s" target="_blank" class="timestamp-link">0:00</a>
                             <span class="timestamp-title">Introduction and Setup</span>
@@ -213,28 +277,12 @@
                             <span class="timestamp-title">Student Feedback: Log Cabin Construction</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=492s" target="_blank" class="timestamp-link">8:12</a>
-                            <span class="timestamp-title">Student Feedback: Audio Recording Issues</span>
-                        </div>
-                        <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=640s" target="_blank" class="timestamp-link">10:40</a>
                             <span class="timestamp-title">Student Feedback: Terrain and Scatter Tools</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=793s" target="_blank" class="timestamp-link">13:13</a>
-                            <span class="timestamp-title">Student Feedback: Faceting and Shade Smoothing</span>
-                        </div>
-                        <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=855s" target="_blank" class="timestamp-link">14:15</a>
                             <span class="timestamp-title">Student Feedback: Forest and Room Scenes</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=1028s" target="_blank" class="timestamp-link">17:08</a>
-                            <span class="timestamp-title">Student Feedback: Texture Imports and Toaster</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=1153s" target="_blank" class="timestamp-link">19:13</a>
-                            <span class="timestamp-title">Lighting and Shadow Discussion</span>
                         </div>
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=1596s" target="_blank" class="timestamp-link">26:36</a>
@@ -253,29 +301,18 @@
                             <span class="timestamp-title">Student Feedback: A-Frame Cabin Design</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=2801s" target="_blank" class="timestamp-link">46:41</a>
-                            <span class="timestamp-title">Student Feedback: Five Nights at Freddy's Scene</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=3153s" target="_blank" class="timestamp-link">52:33</a>
-                            <span class="timestamp-title">Student Feedback: Dining Table Scene</span>
-                        </div>
-                        <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=3599s" target="_blank" class="timestamp-link">59:59</a>
                             <span class="timestamp-title">Student Feedback: Landscape and Space Station</span>
                         </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=4092s" target="_blank" class="timestamp-link">1:08:12</a>
-                            <span class="timestamp-title">Student Feedback: Forest and Indoor Lighting</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=4263s" target="_blank" class="timestamp-link">1:11:03</a>
-                            <span class="timestamp-title">Student Feedback: Global Illumination Room</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=4451s" target="_blank" class="timestamp-link">1:14:11</a>
-                            <span class="timestamp-title">Student Feedback: Final Scene Review</span>
-                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Interior Construction &amp; Lighting</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=4681s" target="_blank" class="timestamp-link">1:18:01</a>
                             <span class="timestamp-title">Interior Room Construction Techniques</span>
@@ -292,6 +329,15 @@
                             <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=6000s" target="_blank" class="timestamp-link">1:40:00</a>
                             <span class="timestamp-title">Ambient Occlusion and Material Emission</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Advanced Scatter &amp; Sculpting</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=6420s" target="_blank" class="timestamp-link">1:47:00</a>
                             <span class="timestamp-title">Weight Painting and Vertex Groups</span>
@@ -316,8 +362,20 @@
                             <a href="https://www.youtube.com/watch?v=00uLjH6ImkM&t=8640s" target="_blank" class="timestamp-link">2:24:00</a>
                             <span class="timestamp-title">Forest Integration and Final Tips</span>
                         </div>
+                    </div>
                 </div>
-            </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Global illumination simulates realistic light bouncing in enclosed spaces</li>
+                        <li>Weight painting controls scatter distribution density on surfaces</li>
+                        <li>Backface culling hides reversed normals (important for game engines)</li>
+                        <li>Z-fighting occurs when faces overlap at the same position</li>
+                        <li>Sculpting tools create organic shapes by pushing/pulling mesh geometry</li>
+                        <li>Subdivision Surface + sculpting creates natural-looking rocks and terrain</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

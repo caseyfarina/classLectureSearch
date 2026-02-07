@@ -6,93 +6,101 @@
     <title>AVC 287 - Week 3 - Spring 2026</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
         .container { max-width: 1600px; margin: 0 auto; }
         .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
         .back-link:hover { text-decoration: underline; }
-        .week-header { text-align: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
         .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
         .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #F59E0B; margin-bottom: 10px; font-weight: 500; }
         .week-dates { color: #666; font-size: 1rem; }
-        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
         .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
         .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
         .week-nav a:hover { text-decoration: underline; }
         .week-nav span { color: #444; font-size: 0.9rem; }
-        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #F59E0B; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; margin-bottom: 12px; }
+        .overview p:last-child { margin-bottom: 0; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #F59E0B; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
-        .day-column { background: #111; border-radius: 12px; padding: 30px; }
-        .lecture-header { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #333; }
-        .lecture-day { display: inline-block; padding: 4px 12px; background: #F59E0B; color: #000; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-        .lecture-date { font-size: 0.85rem; color: #888; margin-bottom: 8px; }
-        .lecture-title { font-size: 1.4rem; color: #fff; margin-bottom: 12px; }
-        .lecture-summary { color: #999; font-size: 0.95rem; line-height: 1.7; }
-        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #F59E0B; color: #000; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.9rem; }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #F59E0B; color: #000; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #F59E0B; color: #000; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
         .video-link:hover { opacity: 0.9; }
-        .section { margin-bottom: 30px; }
-        .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-        .section-number { background: #F59E0B; color: #000; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85rem; flex-shrink: 0; }
-        .section-title { font-size: 1.1rem; color: #fff; flex: 1; }
-        .section-time { color: #666; font-size: 0.8rem; }
-        .timestamps { padding-left: 40px; }
-        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; border-bottom: 1px solid #1a1a1a; }
-        .timestamp-item:last-child { border-bottom: none; }
-        .timestamp-item:hover { background: #1a1a1a; margin: 0 -8px; padding: 6px 8px; }
-        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 55px; font-size: 0.85rem; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #F59E0B; color: #000; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
         .timestamp-link:hover { text-decoration: underline; }
-        .timestamp-title { color: #bbb; flex: 1; font-size: 0.9rem; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #F59E0B; }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="back-link">← Back to Search</a>
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
 
         <div class="week-header">
-            <div class="week-label">AVC 287 • Spring 2026</div>
+            <div class="week-label">AVC 287 &bull; Spring 2026</div>
             <h1 class="week-title">Week 3</h1>
-            <div class="week-dates">February 02 – 04, 2026</div>
-            
+            <div class="week-subtitle">Anticipation, Squash &amp; Stretch</div>
+            <div class="week-dates">February 2 &ndash; 4, 2026</div>
             <div class="week-nav">
-                <a href="AVC287_week02.html">← Week 2</a>
-                <a href="AVC287_week04.html">Week 4 →</a>
+                <a href="AVC287_week02.html">&larr; Week 2</a>
             </div>
         </div>
 
-        
-        <div class="columns">
-            <div class="day-column">
-                
-            <div class="lecture-header">
-                <div class="lecture-day">Monday</div>
-                <div class="lecture-date">February 02, 2026</div>
-                <h2 class="lecture-title">Live Stream Audio Check</h2>
-                <p class="lecture-summary">Introduction and Setup, Live Stream Audio Check, Discord Feedback Review...</p>
-                <a href="https://www.youtube.com/watch?v=GMuekActxUg" target="_blank" class="video-link">
-                    Watch Full Lecture →
-                </a>
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>This week dives deep into two fundamental animation principles: anticipation and squash &amp; stretch. Monday covers anticipation fundamentals with gradations from subtle to extreme, multi-axis anticipation with rotation and position, hammer swing and pendulum physics, then transitions into squash and stretch with volume preservation, bounce animation, and jiggle techniques. Wednesday features extensive student feedback on hammer projects followed by quad topology sphere creation, invisible box rigging, bouncing ball blockout with rolling animation, and applied squash and stretch with advanced timing.</p>
+            <div class="key-topics">
+                <span class="topic-tag">Anticipation</span>
+                <span class="topic-tag">Squash &amp; Stretch</span>
+                <span class="topic-tag">Pendulum Physics</span>
+                <span class="topic-tag">Volume Preservation</span>
+                <span class="topic-tag">Rigging</span>
+                <span class="topic-tag">Rolling Animation</span>
             </div>
+        </div>
 
-            <div class="section">
-                <div class="section-header">
-                    <div class="section-number">1</div>
-                    <div class="section-title">Lecture Content</div>
-                    <div class="section-time">~43 chapters</div>
+        <div class="columns">
+            <!-- MONDAY -->
+            <div class="day-column">
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">February 2, 2026</div>
+                    <h2 class="day-title">Anticipation &amp; Squash/Stretch</h2>
+                    <p class="day-summary">Anticipation fundamentals from subtle to extreme, multi-axis anticipation with rotation, hammer swing and pendulum physics, squash and stretch principles with volume preservation, bounce animation, and jiggle animation techniques.</p>
+                    <a href="https://www.youtube.com/watch?v=GMuekActxUg" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
                 </div>
-                <div class="timestamps">
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Anticipation Fundamentals</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=0s" target="_blank" class="timestamp-link">0:00</a>
                             <span class="timestamp-title">Introduction and Setup</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=71s" target="_blank" class="timestamp-link">1:11</a>
-                            <span class="timestamp-title">Live Stream Audio Check</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=125s" target="_blank" class="timestamp-link">2:05</a>
-                            <span class="timestamp-title">Discord Feedback Review</span>
                         </div>
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=161s" target="_blank" class="timestamp-link">2:41</a>
@@ -130,6 +138,15 @@
                             <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=833s" target="_blank" class="timestamp-link">13:53</a>
                             <span class="timestamp-title">Windup Anticipation Setup</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Motion Blur &amp; Comparison</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=1088s" target="_blank" class="timestamp-link">18:08</a>
                             <span class="timestamp-title">Motion Blur Settings</span>
@@ -146,6 +163,15 @@
                             <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=1508s" target="_blank" class="timestamp-link">25:08</a>
                             <span class="timestamp-title">Visual Design Principles</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Multi-Axis Anticipation</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=1637s" target="_blank" class="timestamp-link">27:17</a>
                             <span class="timestamp-title">Multi-Dimensional Anticipation Setup</span>
@@ -166,6 +192,15 @@
                             <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=2461s" target="_blank" class="timestamp-link">41:01</a>
                             <span class="timestamp-title">Rotation Anticipation Physics</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Hammer &amp; Pendulum Physics</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=2661s" target="_blank" class="timestamp-link">44:21</a>
                             <span class="timestamp-title">Hammer Swing Animation</span>
@@ -194,6 +229,15 @@
                             <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=4659s" target="_blank" class="timestamp-link">1:17:39</a>
                             <span class="timestamp-title">Rotation Direction Concepts</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Squash &amp; Stretch Principles</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=4750s" target="_blank" class="timestamp-link">1:19:10</a>
                             <span class="timestamp-title">Squash and Stretch Introduction</span>
@@ -222,6 +266,15 @@
                             <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=5882s" target="_blank" class="timestamp-link">1:38:02</a>
                             <span class="timestamp-title">Volume Preservation Principles</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">6</div>
+                        <div class="section-name">Advanced Squash &amp; Stretch</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=6261s" target="_blank" class="timestamp-link">1:44:21</a>
                             <span class="timestamp-title">Exaggerated Squash Animation</span>
@@ -250,32 +303,38 @@
                             <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=8081s" target="_blank" class="timestamp-link">2:14:41</a>
                             <span class="timestamp-title">Squash and Stretch Summary</span>
                         </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=GMuekActxUg&t=8196s" target="_blank" class="timestamp-link">2:16:36</a>
-                            <span class="timestamp-title">Lecture Search Tool Demo</span>
-                        </div>
+                    </div>
                 </div>
-            </div>
-            </div>
-            <div class="day-column">
-                
-            <div class="lecture-header">
-                <div class="lecture-day">Wednesday</div>
-                <div class="lecture-date">February 04, 2026</div>
-                <h2 class="lecture-title">Student Feedback: Hammer Animation Projects</h2>
-                <p class="lecture-summary">Introduction and Technical Setup, Student Feedback: Hammer Animation Projects, Blender Interface Tips and Add-ons...</p>
-                <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ" target="_blank" class="video-link">
-                    Watch Full Lecture →
-                </a>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Anticipation prepares the viewer for the main action (windup before throw)</li>
+                        <li>Gradations range from subtle realistic to extreme cartoon anticipation</li>
+                        <li>Origin point placement determines how objects rotate and deform</li>
+                        <li>Pendulum physics demonstrates natural swing timing and momentum</li>
+                        <li>Volume preservation: squash wider = stretch taller (constant volume)</li>
+                        <li>Jiggle adds secondary motion that follows the primary animation</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="section">
-                <div class="section-header">
-                    <div class="section-number">1</div>
-                    <div class="section-title">Lecture Content</div>
-                    <div class="section-time">~19 chapters</div>
+            <!-- WEDNESDAY -->
+            <div class="day-column">
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">February 4, 2026</div>
+                    <h2 class="day-title">Student Feedback &amp; Rigging Techniques</h2>
+                    <p class="day-summary">Extensive student feedback on hammer animation projects covering graph editor best practices, timing, file management, and presentation tips. Then hands-on work with quad topology spheres, invisible box rigging, parent-child hierarchies, bouncing ball blockout, rolling animation, and applied squash and stretch.</p>
+                    <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
                 </div>
-                <div class="timestamps">
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Student Feedback Session</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=0s" target="_blank" class="timestamp-link">0:00</a>
                             <span class="timestamp-title">Introduction and Technical Setup</span>
@@ -312,6 +371,15 @@
                             <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=3728s" target="_blank" class="timestamp-link">1:02:08</a>
                             <span class="timestamp-title">Student Feedback: Revision Process Overview</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Mesh Topology &amp; Rigging</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=5136s" target="_blank" class="timestamp-link">1:25:36</a>
                             <span class="timestamp-title">Squash and Stretch Introduction</span>
@@ -328,6 +396,15 @@
                             <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=5678s" target="_blank" class="timestamp-link">1:34:38</a>
                             <span class="timestamp-title">Parent-Child Hierarchy Setup</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Bouncing Ball &amp; Rolling</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=6065s" target="_blank" class="timestamp-link">1:41:05</a>
                             <span class="timestamp-title">Bouncing Ball Animation Blockout</span>
@@ -340,6 +417,15 @@
                             <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=6864s" target="_blank" class="timestamp-link">1:54:24</a>
                             <span class="timestamp-title">Squash and Stretch Application</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Advanced Timing &amp; Wrap-up</div>
+                    </div>
+                    <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=7362s" target="_blank" class="timestamp-link">2:02:42</a>
                             <span class="timestamp-title">Advanced Timing and Ground Contact</span>
@@ -352,8 +438,20 @@
                             <a href="https://www.youtube.com/watch?v=NLFmlBV-1eQ&t=7876s" target="_blank" class="timestamp-link">2:11:16</a>
                             <span class="timestamp-title">Wrap-up and Assignment Overview</span>
                         </div>
+                    </div>
                 </div>
-            </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Quad topology spheres deform cleanly for squash and stretch animation</li>
+                        <li>Invisible box rigging separates position, rotation, and scale controls</li>
+                        <li>Parent-child hierarchy lets you animate different properties independently</li>
+                        <li>Blockout animation establishes major poses before refining details</li>
+                        <li>Rolling requires syncing rotation speed with translation distance</li>
+                        <li>Ground contact frames need extra attention for believable bouncing</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

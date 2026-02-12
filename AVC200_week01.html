@@ -15,16 +15,18 @@
         .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
         .week-subtitle { font-size: 1.1rem; color: #10B981; margin-bottom: 10px; font-weight: 500; }
         .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
         .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
         .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
         .week-nav a:hover { text-decoration: underline; }
         .week-nav span { color: #444; font-size: 0.9rem; }
         .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #10B981; }
         .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
-        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; margin-bottom: 12px; }
-        .overview p:last-child { margin-bottom: 0; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
         .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
         .topic-tag { background: #1a1a1a; color: #10B981; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
         .day-column { background: #111; border-radius: 12px; padding: 25px; }
         .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
         .day-label { display: inline-block; padding: 4px 12px; background: #10B981; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
@@ -59,192 +61,134 @@
         <div class="week-header">
             <div class="week-label">AVC 200 &bull; Spring 2026</div>
             <h1 class="week-title">Week 1</h1>
-            <div class="week-subtitle">Course Introduction &amp; Unity Game Engine Fundamentals</div>
-            <div class="week-dates">January 21, 2026 (Wednesday only &mdash; MLK Day)</div>
+            <div class="week-dates">January 21, 2026</div>
+            <div class="week-note">Monday was a holiday &ndash; No class</div>
             <div class="week-nav">
-                <span>&larr; No previous week</span>
+                
                 <a href="AVC200_week02.html">Week 2 &rarr;</a>
             </div>
         </div>
 
-        <div class="overview">
-            <h2>Week Overview</h2>
-            <p>This first session covers course logistics and launches directly into Unity game engine fundamentals. After establishing the multiple attendance format, grading philosophy, and technology requirements, the instructor introduces Unity's interface, project structure, and core workflows. Students create their first animated objects, learn the animation system including controllers and state machines, and add basic interactivity with scripts.</p>
-            <div class="key-topics">
-                <span class="topic-tag">Course Structure</span>
-                <span class="topic-tag">Unity Interface</span>
-                <span class="topic-tag">Animation Fundamentals</span>
-                <span class="topic-tag">Animation Controller</span>
-                <span class="topic-tag">State Machines</span>
-                <span class="topic-tag">Scripting Basics</span>
-            </div>
-        </div>
-
+        
         <div class="day-column">
-            <div class="day-header">
-                <div class="day-label">Wednesday</div>
-                <div class="day-date">January 21, 2026</div>
-                <h2 class="day-title">Course Introduction &amp; Unity Fundamentals</h2>
-                <p class="day-summary">Full course orientation followed by Unity installation, interface overview, object creation, animation fundamentals, state machines, and introductory scripting for interactivity.</p>
-                <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
-            </div>
+            
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">January 21, 2026</div>
+                    <h2 class="day-title">Class Structure and Schedule</h2>
+                    <p class="day-summary">Introduction and Class Format, Class Structure and Schedule, Attendance Options and Expectations...</p>
+                    <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
 
-            <div class="section-group">
-                <div class="section-header">
-                    <div class="section-icon">1</div>
-                    <div class="section-name">Course Orientation</div>
-                </div>
-                <div class="timestamps">
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=0s" target="_blank" class="timestamp-link">0:00</a>
-                        <span class="timestamp-title">Introduction and Class Format</span>
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Lecture Content</div>
+                        <span class="section-count">25 chapters</span>
                     </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=74s" target="_blank" class="timestamp-link">1:14</a>
-                        <span class="timestamp-title">Class Structure and Schedule</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=298s" target="_blank" class="timestamp-link">4:58</a>
-                        <span class="timestamp-title">Attendance Options and Expectations</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=485s" target="_blank" class="timestamp-link">8:05</a>
-                        <span class="timestamp-title">Communication and Discord Setup</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=626s" target="_blank" class="timestamp-link">10:26</a>
-                        <span class="timestamp-title">Weekly Project Workflow</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=841s" target="_blank" class="timestamp-link">14:01</a>
-                        <span class="timestamp-title">Sharing Work and Critique Sessions</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section-group">
-                <div class="section-header">
-                    <div class="section-icon">2</div>
-                    <div class="section-name">Materials, Technology &amp; Policies</div>
-                </div>
-                <div class="timestamps">
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=963s" target="_blank" class="timestamp-link">16:03</a>
-                        <span class="timestamp-title">Semester Schedule and Dates</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1007s" target="_blank" class="timestamp-link">16:47</a>
-                        <span class="timestamp-title">Required Materials and Equipment</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1221s" target="_blank" class="timestamp-link">20:21</a>
-                        <span class="timestamp-title">Computer Requirements and Options</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1598s" target="_blank" class="timestamp-link">26:38</a>
-                        <span class="timestamp-title">Grading and Late Work Policy</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1716s" target="_blank" class="timestamp-link">28:36</a>
-                        <span class="timestamp-title">AI and Machine Learning Tools</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1742s" target="_blank" class="timestamp-link">29:02</a>
-                        <span class="timestamp-title">Technology Orientation Assignment</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section-group">
-                <div class="section-header">
-                    <div class="section-icon">3</div>
-                    <div class="section-name">Introductions &amp; Presentations</div>
-                </div>
-                <div class="timestamps">
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=2205s" target="_blank" class="timestamp-link">36:45</a>
-                        <span class="timestamp-title">Instructor Introduction</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=2257s" target="_blank" class="timestamp-link">37:37</a>
-                        <span class="timestamp-title">Student Introductions</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=2827s" target="_blank" class="timestamp-link">47:07</a>
-                        <span class="timestamp-title">Discord Names and Video Presentation Guidelines</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section-group">
-                <div class="section-header">
-                    <div class="section-icon">4</div>
-                    <div class="section-name">Unity Engine Overview &amp; Setup</div>
-                </div>
-                <div class="timestamps">
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=3218s" target="_blank" class="timestamp-link">53:38</a>
-                        <span class="timestamp-title">Unity Game Engine Overview</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=3853s" target="_blank" class="timestamp-link">1:04:13</a>
-                        <span class="timestamp-title">Unity Installation and Setup</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=4662s" target="_blank" class="timestamp-link">1:17:42</a>
-                        <span class="timestamp-title">Unity Interface and Project Structure</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=5553s" target="_blank" class="timestamp-link">1:32:33</a>
-                        <span class="timestamp-title">Creating and Animating Objects</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=6073s" target="_blank" class="timestamp-link">1:41:13</a>
-                        <span class="timestamp-title">Materials and Color Assignment</span>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Class Format</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=74s" target="_blank" class="timestamp-link">1:14</a>
+                            <span class="timestamp-title">Class Structure and Schedule</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=298s" target="_blank" class="timestamp-link">4:58</a>
+                            <span class="timestamp-title">Attendance Options and Expectations</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=485s" target="_blank" class="timestamp-link">8:05</a>
+                            <span class="timestamp-title">Communication and Discord Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=626s" target="_blank" class="timestamp-link">10:26</a>
+                            <span class="timestamp-title">Weekly Project Workflow</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=841s" target="_blank" class="timestamp-link">14:01</a>
+                            <span class="timestamp-title">Sharing Work and Critique Sessions</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=963s" target="_blank" class="timestamp-link">16:03</a>
+                            <span class="timestamp-title">Semester Schedule and Dates</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1007s" target="_blank" class="timestamp-link">16:47</a>
+                            <span class="timestamp-title">Required Materials and Equipment</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1221s" target="_blank" class="timestamp-link">20:21</a>
+                            <span class="timestamp-title">Computer Requirements and Options</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1598s" target="_blank" class="timestamp-link">26:38</a>
+                            <span class="timestamp-title">Grading and Late Work Policy</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1716s" target="_blank" class="timestamp-link">28:36</a>
+                            <span class="timestamp-title">AI and Machine Learning Tools</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=1742s" target="_blank" class="timestamp-link">29:02</a>
+                            <span class="timestamp-title">Technology Orientation Assignment</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=2205s" target="_blank" class="timestamp-link">36:45</a>
+                            <span class="timestamp-title">Instructor Introduction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=2257s" target="_blank" class="timestamp-link">37:37</a>
+                            <span class="timestamp-title">Student Introductions</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=2827s" target="_blank" class="timestamp-link">47:07</a>
+                            <span class="timestamp-title">Discord Names and Video Presentation Guidelines</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=3218s" target="_blank" class="timestamp-link">53:38</a>
+                            <span class="timestamp-title">Unity Game Engine Overview</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=3853s" target="_blank" class="timestamp-link">1:04:13</a>
+                            <span class="timestamp-title">Unity Installation and Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=4662s" target="_blank" class="timestamp-link">1:17:42</a>
+                            <span class="timestamp-title">Unity Interface and Project Structure</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=5553s" target="_blank" class="timestamp-link">1:32:33</a>
+                            <span class="timestamp-title">Creating and Animating Objects</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=6073s" target="_blank" class="timestamp-link">1:41:13</a>
+                            <span class="timestamp-title">Materials and Color Assignment</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=6472s" target="_blank" class="timestamp-link">1:47:52</a>
+                            <span class="timestamp-title">Animation Fundamentals in Unity</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=6901s" target="_blank" class="timestamp-link">1:55:01</a>
+                            <span class="timestamp-title">Creating Smooth Animation Loops</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=7623s" target="_blank" class="timestamp-link">2:07:03</a>
+                            <span class="timestamp-title">Animation Controller and State Machine</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=8085s" target="_blank" class="timestamp-link">2:14:45</a>
+                            <span class="timestamp-title">Adding Interactivity with Scripts</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=8752s" target="_blank" class="timestamp-link">2:25:52</a>
+                            <span class="timestamp-title">Testing and Avoiding the Big Bang Approach</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="section-group">
-                <div class="section-header">
-                    <div class="section-icon">5</div>
-                    <div class="section-name">Animation &amp; Interactivity</div>
-                </div>
-                <div class="timestamps">
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=6472s" target="_blank" class="timestamp-link">1:47:52</a>
-                        <span class="timestamp-title">Animation Fundamentals in Unity</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=6901s" target="_blank" class="timestamp-link">1:55:01</a>
-                        <span class="timestamp-title">Creating Smooth Animation Loops</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=7623s" target="_blank" class="timestamp-link">2:07:03</a>
-                        <span class="timestamp-title">Animation Controller and State Machine</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=8085s" target="_blank" class="timestamp-link">2:14:45</a>
-                        <span class="timestamp-title">Adding Interactivity with Scripts</span>
-                    </div>
-                    <div class="timestamp-item">
-                        <a href="https://www.youtube.com/watch?v=DCSrT1aV2ec&t=8752s" target="_blank" class="timestamp-link">2:25:52</a>
-                        <span class="timestamp-title">Testing and Avoiding the Big Bang Approach</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="concepts">
-                <h4>Key Concepts</h4>
-                <ul>
-                    <li>Unity uses a component-based architecture: GameObjects + Components</li>
-                    <li>Animation Controller manages state transitions between animation clips</li>
-                    <li>Smooth loops require matching first and last keyframes</li>
-                    <li>Test incrementally ("avoid the big bang") rather than building everything first</li>
-                    <li>Scripts add interactivity by responding to player input and events</li>
-                    <li>Real-time engines render frames continuously, unlike offline rendering</li>
-                </ul>
-            </div>
         </div>
     </div>
 </body>

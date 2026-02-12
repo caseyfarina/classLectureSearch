@@ -15,9 +15,11 @@
         .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
         .week-subtitle { font-size: 1.1rem; color: #10B981; margin-bottom: 10px; font-weight: 500; }
         .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
         .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
         .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
         .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
         .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #10B981; }
         .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
         .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
@@ -59,331 +61,274 @@
         <div class="week-header">
             <div class="week-label">AVC 200 &bull; Spring 2026</div>
             <h1 class="week-title">Week 3</h1>
-            <div class="week-subtitle">Audio, Sprites, Blender Export &amp; C# Scripting</div>
-            <div class="week-dates">February 2 &ndash; 4, 2026</div>
+            <div class="week-dates">February 02 &ndash; 4, 2026</div>
+            
             <div class="week-nav">
                 <a href="AVC200_week02.html">&larr; Week 2</a>
+                <a href="AVC200_week04.html">Week 4 &rarr;</a>
             </div>
         </div>
 
-        <div class="overview">
-            <h2>Week Overview</h2>
-            <p>This week expands the Unity toolkit with audio systems, 2D sprite workflows, and the Blender-to-Unity export pipeline. Monday covers importing sound (WAV vs MP3), audio sources and listeners, 2D sprites from traditional art, sorting layers, image sequence animation, and the Blender Delivery Kit add-on for clean FBX export with materials and normal maps. Wednesday features extensive student project feedback followed by Unity Recorder, animation speed randomization, and an introduction to C# programming covering variables, data types, delta time, and event handling.</p>
-            <div class="key-topics">
-                <span class="topic-tag">Audio Systems</span>
-                <span class="topic-tag">2D Sprites</span>
-                <span class="topic-tag">Blender Export</span>
-                <span class="topic-tag">C# Scripting</span>
-                <span class="topic-tag">Unity Recorder</span>
-                <span class="topic-tag">Normal Maps</span>
-            </div>
-        </div>
-
+        
         <div class="columns">
-            <!-- MONDAY -->
             <div class="day-column">
+                
                 <div class="day-header">
                     <div class="day-label">Monday</div>
-                    <div class="day-date">February 2, 2026</div>
-                    <h2 class="day-title">Audio, Sprites &amp; Blender Export</h2>
-                    <p class="day-summary">Importing audio into Unity, WAV vs MP3 formats, audio sources and 3D sound, 2D sprite workflows from traditional art, sorting layers, and the Blender-to-Unity FBX export pipeline with materials and normal maps.</p>
-                    <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
-                </div>
-
-                <div class="section-group">
-                    <div class="section-header">
-                        <div class="section-icon">1</div>
-                        <div class="section-name">Introduction &amp; Audio Basics</div>
-                    </div>
-                    <div class="timestamps">
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=0s" target="_blank" class="timestamp-link">0:00</a>
-                            <span class="timestamp-title">Introduction and Animation Search Tool</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=158s" target="_blank" class="timestamp-link">2:38</a>
-                            <span class="timestamp-title">Class Overview and Today's Topics</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=350s" target="_blank" class="timestamp-link">5:50</a>
-                            <span class="timestamp-title">Importing Sound into Unity</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=506s" target="_blank" class="timestamp-link">8:26</a>
-                            <span class="timestamp-title">Wave vs MP3 Audio Formats</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section-group">
-                    <div class="section-header">
-                        <div class="section-icon">2</div>
-                        <div class="section-name">Audio Systems in Unity</div>
-                    </div>
-                    <div class="timestamps">
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=742s" target="_blank" class="timestamp-link">12:22</a>
-                            <span class="timestamp-title">Adding Audio Sources and Events</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=1523s" target="_blank" class="timestamp-link">25:23</a>
-                            <span class="timestamp-title">Audio Listener and 3D Sound</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=1892s" target="_blank" class="timestamp-link">31:32</a>
-                            <span class="timestamp-title">Background Music and Ambience</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section-group">
-                    <div class="section-header">
-                        <div class="section-icon">3</div>
-                        <div class="section-name">2D Sprites &amp; Traditional Art</div>
-                    </div>
-                    <div class="timestamps">
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=2502s" target="_blank" class="timestamp-link">41:42</a>
-                            <span class="timestamp-title">Importing 2D Sprites and PNGs</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=2881s" target="_blank" class="timestamp-link">48:01</a>
-                            <span class="timestamp-title">Sprite Editor and Asset Settings</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=3149s" target="_blank" class="timestamp-link">52:29</a>
-                            <span class="timestamp-title">Converting Traditional Art to Sprites</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=4023s" target="_blank" class="timestamp-link">1:07:03</a>
-                            <span class="timestamp-title">Sprite Sorting Layers Setup</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=4692s" target="_blank" class="timestamp-link">1:18:12</a>
-                            <span class="timestamp-title">Image Sequences and Animation</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section-group">
-                    <div class="section-header">
-                        <div class="section-icon">4</div>
-                        <div class="section-name">Blender to Unity Pipeline</div>
-                    </div>
-                    <div class="timestamps">
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=5344s" target="_blank" class="timestamp-link">1:29:04</a>
-                            <span class="timestamp-title">Unity Workflow Philosophy</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=5402s" target="_blank" class="timestamp-link">1:30:02</a>
-                            <span class="timestamp-title">Blender to Unity Export Process</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=5763s" target="_blank" class="timestamp-link">1:36:03</a>
-                            <span class="timestamp-title">Installing Delivery Kit Add-on</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=6068s" target="_blank" class="timestamp-link">1:41:08</a>
-                            <span class="timestamp-title">Anchor Points and Scale Factors</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=6770s" target="_blank" class="timestamp-link">1:52:50</a>
-                            <span class="timestamp-title">Materials and Texture Basics</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=7200s" target="_blank" class="timestamp-link">2:00:00</a>
-                            <span class="timestamp-title">Normal Maps and Shader Channels</span>
-                        </div>
-                        <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=7997s" target="_blank" class="timestamp-link">2:13:17</a>
-                            <span class="timestamp-title">Project Workflow Summary</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="concepts">
-                    <h4>Key Concepts</h4>
-                    <ul>
-                        <li>WAV is lossless (larger files); MP3 is compressed (smaller, slight quality loss)</li>
-                        <li>Audio Source plays sound; Audio Listener (on camera) receives it</li>
-                        <li>3D sound uses distance falloff; 2D sound plays at constant volume</li>
-                        <li>Sorting layers control draw order for 2D sprites in 3D space</li>
-                        <li>Blender Delivery Kit ensures clean FBX export with proper scale and origin</li>
-                        <li>Normal maps add surface detail without extra geometry</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- WEDNESDAY -->
-            <div class="day-column">
-                <div class="day-header">
-                    <div class="day-label">Wednesday</div>
-                    <div class="day-date">February 4, 2026</div>
-                    <h2 class="day-title">Student Feedback &amp; C# Introduction</h2>
-                    <p class="day-summary">Extensive student project critiques covering animation, sound, and interactivity, followed by Unity Recorder setup, animation speed randomization, and a first look at C# scripting with variables, data types, delta time, and mouse click events.</p>
+                    <div class="day-date">February 02, 2026</div>
+                    <h2 class="day-title">Class Overview and Today&#x27;s Topics</h2>
+                    <p class="day-summary">Introduction and Animation Search Tool, Class Overview and Today&#x27;s Topics, Importing Sound into Unity...</p>
                     <a href="https://www.youtube.com/watch?v=OJ6xosh00fY" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
                 </div>
 
                 <div class="section-group">
                     <div class="section-header">
                         <div class="section-icon">1</div>
-                        <div class="section-name">Student Project Feedback</div>
-                        <span class="section-count">16 projects</span>
+                        <div class="section-name">Lecture Content</div>
+                        <span class="section-count">19 chapters</span>
                     </div>
                     <div class="timestamps">
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=0s" target="_blank" class="timestamp-link">0:00</a>
-                            <span class="timestamp-title">Introduction and Setup</span>
+                            <span class="timestamp-title">Introduction and Animation Search Tool</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=153s" target="_blank" class="timestamp-link">2:33</a>
-                            <span class="timestamp-title">Student Feedback: Unity Project Demo</span>
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=158s" target="_blank" class="timestamp-link">2:38</a>
+                            <span class="timestamp-title">Class Overview and Today&#x27;s Topics</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=420s" target="_blank" class="timestamp-link">7:00</a>
-                            <span class="timestamp-title">Student Feedback: Animation and Lighting Issues</span>
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=350s" target="_blank" class="timestamp-link">5:50</a>
+                            <span class="timestamp-title">Importing Sound into Unity</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=840s" target="_blank" class="timestamp-link">14:00</a>
-                            <span class="timestamp-title">Student Feedback: Script Component Issues</span>
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=506s" target="_blank" class="timestamp-link">8:26</a>
+                            <span class="timestamp-title">Wave vs MP3 Audio Formats</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=1326s" target="_blank" class="timestamp-link">22:06</a>
-                            <span class="timestamp-title">Student Feedback: Animation and Sound Effects</span>
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=742s" target="_blank" class="timestamp-link">12:22</a>
+                            <span class="timestamp-title">Adding Audio Sources and Events</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=1630s" target="_blank" class="timestamp-link">27:10</a>
-                            <span class="timestamp-title">Student Feedback: Complex Scene Design</span>
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=1523s" target="_blank" class="timestamp-link">25:23</a>
+                            <span class="timestamp-title">Audio Listener and 3D Sound</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=1920s" target="_blank" class="timestamp-link">32:00</a>
-                            <span class="timestamp-title">Student Feedback: Animation Curves Discussion</span>
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=1892s" target="_blank" class="timestamp-link">31:32</a>
+                            <span class="timestamp-title">Background Music and Ambience</span>
                         </div>
                         <div class="timestamp-item">
                             <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=2502s" target="_blank" class="timestamp-link">41:42</a>
+                            <span class="timestamp-title">Importing 2D Sprites and PNGs</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=2881s" target="_blank" class="timestamp-link">48:01</a>
+                            <span class="timestamp-title">Sprite Editor and Asset Settings</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=3149s" target="_blank" class="timestamp-link">52:29</a>
+                            <span class="timestamp-title">Converting Traditional Art to Sprites</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=4023s" target="_blank" class="timestamp-link">1:07:03</a>
+                            <span class="timestamp-title">Sprite Sorting Layers Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=4692s" target="_blank" class="timestamp-link">1:18:12</a>
+                            <span class="timestamp-title">Image Sequences and Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=5344s" target="_blank" class="timestamp-link">1:29:04</a>
+                            <span class="timestamp-title">Unity Workflow Philosophy</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=5402s" target="_blank" class="timestamp-link">1:30:02</a>
+                            <span class="timestamp-title">Blender to Unity Export Process</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=5763s" target="_blank" class="timestamp-link">1:36:03</a>
+                            <span class="timestamp-title">Installing Delivery Kit Add-on</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=6068s" target="_blank" class="timestamp-link">1:41:08</a>
+                            <span class="timestamp-title">Anchor Points and Scale Factors</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=6770s" target="_blank" class="timestamp-link">1:52:50</a>
+                            <span class="timestamp-title">Materials and Texture Basics</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=7200s" target="_blank" class="timestamp-link">2:00:00</a>
+                            <span class="timestamp-title">Normal Maps and Shader Channels</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=7997s" target="_blank" class="timestamp-link">2:13:17</a>
+                            <span class="timestamp-title">Project Workflow Summary</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">February 04, 2026</div>
+                    <h2 class="day-title">Student Feedback: Unity Project Demo</h2>
+                    <p class="day-summary">Introduction and Setup, Student Feedback: Unity Project Demo, Student Feedback: Animation and Lighting Issues...</p>
+                    <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Lecture Content</div>
+                        <span class="section-count">36 chapters</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=153s" target="_blank" class="timestamp-link">2:33</a>
+                            <span class="timestamp-title">Student Feedback: Unity Project Demo</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=420s" target="_blank" class="timestamp-link">7:00</a>
+                            <span class="timestamp-title">Student Feedback: Animation and Lighting Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=607s" target="_blank" class="timestamp-link">10:07</a>
+                            <span class="timestamp-title">Student Feedback: Interactive Scene Elements</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=733s" target="_blank" class="timestamp-link">12:13</a>
+                            <span class="timestamp-title">Student Feedback: Animation Troubleshooting</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=840s" target="_blank" class="timestamp-link">14:00</a>
+                            <span class="timestamp-title">Student Feedback: Script Component Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=1058s" target="_blank" class="timestamp-link">17:38</a>
+                            <span class="timestamp-title">Time Management and Unity Challenges</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=1154s" target="_blank" class="timestamp-link">19:14</a>
+                            <span class="timestamp-title">Student Feedback: Spinning Objects Demo</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=1326s" target="_blank" class="timestamp-link">22:06</a>
+                            <span class="timestamp-title">Student Feedback: Animation and Sound Effects</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=1440s" target="_blank" class="timestamp-link">24:00</a>
+                            <span class="timestamp-title">Student Feedback: Interactive Dog Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=1630s" target="_blank" class="timestamp-link">27:10</a>
+                            <span class="timestamp-title">Student Feedback: Complex Scene Design</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=1920s" target="_blank" class="timestamp-link">32:00</a>
+                            <span class="timestamp-title">Student Feedback: Animation Curves Discussion</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=2220s" target="_blank" class="timestamp-link">37:00</a>
+                            <span class="timestamp-title">Student Feedback: Performance Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=2502s" target="_blank" class="timestamp-link">41:42</a>
                             <span class="timestamp-title">Student Feedback: Interactive Ball Game</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=2870s" target="_blank" class="timestamp-link">47:50</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=2870s" target="_blank" class="timestamp-link">47:50</a>
                             <span class="timestamp-title">Student Feedback: Color-Coded Spawning System</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=3249s" target="_blank" class="timestamp-link">54:09</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=2992s" target="_blank" class="timestamp-link">49:52</a>
+                            <span class="timestamp-title">Student Feedback: Bouncing Ball Mechanics</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=3164s" target="_blank" class="timestamp-link">52:44</a>
+                            <span class="timestamp-title">Student Feedback: Prefab Animation Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=3249s" target="_blank" class="timestamp-link">54:09</a>
                             <span class="timestamp-title">Student Feedback: Requirements Demonstration</span>
                         </div>
-                    </div>
-                </div>
-
-                <div class="section-group">
-                    <div class="section-header">
-                        <div class="section-icon">2</div>
-                        <div class="section-name">Unity Recorder &amp; Animation Tools</div>
-                    </div>
-                    <div class="timestamps">
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=3392s" target="_blank" class="timestamp-link">56:32</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=3392s" target="_blank" class="timestamp-link">56:32</a>
                             <span class="timestamp-title">Unity Recorder Package Installation</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=3600s" target="_blank" class="timestamp-link">1:00:00</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=3600s" target="_blank" class="timestamp-link">1:00:00</a>
                             <span class="timestamp-title">Recording Movies from Unity</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=3842s" target="_blank" class="timestamp-link">1:04:02</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=3842s" target="_blank" class="timestamp-link">1:04:02</a>
                             <span class="timestamp-title">Package Manager and Asset Store</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=4005s" target="_blank" class="timestamp-link">1:06:45</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=4005s" target="_blank" class="timestamp-link">1:06:45</a>
                             <span class="timestamp-title">Animation Speed Randomization Script</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=4265s" target="_blank" class="timestamp-link">1:11:05</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=4265s" target="_blank" class="timestamp-link">1:11:05</a>
                             <span class="timestamp-title">Creating Randomized Prefab Animations</span>
                         </div>
-                    </div>
-                </div>
-
-                <div class="section-group">
-                    <div class="section-header">
-                        <div class="section-icon">3</div>
-                        <div class="section-name">C# Scripting Fundamentals</div>
-                    </div>
-                    <div class="timestamps">
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=4747s" target="_blank" class="timestamp-link">1:19:07</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=4747s" target="_blank" class="timestamp-link">1:19:07</a>
                             <span class="timestamp-title">Introduction to C# Scripting</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=5016s" target="_blank" class="timestamp-link">1:23:36</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=5016s" target="_blank" class="timestamp-link">1:23:36</a>
                             <span class="timestamp-title">Variables and Functions Explained</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=5409s" target="_blank" class="timestamp-link">1:30:09</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=5409s" target="_blank" class="timestamp-link">1:30:09</a>
                             <span class="timestamp-title">Data Types: Integers vs Floats</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=5529s" target="_blank" class="timestamp-link">1:32:09</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=5529s" target="_blank" class="timestamp-link">1:32:09</a>
                             <span class="timestamp-title">Script Structure and Comments</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=5802s" target="_blank" class="timestamp-link">1:36:42</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=5802s" target="_blank" class="timestamp-link">1:36:42</a>
                             <span class="timestamp-title">Code Compilation and Error Handling</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=5928s" target="_blank" class="timestamp-link">1:38:48</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=5928s" target="_blank" class="timestamp-link">1:38:48</a>
                             <span class="timestamp-title">Time Destroy Script Analysis</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=6159s" target="_blank" class="timestamp-link">1:42:39</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=6159s" target="_blank" class="timestamp-link">1:42:39</a>
                             <span class="timestamp-title">Delta Time and Frame Rate</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=6327s" target="_blank" class="timestamp-link">1:45:27</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=6327s" target="_blank" class="timestamp-link">1:45:27</a>
                             <span class="timestamp-title">Mouse Click and Unity Events</span>
                         </div>
-                    </div>
-                </div>
-
-                <div class="section-group">
-                    <div class="section-header">
-                        <div class="section-icon">4</div>
-                        <div class="section-name">Week 3 Assignment</div>
-                    </div>
-                    <div class="timestamps">
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=6440s" target="_blank" class="timestamp-link">1:47:20</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=6440s" target="_blank" class="timestamp-link">1:47:20</a>
                             <span class="timestamp-title">Week 3 Assignment: Interactive Art Project</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=6840s" target="_blank" class="timestamp-link">1:54:00</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=6840s" target="_blank" class="timestamp-link">1:54:00</a>
                             <span class="timestamp-title">Working with Personal Artwork</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=7004s" target="_blank" class="timestamp-link">1:56:44</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=7004s" target="_blank" class="timestamp-link">1:56:44</a>
                             <span class="timestamp-title">File Formats and Workflow Tips</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=7141s" target="_blank" class="timestamp-link">1:59:01</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=7141s" target="_blank" class="timestamp-link">1:59:01</a>
                             <span class="timestamp-title">Copyright and Music Guidelines</span>
                         </div>
                         <div class="timestamp-item">
-                            <a href="https://www.youtube.com/watch?v=OJ6xosh00fY&t=7320s" target="_blank" class="timestamp-link">2:02:00</a>
+                            <a href="https://www.youtube.com/watch?v=s-EPLO_rokQ&t=7320s" target="_blank" class="timestamp-link">2:02:00</a>
                             <span class="timestamp-title">Assignment Wrap-up and Q&amp;A</span>
                         </div>
                     </div>
-                </div>
-
-                <div class="concepts">
-                    <h4>Key Concepts</h4>
-                    <ul>
-                        <li>Unity Recorder captures gameplay as video without external screen recording</li>
-                        <li>Randomized animation speed creates natural variation in repeated prefabs</li>
-                        <li>C# variables store data; functions perform actions on that data</li>
-                        <li>Integers are whole numbers; floats handle decimals (important for Unity math)</li>
-                        <li>Time.deltaTime makes movement frame-rate independent</li>
-                        <li>Unity Events connect mouse clicks and input to game object behaviors</li>
-                    </ul>
                 </div>
             </div>
         </div>

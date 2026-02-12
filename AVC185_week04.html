@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 185 - Week 4 - Spring 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #D904A0; margin-bottom: 10px; font-weight: 500; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #D904A0; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #D904A0; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #D904A0; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #D904A0; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #D904A0; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #D904A0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 185 &bull; Spring 2026</div>
+            <h1 class="week-title">Week 4</h1>
+            <div class="week-subtitle">Advanced Modifiers and Curve Modeling &amp; Geometry Refinement &amp; Animation Basics</div>
+            <div class="week-dates">February 09 &ndash; 11, 2026</div>
+            
+            <div class="week-nav">
+                <a href="AVC185_week03.html">&larr; Week 3</a>
+                <a href="AVC185_week05.html">Week 5 &rarr;</a>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>Monday covers this lecture covers essential 3D modeling modifiers including bevel, mirror, and subdivision surface, along with curve-based modeling techniques. Students learn the difference between procedural modifiers and destructive tools, and how to create convincing geometry with proper edge flow. Wednesday focuses on this lecture focused on refining 3D models through beveling and subdivision techniques, reviewing student projects with feedback on normals and geometry, and introducing camera animation for turnaround renders.</p>
+            <div class="key-topics">
+                <span class="topic-tag">Bevel Modifier</span>
+                <span class="topic-tag">Mirror Modifier</span>
+                <span class="topic-tag">Subdivision Surface</span>
+                <span class="topic-tag">Curve Modeling</span>
+                <span class="topic-tag">Hard Surface</span>
+                <span class="topic-tag">Boolean Operations</span>
+                <span class="topic-tag">Beveling</span>
+                <span class="topic-tag">Subdivision</span>
+                <span class="topic-tag">Animation</span>
+                <span class="topic-tag">Normals</span>
+                <span class="topic-tag">Rendering</span>
+                <span class="topic-tag">Geometry</span>
+            </div>
+        </div>
+
+        
+        <div class="columns">
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">February 09, 2026</div>
+                    <h2 class="day-title">Advanced Modifiers and Curve Modeling</h2>
+                    <p class="day-summary">This lecture covers essential 3D modeling modifiers including bevel, mirror, and subdivision surface, along with curve-based modeling techniques. Students learn the difference between procedural modifiers and destructive tools, and how to create convincing geometry with proper edge flow.</p>
+                    <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Modifier Fundamentals</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=131s" target="_blank" class="timestamp-link">2:11</a>
+                            <span class="timestamp-title">Modifiers vs Tools Overview</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=482s" target="_blank" class="timestamp-link">8:02</a>
+                            <span class="timestamp-title">Setting Default Startup File</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Bevel Techniques</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=583s" target="_blank" class="timestamp-link">9:43</a>
+                            <span class="timestamp-title">Bevel Modifier Introduction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=954s" target="_blank" class="timestamp-link">15:54</a>
+                            <span class="timestamp-title">Bevel Demonstration and Examples</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=1402s" target="_blank" class="timestamp-link">23:22</a>
+                            <span class="timestamp-title">Bevel Parameters and Settings</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=2016s" target="_blank" class="timestamp-link">33:36</a>
+                            <span class="timestamp-title">Bevel Tool vs Modifier</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=2400s" target="_blank" class="timestamp-link">40:00</a>
+                            <span class="timestamp-title">Hard Surface Modeling Workflow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Mirror and Subdivision</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=3926s" target="_blank" class="timestamp-link">1:05:26</a>
+                            <span class="timestamp-title">Mirror Modifier Fundamentals</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=4445s" target="_blank" class="timestamp-link">1:14:05</a>
+                            <span class="timestamp-title">Mirror Modifier Advanced Settings</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=4805s" target="_blank" class="timestamp-link">1:20:05</a>
+                            <span class="timestamp-title">Subdivision Surface vs Bevel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Curve Modeling</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=5676s" target="_blank" class="timestamp-link">1:34:36</a>
+                            <span class="timestamp-title">Curves and Bezier Introduction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=6156s" target="_blank" class="timestamp-link">1:42:36</a>
+                            <span class="timestamp-title">Drawing Curves in 3D Space</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=6663s" target="_blank" class="timestamp-link">1:51:03</a>
+                            <span class="timestamp-title">Curve to Tube Modifier</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=7517s" target="_blank" class="timestamp-link">2:05:17</a>
+                            <span class="timestamp-title">Pen Tool and Precise Curves</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Boolean Operations</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=FnbPV3Bm6FA&t=8414s" target="_blank" class="timestamp-link">2:20:14</a>
+                            <span class="timestamp-title">Boolean Modifier Introduction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Modifiers are procedural and adjustable, tools are destructive but direct</li>
+                        <li>Beveled edges create specular highlights for more convincing lighting</li>
+                        <li>Mirror modifier requires proper origin placement and bisect settings</li>
+                        <li>Subdivision surface and bevel are either-or strategies for smooth edges</li>
+                        <li>Curves should be drawn in orthographic view for precision</li>
+                        <li>Boolean operations require manifold geometry to function properly</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">February 11, 2026</div>
+                    <h2 class="day-title">Geometry Refinement &amp; Animation Basics</h2>
+                    <p class="day-summary">This lecture focused on refining 3D models through beveling and subdivision techniques, reviewing student projects with feedback on normals and geometry, and introducing camera animation for turnaround renders.</p>
+                    <a href="https://www.youtube.com/watch?v=PVVqvC9ZpzM" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Setup and Introduction</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=PVVqvC9ZpzM&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Setup</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Student Project Reviews</div>
+                        <span class="section-count">14 projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=PVVqvC9ZpzM&t=95s" target="_blank" class="timestamp-link">1:35</a>
+                            <span class="timestamp-title">Student Feedback: Outdoor Scenes</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=PVVqvC9ZpzM&t=1432s" target="_blank" class="timestamp-link">23:52</a>
+                            <span class="timestamp-title">Student Feedback: Indoor Scenes</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=PVVqvC9ZpzM&t=3430s" target="_blank" class="timestamp-link">57:10</a>
+                            <span class="timestamp-title">Student Feedback: Advanced Projects</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Advanced Modeling Techniques</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=PVVqvC9ZpzM&t=7014s" target="_blank" class="timestamp-link">1:56:54</a>
+                            <span class="timestamp-title">Better Log Creation Tutorial</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=PVVqvC9ZpzM&t=7965s" target="_blank" class="timestamp-link">2:12:45</a>
+                            <span class="timestamp-title">Improved Tree Building Techniques</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=PVVqvC9ZpzM&t=8570s" target="_blank" class="timestamp-link">2:22:50</a>
+                            <span class="timestamp-title">Furniture Beveling and Rounding</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Animation and Final Steps</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=PVVqvC9ZpzM&t=8755s" target="_blank" class="timestamp-link">2:25:55</a>
+                            <span class="timestamp-title">Camera Animation and Movie Rendering</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=PVVqvC9ZpzM&t=9212s" target="_blank" class="timestamp-link">2:33:32</a>
+                            <span class="timestamp-title">Assignment Overview and Resources</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Bevel modifier creates rounded edges on hard-surface objects</li>
+                        <li>Subdivision surface modifier smooths organic shapes but requires good topology</li>
+                        <li>Normal orientation determines face visibility and affects rendering</li>
+                        <li>Back face culling settings differ between viewport and render</li>
+                        <li>Camera rotation around empty objects creates turnaround animations</li>
+                        <li>Procedural techniques allow non-destructive editing of complex geometry</li>
+                        <li>Apply scale before using modifiers to ensure consistent results</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

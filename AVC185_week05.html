@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 185 - Week 5 - Spring 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #D904A0; margin-bottom: 10px; font-weight: 500; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #D904A0; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #D904A0; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #D904A0; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #D904A0; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #D904A0; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #D904A0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 185 &bull; Spring 2026</div>
+            <h1 class="week-title">Week 5</h1>
+            <div class="week-subtitle">Boolean Tools &amp; Hard Surface Modeling</div>
+            <div class="week-dates">February 18, 2026</div>
+            <div class="week-note">Monday was a holiday &ndash; No class</div>
+            <div class="week-nav">
+                <a href="AVC185_week04.html">&larr; Week 4</a>
+                <a href="AVC185_week06.html">Week 6 &rarr;</a>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>This lecture covers Boolean operations for hard surface modeling, including the Bull Tool add-on, topology considerations, and combining Boolean workflows with other modifiers. Students learn to create architectural forms using subtractive modeling techniques.</p>
+            <div class="key-topics">
+                <span class="topic-tag">Boolean</span>
+                <span class="topic-tag">Bull Tool</span>
+                <span class="topic-tag">Hard Surface</span>
+                <span class="topic-tag">Topology</span>
+                <span class="topic-tag">Architecture</span>
+                <span class="topic-tag">Modifiers</span>
+            </div>
+        </div>
+
+        
+        <div class="day-column">
+            
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">February 18, 2026</div>
+                    <h2 class="day-title">Boolean Tools &amp; Hard Surface Modeling</h2>
+                    <p class="day-summary">This lecture covers Boolean operations for hard surface modeling, including the Bull Tool add-on, topology considerations, and combining Boolean workflows with other modifiers. Students learn to create architectural forms using subtractive modeling techniques.</p>
+                    <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Boolean Fundamentals</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Schedule Changes</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=240s" target="_blank" class="timestamp-link">4:00</a>
+                            <span class="timestamp-title">Boolean Tools Overview and Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=383s" target="_blank" class="timestamp-link">6:23</a>
+                            <span class="timestamp-title">Boolean Logic and Venn Diagrams</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=508s" target="_blank" class="timestamp-link">8:28</a>
+                            <span class="timestamp-title">Boolean Workflow Principles</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=797s" target="_blank" class="timestamp-link">13:17</a>
+                            <span class="timestamp-title">Topology and Output Considerations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Technical Considerations</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=1079s" target="_blank" class="timestamp-link">17:59</a>
+                            <span class="timestamp-title">Bevel and SubD Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=1228s" target="_blank" class="timestamp-link">20:28</a>
+                            <span class="timestamp-title">Apply Scale Importance</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=1522s" target="_blank" class="timestamp-link">25:22</a>
+                            <span class="timestamp-title">Basic Boolean Subtraction Shortcuts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Bull Tool Operations</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=1734s" target="_blank" class="timestamp-link">28:54</a>
+                            <span class="timestamp-title">Bull Tool Interface</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=2389s" target="_blank" class="timestamp-link">39:49</a>
+                            <span class="timestamp-title">Topology Following Shape Principle</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=2807s" target="_blank" class="timestamp-link">46:47</a>
+                            <span class="timestamp-title">Destructive vs Procedural Workflows</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=3003s" target="_blank" class="timestamp-link">50:03</a>
+                            <span class="timestamp-title">Bull Tool Advanced Features</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=3544s" target="_blank" class="timestamp-link">59:04</a>
+                            <span class="timestamp-title">Modifier Stack and Application</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=4108s" target="_blank" class="timestamp-link">1:08:28</a>
+                            <span class="timestamp-title">Surface Alignment Options</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Advanced Techniques</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=4959s" target="_blank" class="timestamp-link">1:22:39</a>
+                            <span class="timestamp-title">Building Complex Architecture</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=6242s" target="_blank" class="timestamp-link">1:44:02</a>
+                            <span class="timestamp-title">Combining Tools and Techniques</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=6673s" target="_blank" class="timestamp-link">1:51:13</a>
+                            <span class="timestamp-title">Curves and Custom Profiles</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=7627s" target="_blank" class="timestamp-link">2:07:07</a>
+                            <span class="timestamp-title">Subdivision Surface Spires</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Scene and Rendering</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=8218s" target="_blank" class="timestamp-link">2:16:58</a>
+                            <span class="timestamp-title">Scene Setup and Rendering</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=MFN9K5a1NS0&t=8526s" target="_blank" class="timestamp-link">2:22:06</a>
+                            <span class="timestamp-title">Lighting and Volumetric Effects</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Boolean operations work best with planar surfaces and clean topology</li>
+                        <li>Topology should follow the shape for optimal results</li>
+                        <li>Apply scale before using modifiers to avoid inconsistent behavior</li>
+                        <li>Destructive workflow is simpler than procedural for basic cuts</li>
+                        <li>Boolean tools excel at hard surface modeling, not organic shapes</li>
+                        <li>Bevel modifier should remain unapplied for continued editability</li>
+                        <li>Surface alignment and cut orientation greatly affect results</li>
+                        <li>Combine Boolean with other modifiers for complex architectural forms</li>
+                    </ul>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

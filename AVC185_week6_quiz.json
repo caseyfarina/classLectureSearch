@@ -1,0 +1,144 @@
+{
+  "course": "AVC 185",
+  "week": 6,
+  "title": "Materials & Textures",
+  "pass_threshold": 0.8,
+  "sets_per_quiz": 3,
+  "sets": [
+    {
+      "id": "pbr-channels",
+      "title": "PBR Channel Roles",
+      "instruction": "Match each Principled BSDF input to what it controls",
+      "pairs": [
+        {
+          "term": "Base Color",
+          "def": "Defines the surface's visible color and pattern — connect an sRGB Image Texture here",
+          "visual": null
+        },
+        {
+          "term": "Roughness",
+          "def": "Controls how matte or glossy the surface appears — 0 is a mirror, 1 is chalk",
+          "visual": null
+        },
+        {
+          "term": "Metallic",
+          "def": "Switches the surface between metallic reflection (1) and non-metallic (0) — usually a binary value",
+          "visual": null
+        },
+        {
+          "term": "Normal",
+          "def": "Simulates surface bumps and grooves by changing how light strikes the mesh — no extra geometry needed",
+          "visual": null
+        }
+      ]
+    },
+    {
+      "id": "map-types",
+      "title": "Map Types",
+      "instruction": "Match each map type to how it creates surface detail",
+      "pairs": [
+        {
+          "term": "Bump Map",
+          "def": "Grayscale height values — fakes depth using light and shadow only, no real geometry changes",
+          "visual": "bump-map"
+        },
+        {
+          "term": "Normal Map",
+          "def": "Stores surface angle direction as RGB data — dense detail with zero extra polygons",
+          "visual": "normal-map"
+        },
+        {
+          "term": "Displacement Map",
+          "def": "Actually pushes and pulls mesh vertices — real geometric depth, requires Subdivision Surface modifier",
+          "visual": "displacement-map"
+        },
+        {
+          "term": "Roughness Map",
+          "def": "Per-pixel gloss control — dark (0) is smooth and mirror-like, light (1) is rough and matte",
+          "visual": "roughness-map"
+        }
+      ]
+    },
+    {
+      "id": "color-spaces",
+      "title": "Color Spaces",
+      "instruction": "Match each texture type to its correct color space setting in Blender",
+      "pairs": [
+        {
+          "term": "Base Color / Albedo texture",
+          "def": "sRGB — stores perceptual color data the way human eyes see it; needed for correct color appearance",
+          "visual": null
+        },
+        {
+          "term": "Roughness texture",
+          "def": "Non-Color — raw linear data; wrong setting makes surfaces look muddy and incorrect",
+          "visual": null
+        },
+        {
+          "term": "Normal Map texture",
+          "def": "Non-Color — angle data encoded linearly; gamma correction would corrupt the surface normals",
+          "visual": null
+        },
+        {
+          "term": "Metallic texture",
+          "def": "Non-Color — binary mask (0 or 1); no perceptual color interpretation needed",
+          "visual": null
+        }
+      ]
+    },
+    {
+      "id": "node-setup",
+      "title": "Node Connections",
+      "instruction": "Match each node or setup to its purpose in the Shader Editor",
+      "pairs": [
+        {
+          "term": "Normal Map node",
+          "def": "Required between a normal map Image Texture and the Normal input — decodes the RGB angle data correctly",
+          "visual": null
+        },
+        {
+          "term": "Bump node",
+          "def": "Converts a grayscale height map into normal direction data compatible with the Normal input",
+          "visual": null
+        },
+        {
+          "term": "Image Texture set to Non-Color",
+          "def": "Correct color space for roughness, metallic, and normal map data textures — do not use sRGB for these",
+          "visual": null
+        },
+        {
+          "term": "Subdivision Surface + Displacement enabled",
+          "def": "Required pair for displacement maps to work — subdivision provides the extra vertices the map pushes",
+          "visual": null
+        }
+      ]
+    },
+    {
+      "id": "workflow",
+      "title": "Workflow & Tools",
+      "instruction": "Match each action or tool to its role in the materials workflow",
+      "pairs": [
+        {
+          "term": "File → External Data → Pack Resources",
+          "def": "Embeds all linked textures inside the .blend file — critical step before uploading to Canvas",
+          "visual": null
+        },
+        {
+          "term": "polyhaven.com",
+          "def": "Free CC0 PBR texture library — each download includes albedo, roughness, normal, and displacement maps",
+          "visual": null
+        },
+        {
+          "term": "Principled BSDF shader",
+          "def": "Blender's main physically-based shader — consolidates all PBR channels (color, roughness, metallic, normal) in one node",
+          "visual": null
+        },
+        {
+          "term": "Moving a texture file after linking it",
+          "def": "Breaks the material — Blender stores file paths, not the files themselves; moved files cause missing texture errors",
+          "visual": null
+        }
+      ]
+    }
+  ]
+}

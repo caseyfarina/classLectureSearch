@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz — Animation Lecture Search</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Urbanist', -apple-system, sans-serif;
+      background: #0a0e1a;
+      color: #f1f5f9;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid #1e293b;
+    }
+    header a { color: #64748b; text-decoration: none; font-size: 13px; }
+    header a:hover { color: #f1f5f9; }
+    .hdr-title { font-size: 15px; font-weight: 700; flex: 1; }
+    .course-chip {
+      padding: 3px 11px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    main { max-width: 880px; margin: 0 auto; padding: 36px 20px 100px; }
+
+    /* ── Quiz header ── */
+    .quiz-meta { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #475569; margin-bottom: 6px; }
+    .quiz-title { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .quiz-sub { font-size: 14px; color: #64748b; margin-bottom: 28px; }
+
+    /* ── Progress ── */
+    .progress-row { display: flex; align-items: center; gap: 12px; margin-bottom: 36px; }
+    .progress-bar { flex: 1; height: 5px; background: #1e293b; border-radius: 3px; }
+    .progress-fill { height: 100%; border-radius: 3px; transition: width 0.25s ease; background: var(--accent, #6366f1); }
+    .progress-label { font-size: 13px; color: #475569; white-space: nowrap; min-width: 90px; text-align: right; }
+
+    /* ── Set card ── */
+    .set-card {
+      background: #111827;
+      border: 1.5px solid #1e293b;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .set-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent, #6366f1); margin-bottom: 4px; }
+    .set-instruction { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+    .set-hint { font-size: 12px; color: #475569; margin-bottom: 20px; }
+
+    /* ── Match grid ── */
+    .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 560px) { .match-grid { grid-template-columns: 1fr; } }
+    .match-col { display: flex; flex-direction: column; gap: 6px; }
+    .col-lbl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #334155; margin-bottom: 3px; padding-left: 2px; }
+
+    /* ── Cards ── */
+    .term-card, .def-card {
+      padding: 11px 13px;
+      border-radius: 9px;
+      border: 1.5px solid #1e293b;
+      cursor: pointer;
+      font-size: 13.5px;
+      line-height: 1.45;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 50px;
+      position: relative;
+      transition: border-color 0.1s, background 0.1s;
+      user-select: none;
+      background: #0a0e1a;
+    }
+    .term-card { font-weight: 600; }
+    .def-card { color: #94a3b8; }
+
+    .term-card:hover:not(.is-matched):not(.is-selected),
+    .def-card:hover:not(.is-matched) {
+      border-color: var(--accent, #6366f1);
+    }
+
+    .term-card.is-selected {
+      border-color: var(--accent, #6366f1);
+      background: #0e0b1f;
+      box-shadow: 0 0 0 2px rgba(99,102,241,0.25);
+    }
+
+    /* Matched pair colors */
+    .mc0.is-matched { border-color: #3b82f6; background: #061830; }
+    .mc1.is-matched { border-color: #22c55e; background: #041a0e; }
+    .mc2.is-matched { border-color: #f59e0b; background: #1a1000; }
+    .mc3.is-matched { border-color: #e879f9; background: #180820; }
+
+    /* Result states */
+    .r-correct { border-color: #22c55e !important; background: #041a0e !important; }
+    .r-wrong   { border-color: #ef4444 !important; background: #1a0404 !important; }
+
+    /* Pair badge */
+    .pair-badge {
+      width: 20px; height: 20px; border-radius: 50%;
+      font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .pb0 { background: #3b82f6; color: #fff; }
+    .pb1 { background: #22c55e; color: #fff; }
+    .pb2 { background: #f59e0b; color: #111; }
+    .pb3 { background: #e879f9; color: #111; }
+
+    .result-icon { margin-left: auto; font-size: 15px; flex-shrink: 0; }
+
+    /* ── Submit row ── */
+    .submit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid #1e293b;
+      gap: 12px;
+    }
+    .submit-hint { font-size: 13px; color: #475569; }
+
+    /* ── Buttons ── */
+    .btn {
+      padding: 11px 26px;
+      border-radius: 99px;
+      border: none;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: filter 0.12s, transform 0.12s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-primary { background: var(--accent, #6366f1); color: #fff; }
+    .btn-primary:hover:not(:disabled) { filter: brightness(1.15); transform: translateY(-1px); }
+    .btn-primary:disabled { opacity: 0.3; cursor: not-allowed; transform: none; filter: none; }
+    .btn-ghost { background: transparent; color: #94a3b8; border: 1.5px solid #1e293b; }
+    .btn-ghost:hover { border-color: #475569; color: #f1f5f9; }
+
+    /* ── Pass / Fail overlay ── */
+    #result-screen {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #060a12;
+      z-index: 200;
+      overflow-y: auto;
+    }
+    #result-screen.show { display: flex; flex-direction: column; }
+
+    .result-inner {
+      max-width: 580px;
+      margin: auto;
+      padding: 64px 28px 48px;
+      text-align: center;
+    }
+
+    .result-icon-big { font-size: 64px; line-height: 1; margin-bottom: 12px; }
+
+    .result-status {
+      font-size: 44px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+    .result-status.pass { color: #22c55e; }
+    .result-status.fail { color: #ef4444; }
+
+    .result-course-line {
+      font-size: 13px;
+      color: #475569;
+      letter-spacing: 0.5px;
+      margin-bottom: 32px;
+    }
+
+    .score-card {
+      background: #111827;
+      border-radius: 16px;
+      padding: 28px 36px;
+      display: inline-block;
+      min-width: 240px;
+      margin-bottom: 16px;
+      border: 1.5px solid #1e293b;
+    }
+    .score-pct { font-size: 56px; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+    .score-pct.pass { color: #22c55e; }
+    .score-pct.fail { color: #ef4444; }
+    .score-detail { font-size: 14px; color: #64748b; }
+
+    .result-date { font-size: 12px; color: #334155; margin-bottom: 28px; }
+
+    .screenshot-box {
+      background: #041a0e;
+      border: 1.5px solid #166534;
+      border-radius: 10px;
+      padding: 14px 20px;
+      font-size: 14px;
+      color: #86efac;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+    .retry-msg {
+      background: #111827;
+      border: 1.5px solid #1e293b;
+      border-radius: 10px;
+      padding: 14px 20px;
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+    .result-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Loading / Error ── */
+    .loading { text-align: center; padding: 80px 20px; color: #475569; font-size: 15px; }
+    .error-box { max-width: 500px; margin: 80px auto; text-align: center; }
+    .error-box h2 { color: #ef4444; margin-bottom: 10px; }
+    .error-box p { color: #64748b; font-size: 14px; line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html">&#8592; Lecture Search</a>
+  <span class="hdr-title" id="hdr-title"></span>
+  <span class="course-chip" id="hdr-badge"></span>
+</header>
+
+<main id="app">
+  <div class="loading">Loading quiz&#8230;</div>
+</main>
+
+<!-- Result overlay (outside main to avoid scroll clipping) -->
+<div id="result-screen">
+  <div class="result-inner" id="result-inner"></div>
+</div>
+
+<script>
+// ─── Visual assets (referenced by key in JSON) ───────────────
+const VISUALS = {
+  'bump-map':
+    `<svg width="40" height="26" style="flex-shrink:0" aria-hidden="true">
+      <defs><linearGradient id="bm_g" x1="0" x2="1" y1="1" y2="0">
+        <stop offset="0%" stop-color="#111"/><stop offset="55%" stop-color="#666"/><stop offset="100%" stop-color="#ddd"/>
+      </linearGradient></defs>
+      <rect width="40" height="26" rx="4" fill="url(#bm_g)"/>
+      <text x="20" y="17" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.7)" font-family="monospace">B/W</text>
+    </svg>`,
+  'normal-map':
+    `<svg width="40" height="26" style="flex-shrink:0" aria-hidden="true">
+      <defs><linearGradient id="nm_g" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0%" stop-color="#7c3aed"/><stop offset="50%" stop-color="#4f46e5"/><stop offset="100%" stop-color="#2563eb"/>
+      </linearGradient></defs>
+      <rect width="40" height="26" rx="4" fill="url(#nm_g)"/>
+      <text x="20" y="17" text-anchor="middle" font-size="7.5" fill="white" font-family="monospace" font-weight="bold">RGB</text>
+    </svg>`,
+  'displacement-map':
+    `<svg width="40" height="26" style="flex-shrink:0" aria-hidden="true">
+      <rect width="40" height="26" rx="4" fill="#0d1f3c"/>
+      <polyline points="2,22 8,9 14,17 20,5 27,15 33,9 38,13"
+        stroke="#60a5fa" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+    </svg>`,
+  'roughness-map':
+    `<svg width="40" height="26" style="flex-shrink:0" aria-hidden="true">
+      <defs><linearGradient id="rm_g" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0%" stop-color="#111"/><stop offset="100%" stop-color="#e2e8f0"/>
+      </linearGradient></defs>
+      <rect width="40" height="26" rx="4" fill="url(#rm_g)"/>
+      <text x="4" y="19" font-size="7" fill="#777" font-family="monospace">0</text>
+      <text x="29" y="19" font-size="7" fill="#444" font-family="monospace">1</text>
+    </svg>`,
+};
+
+const MC  = ['mc0','mc1','mc2','mc3'];
+const PBC = ['pb0','pb1','pb2','pb3'];
+
+const COURSE_COLORS = {
+  'AVC 185': '#D904A0',
+  'AVC 200': '#10B981',
+  'AVC 287': '#F59E0B',
+};
+
+// ─── State ───────────────────────────────────────────────────
+let data = null;
+let S = {
+  phase: 'loading',
+  sets: [],          // selected + shuffled sets
+  matches: [],       // array of {termIdx: shuffledDefIdx} per set
+  sel: null,         // { si, ti } — currently selected term
+};
+
+// ─── Load ─────────────────────────────────────────────────────
+async function loadQuiz() {
+  const param = new URLSearchParams(location.search).get('data');
+  if (!param) { showError('No data file specified. Add <code>?data=filename.json</code> to the URL.'); return; }
+  try {
+    const res = await fetch(param);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    data = await res.json();
+  } catch (e) {
+    showError('Could not load <code>' + param + '</code><br>' + e.message);
+    return;
+  }
+  const accent = COURSE_COLORS[data.course] || '#6366f1';
+  document.documentElement.style.setProperty('--accent', accent);
+  document.getElementById('hdr-title').textContent = 'Week ' + data.week + ' Quiz';
+  const chip = document.getElementById('hdr-badge');
+  chip.textContent = data.course;
+  chip.style.background = accent + '22';
+  chip.style.color = accent;
+  startRound();
+}
+
+function startRound() {
+  const n = data.sets_per_quiz || 3;
+  const picked = [...data.sets].sort(() => Math.random() - 0.5).slice(0, n);
+  S.sets = picked.map(set => ({
+    ...set,
+    sdefs: set.pairs
+      .map((p, i) => ({ def: p.def, orig: i }))
+      .sort(() => Math.random() - 0.5),
+  }));
+  S.matches = S.sets.map(() => ({}));
+  S.sel = null;
+  S.phase = 'matching';
+  render();
+}
+
+// ─── Render ───────────────────────────────────────────────────
+function render() {
+  const app = document.getElementById('app');
+  if (S.phase === 'loading') { app.innerHTML = '<div class="loading">Loading&#8230;</div>'; return; }
+
+  const totalPairs = S.sets.reduce((s, x) => s + x.pairs.length, 0);
+  const matched    = S.matches.reduce((s, m) => s + Object.keys(m).length, 0);
+  const pct        = totalPairs ? Math.round(matched / totalPairs * 100) : 0;
+  const allDone    = matched === totalPairs;
+
+  let html = `
+    <div class="quiz-meta">${data.course} &middot; Week ${data.week}</div>
+    <div class="quiz-title">${data.title}</div>
+    <div class="quiz-sub">Match every pair across all sets, then submit. Click a term to select it, then click its definition. Click again to re-pair.</div>
+    <div class="progress-row">
+      <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+      <span class="progress-label">${matched} / ${totalPairs} matched</span>
+    </div>`;
+
+  S.sets.forEach((set, si) => { html += renderSet(set, si); });
+
+  html += `
+    <div class="submit-row">
+      <span class="submit-hint">${allDone ? 'All pairs matched &#8212; ready to submit!' : (totalPairs - matched) + ' pair' + (totalPairs - matched !== 1 ? 's' : '') + ' remaining'}</span>
+      <button class="btn btn-primary" id="submit-btn" onclick="submitAll()" ${allDone ? '' : 'disabled'}>Submit</button>
+    </div>`;
+
+  app.innerHTML = html;
+}
+
+function renderSet(set, si) {
+  const m = S.matches[si];
+  let terms = '', defs = '';
+
+  set.pairs.forEach((pair, ti) => {
+    const di       = m[ti];
+    const isMatched = di !== undefined;
+    const isSel    = S.sel?.si === si && S.sel?.ti === ti;
+    const ci       = ti % 4;
+    const vis      = pair.visual ? (VISUALS[pair.visual] || '') : '';
+
+    let cls = 'term-card';
+    if (isSel)     cls += ' is-selected';
+    else if (isMatched) cls += ' is-matched ' + MC[ci];
+
+    terms += `
+      <div class="${cls}" onclick="onTerm(${si},${ti})">
+        ${vis}
+        <span>${pair.term}</span>
+        ${isMatched ? `<span class="pair-badge ${PBC[ci]}" style="margin-left:auto">${ti + 1}</span>` : ''}
+      </div>`;
+  });
+
+  set.sdefs.forEach((defObj, di) => {
+    let matchedTi = null;
+    Object.entries(m).forEach(([t, d]) => { if (+d === di) matchedTi = +t; });
+    const isMatched = matchedTi !== null;
+    const ci = matchedTi !== null ? matchedTi % 4 : 0;
+
+    let cls = 'def-card' + (isMatched ? ' is-matched ' + MC[ci] : '');
+
+    defs += `
+      <div class="${cls}" onclick="onDef(${si},${di})">
+        ${isMatched ? `<span class="pair-badge ${PBC[ci]}">${matchedTi + 1}</span>` : ''}
+        <span>${defObj.def}</span>
+      </div>`;
+  });
+
+  return `
+    <div class="set-card">
+      <div class="set-label">${set.title}</div>
+      <div class="set-instruction">${set.instruction}</div>
+      <div class="set-hint">Click a term, then click its matching definition.</div>
+      <div class="match-grid">
+        <div class="match-col"><div class="col-lbl">Terms</div>${terms}</div>
+        <div class="match-col"><div class="col-lbl">Definitions</div>${defs}</div>
+      </div>
+    </div>`;
+}
+
+// ─── Interaction ──────────────────────────────────────────────
+function onTerm(si, ti) {
+  if (S.phase !== 'matching') return;
+  S.sel = (S.sel?.si === si && S.sel?.ti === ti) ? null : { si, ti };
+  render();
+}
+
+function onDef(si, di) {
+  if (S.phase !== 'matching' || !S.sel || S.sel.si !== si) return;
+  const ti = S.sel.ti;
+  const m  = S.matches[si];
+  // Free any term already pointing here
+  Object.keys(m).forEach(k => { if (m[k] === di) delete m[+k]; });
+  m[ti] = di;
+  S.sel = null;
+  render();
+}
+
+// ─── Score ────────────────────────────────────────────────────
+function submitAll() {
+  const total = S.sets.reduce((s, x) => s + x.pairs.length, 0);
+  const done  = S.matches.reduce((s, m) => s + Object.keys(m).length, 0);
+  if (done < total) return;
+
+  let correct = 0;
+  S.sets.forEach((set, si) => {
+    set.pairs.forEach((_, ti) => {
+      const di = S.matches[si][ti];
+      if (di !== undefined && set.sdefs[di].orig === ti) correct++;
+    });
+  });
+
+  const threshold = data.pass_threshold ?? 0.8;
+  showResult(correct, total, correct / total >= threshold);
+}
+
+// ─── Result screen ────────────────────────────────────────────
+function showResult(correct, total, passed) {
+  const pct  = Math.round(correct / total * 100);
+  const need = Math.ceil((data.pass_threshold ?? 0.8) * total);
+  const date = new Date().toLocaleDateString('en-US', {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+  });
+  const course  = data.course.replace(' ', '');
+  const weekPad = String(data.week).padStart(2, '0');
+  const outline = `${course}_week${weekPad}.html`;
+
+  const inner = document.getElementById('result-inner');
+  inner.innerHTML = passed ? `
+    <div class="result-icon-big">&#10003;</div>
+    <div class="result-status pass">PASSED</div>
+    <div class="result-course-line">${data.course} &nbsp;&middot;&nbsp; Week ${data.week} &nbsp;&middot;&nbsp; ${data.title}</div>
+    <div class="score-card">
+      <div class="score-pct pass">${pct}%</div>
+      <div class="score-detail">${correct} / ${total} correct</div>
+    </div>
+    <div class="result-date">${date}</div>
+    <div class="screenshot-box">
+      &#128247; Screenshot this screen and upload it with your Week ${data.week} project submission.
+    </div>
+    <div class="result-actions">
+      <button class="btn btn-ghost" onclick="retry()">Try Again for a Better Score</button>
+      <a href="${outline}" class="btn btn-ghost">Week ${data.week} Outline</a>
+    </div>
+  ` : `
+    <div class="result-icon-big" style="color:#ef4444">&#10007;</div>
+    <div class="result-status fail">NOT YET</div>
+    <div class="result-course-line">${data.course} &nbsp;&middot;&nbsp; Week ${data.week} &nbsp;&middot;&nbsp; ${data.title}</div>
+    <div class="score-card">
+      <div class="score-pct fail">${pct}%</div>
+      <div class="score-detail">${correct} / ${total} correct &nbsp;&middot;&nbsp; need ${need}/${total} to pass</div>
+    </div>
+    <div class="retry-msg">
+      You need ${Math.round((data.pass_threshold ?? 0.8) * 100)}% to pass.
+      Each attempt draws a new random selection of questions in a new order.
+      Review the Week ${data.week} outline and try again.
+    </div>
+    <div class="result-actions">
+      <button class="btn btn-primary" onclick="retry()">Try Again</button>
+      <a href="${outline}" class="btn btn-ghost">Review Week ${data.week} Outline</a>
+    </div>
+  `;
+
+  document.getElementById('result-screen').classList.add('show');
+}
+
+function retry() {
+  document.getElementById('result-screen').classList.remove('show');
+  startRound();
+}
+
+// ─── Error ────────────────────────────────────────────────────
+function showError(msg) {
+  document.getElementById('app').innerHTML = `
+    <div class="error-box">
+      <h2>Quiz Unavailable</h2>
+      <p>${msg}</p>
+      <br>
+      <a href="index.html" class="btn btn-ghost" style="margin-top:16px">&#8592; Back to Lecture Search</a>
+    </div>`;
+}
+
+loadQuiz();
+</script>
+</body>
+</html>

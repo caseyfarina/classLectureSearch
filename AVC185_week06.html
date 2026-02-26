@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 185 - Week 6 - Spring 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #D904A0; margin-bottom: 10px; font-weight: 500; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #D904A0; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #D904A0; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #D904A0; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #D904A0; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #D904A0; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #D904A0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 185 &bull; Spring 2026</div>
+            <h1 class="week-title">Week 6</h1>
+            <div class="week-subtitle">Materials and Textures Fundamentals &amp; Boolean Modeling and Material Fundamentals</div>
+            <div class="week-dates">February 23 &ndash; 25, 2026</div>
+            
+            <div class="week-nav">
+                <a href="AVC185_week05.html">&larr; Week 5</a>
+                <a href="AVC185_week07.html">Week 7 &rarr;</a>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>Monday covers this lecture covers the fundamental principles of materials and textures in computer graphics, focusing on understanding channels, data types, and the relationship between human perception and digital color storage. Wednesday focuses on this lecture covers student presentations of boolean modeling projects followed by an introduction to material creation using bump maps, normal maps, and displacement techniques.</p>
+            <div class="key-topics">
+                <span class="topic-tag">Materials</span>
+                <span class="topic-tag">Textures</span>
+                <span class="topic-tag">Shader Nodes</span>
+                <span class="topic-tag">Color Theory</span>
+                <span class="topic-tag">File Management</span>
+                <span class="topic-tag">Blender</span>
+                <span class="topic-tag">Boolean Modeling</span>
+                <span class="topic-tag">Normal Maps</span>
+                <span class="topic-tag">Geometry Nodes</span>
+                <span class="topic-tag">Wireframe</span>
+                <span class="topic-tag">Texturing</span>
+            </div>
+        </div>
+
+        
+        <div class="columns">
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">February 23, 2026</div>
+                    <h2 class="day-title">Materials and Textures Fundamentals</h2>
+                    <p class="day-summary">This lecture covers the fundamental principles of materials and textures in computer graphics, focusing on understanding channels, data types, and the relationship between human perception and digital color storage.</p>
+                    <a href="https://www.youtube.com/watch?v=R3NcSbir9ZU" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Introduction and Setup</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=R3NcSbir9ZU&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=R3NcSbir9ZU&t=316s" target="_blank" class="timestamp-link">5:16</a>
+                            <span class="timestamp-title">Materials and Textures Overview</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">File Management</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=R3NcSbir9ZU&t=755s" target="_blank" class="timestamp-link">12:35</a>
+                            <span class="timestamp-title">Polyhaven Material Download</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=R3NcSbir9ZU&t=1548s" target="_blank" class="timestamp-link">25:48</a>
+                            <span class="timestamp-title">File Management and Packing Resources</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Shader Node Basics</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=R3NcSbir9ZU&t=2524s" target="_blank" class="timestamp-link">42:04</a>
+                            <span class="timestamp-title">Shader Nodes Introduction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=R3NcSbir9ZU&t=3361s" target="_blank" class="timestamp-link">56:01</a>
+                            <span class="timestamp-title">Base Color Channel</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=R3NcSbir9ZU&t=4844s" target="_blank" class="timestamp-link">1:20:44</a>
+                            <span class="timestamp-title">Pixels as Data Storage</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Color Theory and Perception</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=R3NcSbir9ZU&t=5527s" target="_blank" class="timestamp-link">1:32:07</a>
+                            <span class="timestamp-title">Human Vision and Nonlinear Perception</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=R3NcSbir9ZU&t=6287s" target="_blank" class="timestamp-link">1:44:47</a>
+                            <span class="timestamp-title">Bit Depth and Color Storage</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=R3NcSbir9ZU&t=6806s" target="_blank" class="timestamp-link">1:53:26</a>
+                            <span class="timestamp-title">sRGB vs Linear Color Spaces</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Material Channels</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=R3NcSbir9ZU&t=7337s" target="_blank" class="timestamp-link">2:02:17</a>
+                            <span class="timestamp-title">Metallic and Roughness Channels</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=R3NcSbir9ZU&t=7488s" target="_blank" class="timestamp-link">2:04:48</a>
+                            <span class="timestamp-title">Index of Refraction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=R3NcSbir9ZU&t=7679s" target="_blank" class="timestamp-link">2:07:59</a>
+                            <span class="timestamp-title">Alpha Channel and Masking</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=R3NcSbir9ZU&t=7830s" target="_blank" class="timestamp-link">2:10:30</a>
+                            <span class="timestamp-title">Material Parameter Demonstration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Materials contain channels that control different visual aspects</li>
+                        <li>Textures provide one slider per pixel for detailed control</li>
+                        <li>Human vision is nonlinear - we perceive darkness better than brightness</li>
+                        <li>sRGB color space accommodates human perception while linear space is used for calculations</li>
+                        <li>Different channels expect different data types - color vs scalar values</li>
+                        <li>File management becomes critical when working with external texture files</li>
+                        <li>Understanding bit depth affects image quality and file size</li>
+                        <li>Proper color space tagging prevents incorrect material appearance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">February 25, 2026</div>
+                    <h2 class="day-title">Boolean Modeling and Material Fundamentals</h2>
+                    <p class="day-summary">This lecture covers student presentations of boolean modeling projects followed by an introduction to material creation using bump maps, normal maps, and displacement techniques.</p>
+                    <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Student Presentations</div>
+                        <span class="section-count">13 projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=108s" target="_blank" class="timestamp-link">1:48</a>
+                            <span class="timestamp-title">Student Presentation: Boolean Planet</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=445s" target="_blank" class="timestamp-link">7:25</a>
+                            <span class="timestamp-title">Curriculum Design and Tool Usage</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=692s" target="_blank" class="timestamp-link">11:32</a>
+                            <span class="timestamp-title">Student Presentation: Garden Architecture</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=1127s" target="_blank" class="timestamp-link">18:47</a>
+                            <span class="timestamp-title">Student Presentation: Skateboard Arena</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=2612s" target="_blank" class="timestamp-link">43:32</a>
+                            <span class="timestamp-title">Student Presentation: Open Air Building</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=3121s" target="_blank" class="timestamp-link">52:01</a>
+                            <span class="timestamp-title">Student Presentation: Modern Architecture</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=3437s" target="_blank" class="timestamp-link">57:17</a>
+                            <span class="timestamp-title">Student Presentation: Castle Design</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=3640s" target="_blank" class="timestamp-link">1:00:40</a>
+                            <span class="timestamp-title">Student Presentation: Japanese Temple</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=4280s" target="_blank" class="timestamp-link">1:11:20</a>
+                            <span class="timestamp-title">Student Presentation: Connected Buildings</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=4911s" target="_blank" class="timestamp-link">1:21:51</a>
+                            <span class="timestamp-title">Student Presentation: Dome Building</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=5531s" target="_blank" class="timestamp-link">1:32:11</a>
+                            <span class="timestamp-title">Student Presentation: Upside Down Building</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=5725s" target="_blank" class="timestamp-link">1:35:25</a>
+                            <span class="timestamp-title">Student Presentation: City Station</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Technical Demonstrations</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=1397s" target="_blank" class="timestamp-link">23:17</a>
+                            <span class="timestamp-title">Wireframe and Support Structure Techniques</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=2075s" target="_blank" class="timestamp-link">34:35</a>
+                            <span class="timestamp-title">Introduction to Geometry Nodes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Materials and Texturing</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=6255s" target="_blank" class="timestamp-link">1:44:15</a>
+                            <span class="timestamp-title">Materials Introduction: Color and Roughness</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=6361s" target="_blank" class="timestamp-link">1:46:01</a>
+                            <span class="timestamp-title">Bump and Normal Mapping</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=8211s" target="_blank" class="timestamp-link">2:16:51</a>
+                            <span class="timestamp-title">Displacement Mapping</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=8670s" target="_blank" class="timestamp-link">2:24:30</a>
+                            <span class="timestamp-title">Downloading and Setting Up Textures</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=-rZ0UVc3UGs&t=9429s" target="_blank" class="timestamp-link">2:37:09</a>
+                            <span class="timestamp-title">Assignment Overview and Next Steps</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Boolean operations can be destructive or procedural with different advantages</li>
+                        <li>Normal maps store 3D surface angle information in RGB channels</li>
+                        <li>Bump maps use scalar black and white data for surface detail</li>
+                        <li>Displacement maps actually move geometry vertices unlike bump/normal</li>
+                        <li>Wireframe modifier provides quick structural detail solutions</li>
+                        <li>Geometry nodes offer procedural alternatives to traditional modifiers</li>
+                        <li>Color and normal maps provide most material visual impact</li>
+                        <li>Proper texture space configuration is critical for material setup</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 287 - Week 8 - Spring 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #F59E0B; margin-bottom: 10px; font-weight: 500; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #F59E0B; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #F59E0B; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #F59E0B; color: #000; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #F59E0B; color: #000; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #F59E0B; color: #000; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #F59E0B; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 287 &bull; Spring 2026</div>
+            <h1 class="week-title">Week 8</h1>
+            <div class="week-subtitle">Walk Cycle Animation Fundamentals &amp; Student Feedback &amp; Walk Cycle Fundamentals</div>
+            <div class="week-dates">March 09 &ndash; 11, 2026</div>
+            
+            <div class="week-nav">
+                <a href="AVC287_week07.html">&larr; Week 7</a>
+                <a href="AVC287_week09.html">Week 9 &rarr;</a>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>Monday covers this lecture covers the fundamentals of creating walk cycles in Blender, from basic foot patterns to complex character rigs. Students learn about contact and passing poses, hip motion relationships, and the principles of weight and timing in animation. Wednesday focuses on this lecture reviews student submissions for character rigging and Rube Goldberg animations, addresses technical issues with rotation systems, and introduces walk cycle animation fundamentals with hands-on demonstration.</p>
+            <div class="key-topics">
+                <span class="topic-tag">Walk Cycles</span>
+                <span class="topic-tag">Animation Timing</span>
+                <span class="topic-tag">IK Chains</span>
+                <span class="topic-tag">Character Rigging</span>
+                <span class="topic-tag">Motion Paths</span>
+                <span class="topic-tag">Weight Principles</span>
+                <span class="topic-tag">Animation Principles</span>
+                <span class="topic-tag">Student Feedback</span>
+                <span class="topic-tag">Technical Issues</span>
+                <span class="topic-tag">Quaternions</span>
+            </div>
+        </div>
+
+        
+        <div class="columns">
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">March 09, 2026</div>
+                    <h2 class="day-title">Walk Cycle Animation Fundamentals</h2>
+                    <p class="day-summary">This lecture covers the fundamentals of creating walk cycles in Blender, from basic foot patterns to complex character rigs. Students learn about contact and passing poses, hip motion relationships, and the principles of weight and timing in animation.</p>
+                    <a href="https://www.youtube.com/watch?v=1-3tBrINULc" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Setup and References</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">File Compatibility and Setup Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=422s" target="_blank" class="timestamp-link">7:02</a>
+                            <span class="timestamp-title">Animation Reference Books Introduction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Basic Walk Mechanics</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=732s" target="_blank" class="timestamp-link">12:12</a>
+                            <span class="timestamp-title">Walk Cycle Fundamentals</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=905s" target="_blank" class="timestamp-link">15:05</a>
+                            <span class="timestamp-title">Creating Basic Foot Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=1454s" target="_blank" class="timestamp-link">24:14</a>
+                            <span class="timestamp-title">Motion Paths and Visualization</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=1763s" target="_blank" class="timestamp-link">29:23</a>
+                            <span class="timestamp-title">Weight and Timing Principles</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Weight and Timing</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=2281s" target="_blank" class="timestamp-link">38:01</a>
+                            <span class="timestamp-title">Hip Motion and Compression</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=2745s" target="_blank" class="timestamp-link">45:45</a>
+                            <span class="timestamp-title">Weight Communication Through Timing</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=3388s" target="_blank" class="timestamp-link">56:28</a>
+                            <span class="timestamp-title">Animation Process Overview</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Advanced Character Animation</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=3507s" target="_blank" class="timestamp-link">58:27</a>
+                            <span class="timestamp-title">Hip Rotation and Movement</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=3983s" target="_blank" class="timestamp-link">1:06:23</a>
+                            <span class="timestamp-title">Arm Motion and Constraints</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=5161s" target="_blank" class="timestamp-link">1:26:01</a>
+                            <span class="timestamp-title">Body Connectivity Principles</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Technical Implementation</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=5479s" target="_blank" class="timestamp-link">1:31:19</a>
+                            <span class="timestamp-title">IK Chain Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=6044s" target="_blank" class="timestamp-link">1:40:44</a>
+                            <span class="timestamp-title">Rigged Character Walk Cycle</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=6928s" target="_blank" class="timestamp-link">1:55:28</a>
+                            <span class="timestamp-title">Refinement and Knee Poles</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">6</div>
+                        <div class="section-name">Course Wrap-up</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1-3tBrINULc&t=7285s" target="_blank" class="timestamp-link">2:01:25</a>
+                            <span class="timestamp-title">Assignment Review and Wrap-up</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Walk cycles require contact and passing poses as fundamental building blocks</li>
+                        <li>Hip motion occurs twice per foot cycle with compression and expansion</li>
+                        <li>Weight communication depends on timing delays between contact and compression</li>
+                        <li>IK chains allow independent control of feet while maintaining realistic leg behavior</li>
+                        <li>Body parts must show interconnection - nothing should remain perfectly still</li>
+                        <li>Motion paths help visualize and refine the shape of movement through space</li>
+                        <li>Bezier curve manipulation enables natural acceleration and deceleration</li>
+                        <li>Pole targets prevent unwanted knee rotation in IK setups</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">March 11, 2026</div>
+                    <h2 class="day-title">Student Feedback &amp; Walk Cycle Fundamentals</h2>
+                    <p class="day-summary">This lecture reviews student submissions for character rigging and Rube Goldberg animations, addresses technical issues with rotation systems, and introduces walk cycle animation fundamentals with hands-on demonstration.</p>
+                    <a href="https://www.youtube.com/watch?v=TYc87b1cH6I" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Student Project Reviews</div>
+                        <span class="section-count">8 student projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=TYc87b1cH6I&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=TYc87b1cH6I&t=75s" target="_blank" class="timestamp-link">1:15</a>
+                            <span class="timestamp-title">Student Feedback: Character Rigging Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=TYc87b1cH6I&t=161s" target="_blank" class="timestamp-link">2:41</a>
+                            <span class="timestamp-title">Student Feedback: Ball Animation Projects</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=TYc87b1cH6I&t=830s" target="_blank" class="timestamp-link">13:50</a>
+                            <span class="timestamp-title">Student Feedback: Gundam and Rigging</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=TYc87b1cH6I&t=1074s" target="_blank" class="timestamp-link">17:54</a>
+                            <span class="timestamp-title">Student Feedback: Animation Principles</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=TYc87b1cH6I&t=1449s" target="_blank" class="timestamp-link">24:09</a>
+                            <span class="timestamp-title">Student Feedback: Advanced Rigging Techniques</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=TYc87b1cH6I&t=2444s" target="_blank" class="timestamp-link">40:44</a>
+                            <span class="timestamp-title">Student Feedback: Gauntlet Animations</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=TYc87b1cH6I&t=2777s" target="_blank" class="timestamp-link">46:17</a>
+                            <span class="timestamp-title">Student Feedback: Rube Goldberg Machines</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Technical Problem Solving</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=TYc87b1cH6I&t=2971s" target="_blank" class="timestamp-link">49:31</a>
+                            <span class="timestamp-title">Technical Discussion: Quaternion vs Euler Rotation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Additional Student Work</div>
+                        <span class="section-count">3 more projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=TYc87b1cH6I&t=3630s" target="_blank" class="timestamp-link">1:00:30</a>
+                            <span class="timestamp-title">Student Feedback: Character Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=TYc87b1cH6I&t=5313s" target="_blank" class="timestamp-link">1:28:33</a>
+                            <span class="timestamp-title">Student Feedback: Final Projects</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=TYc87b1cH6I&t=6224s" target="_blank" class="timestamp-link">1:43:44</a>
+                            <span class="timestamp-title">Motion Path Visualization Demo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Walk Cycle Instruction</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=TYc87b1cH6I&t=7007s" target="_blank" class="timestamp-link">1:56:47</a>
+                            <span class="timestamp-title">Walk Cycle Tutorial Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=TYc87b1cH6I&t=7200s" target="_blank" class="timestamp-link">2:00:00</a>
+                            <span class="timestamp-title">Walk Cycle Animation Fundamentals</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=TYc87b1cH6I&t=7747s" target="_blank" class="timestamp-link">2:09:07</a>
+                            <span class="timestamp-title">Advanced Walk Cycle Techniques</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Controllers should be keyframed instead of deformation bones for proper rigging</li>
+                        <li>Quaternion rotation can cause unexpected easing effects compared to Euler rotation</li>
+                        <li>Physics principles must feel consistent throughout ball animations</li>
+                        <li>Motion paths help visualize and refine animation trajectories</li>
+                        <li>Walk cycles require proper hip rotation and weight distribution</li>
+                        <li>Squash and stretch should enhance rather than obscure velocity</li>
+                        <li>Auto-normalization in weight painting can cause unintended vertex group changes</li>
+                        <li>Spring break assignment: complete walk cycles and Rube Goldberg refinements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

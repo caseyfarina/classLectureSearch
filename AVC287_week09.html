@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 287 - Week 9 - Spring 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #F59E0B; margin-bottom: 10px; font-weight: 500; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #F59E0B; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #F59E0B; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #F59E0B; color: #000; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #F59E0B; color: #000; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #F59E0B; color: #000; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #F59E0B; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 287 &bull; Spring 2026</div>
+            <h1 class="week-title">Week 9</h1>
+            <div class="week-subtitle">Advanced Rigging with Rigify &amp; Walk Cycle Student Feedback Session</div>
+            <div class="week-dates">March 23 &ndash; 25, 2026</div>
+            
+            <div class="week-nav">
+                <a href="AVC287_week08.html">&larr; Week 8</a>
+                <a href="AVC287_week10.html">Week 10 &rarr;</a>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>Monday covers this lecture covers advanced rigging techniques using Blender&#x27;s Rigify add-on, including meta rig setup, weight painting refinements, and creating complex walk cycles with enhanced controls for professional character animation. Wednesday focuses on comprehensive review of student walk cycle animations with detailed feedback on timing, weight communication, and technical issues. Introduction to Mixamo as a reference tool for future assignments.</p>
+            <div class="key-topics">
+                <span class="topic-tag">Rigify</span>
+                <span class="topic-tag">Meta Rig</span>
+                <span class="topic-tag">Walk Cycles</span>
+                <span class="topic-tag">Weight Painting</span>
+                <span class="topic-tag">IK Controls</span>
+                <span class="topic-tag">Animation</span>
+                <span class="topic-tag">Animation Feedback</span>
+                <span class="topic-tag">Mixamo</span>
+                <span class="topic-tag">Character Animation</span>
+                <span class="topic-tag">Student Projects</span>
+            </div>
+        </div>
+
+        
+        <div class="columns">
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">March 23, 2026</div>
+                    <h2 class="day-title">Advanced Rigging with Rigify</h2>
+                    <p class="day-summary">This lecture covers advanced rigging techniques using Blender&#x27;s Rigify add-on, including meta rig setup, weight painting refinements, and creating complex walk cycles with enhanced controls for professional character animation.</p>
+                    <a href="https://www.youtube.com/watch?v=0A0a0e7zQU8" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Setup and Preparation</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0A0a0e7zQU8&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Technical Setup and Questions</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0A0a0e7zQU8&t=292s" target="_blank" class="timestamp-link">4:52</a>
+                            <span class="timestamp-title">Discord Movie Policy Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0A0a0e7zQU8&t=669s" target="_blank" class="timestamp-link">11:09</a>
+                            <span class="timestamp-title">Media Encoder for Compression</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Rigify System Overview</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0A0a0e7zQU8&t=1306s" target="_blank" class="timestamp-link">21:46</a>
+                            <span class="timestamp-title">Introduction to Advanced Rigging</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0A0a0e7zQU8&t=1651s" target="_blank" class="timestamp-link">27:31</a>
+                            <span class="timestamp-title">Rigify Add-on Installation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0A0a0e7zQU8&t=1956s" target="_blank" class="timestamp-link">32:36</a>
+                            <span class="timestamp-title">Meta Rig Creation Process</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0A0a0e7zQU8&t=2442s" target="_blank" class="timestamp-link">40:42</a>
+                            <span class="timestamp-title">Generating Final Rig</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Rig Controls and Testing</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0A0a0e7zQU8&t=2648s" target="_blank" class="timestamp-link">44:08</a>
+                            <span class="timestamp-title">IK and FK Controls</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0A0a0e7zQU8&t=3205s" target="_blank" class="timestamp-link">53:25</a>
+                            <span class="timestamp-title">Weight Painting Adjustments</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Advanced Walk Cycle</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0A0a0e7zQU8&t=3902s" target="_blank" class="timestamp-link">1:05:02</a>
+                            <span class="timestamp-title">Walk Cycle with Rigify</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0A0a0e7zQU8&t=5127s" target="_blank" class="timestamp-link">1:25:27</a>
+                            <span class="timestamp-title">Hip and Torso Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0A0a0e7zQU8&t=6256s" target="_blank" class="timestamp-link">1:44:16</a>
+                            <span class="timestamp-title">Counter-rotation and Chest Movement</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0A0a0e7zQU8&t=6813s" target="_blank" class="timestamp-link">1:53:33</a>
+                            <span class="timestamp-title">Arm Swing Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=0A0a0e7zQU8&t=7385s" target="_blank" class="timestamp-link">2:03:05</a>
+                            <span class="timestamp-title">Final Polish and Timing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Rigify provides pre-built professional rigs with advanced controls beyond basic manual rigging</li>
+                        <li>Meta rigs are intermediate templates that generate final control rigs through the add-on</li>
+                        <li>Never scale armatures directly as it breaks interdependent constraint relationships</li>
+                        <li>Heel peel controllers enable realistic foot animation with toe-grounded movement</li>
+                        <li>Counter-rotation between hips and chest creates natural body movement in walk cycles</li>
+                        <li>Weight painting refinements are essential for proper head and neck deformation</li>
+                        <li>Global space rotation works better for arm swinging in natural walking motion</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">March 25, 2026</div>
+                    <h2 class="day-title">Walk Cycle Student Feedback Session</h2>
+                    <p class="day-summary">Comprehensive review of student walk cycle animations with detailed feedback on timing, weight communication, and technical issues. Introduction to Mixamo as a reference tool for future assignments.</p>
+                    <a href="https://www.youtube.com/watch?v=4IMi_anUFa4" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Student Presentations</div>
+                        <span class="section-count">14 projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Stream Setup and Introduction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=59s" target="_blank" class="timestamp-link">0:59</a>
+                            <span class="timestamp-title">Student Feedback: Limping Walk Cycle</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=561s" target="_blank" class="timestamp-link">9:21</a>
+                            <span class="timestamp-title">Student Feedback: Box Walk Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=963s" target="_blank" class="timestamp-link">16:03</a>
+                            <span class="timestamp-title">Student Feedback: Zombie Walk Cycle</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=1526s" target="_blank" class="timestamp-link">25:26</a>
+                            <span class="timestamp-title">Student Feedback: Basic Walk Mechanics</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=2122s" target="_blank" class="timestamp-link">35:22</a>
+                            <span class="timestamp-title">Student Feedback: Cyclic Animation Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=2606s" target="_blank" class="timestamp-link">43:26</a>
+                            <span class="timestamp-title">Student Feedback: Self-Made Rig</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=3414s" target="_blank" class="timestamp-link">56:54</a>
+                            <span class="timestamp-title">Student Feedback: Disembodied Walk</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=3844s" target="_blank" class="timestamp-link">1:04:04</a>
+                            <span class="timestamp-title">Student Feedback: Computer Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=4282s" target="_blank" class="timestamp-link">1:11:22</a>
+                            <span class="timestamp-title">Student Feedback: Basic Foot Motion</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=4440s" target="_blank" class="timestamp-link">1:14:00</a>
+                            <span class="timestamp-title">Student Feedback: Rigify Difficulties</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=4632s" target="_blank" class="timestamp-link">1:17:12</a>
+                            <span class="timestamp-title">Student Feedback: Improved Iterations</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=4794s" target="_blank" class="timestamp-link">1:19:54</a>
+                            <span class="timestamp-title">Student Feedback: Hip and Shoulder</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=4979s" target="_blank" class="timestamp-link">1:22:59</a>
+                            <span class="timestamp-title">Student Feedback: Cartoon Style</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Mixamo Introduction</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=5180s" target="_blank" class="timestamp-link">1:26:20</a>
+                            <span class="timestamp-title">Mixamo Reference Introduction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Assignment Planning</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=4IMi_anUFa4&t=5941s" target="_blank" class="timestamp-link">1:39:01</a>
+                            <span class="timestamp-title">Assignment Wrap-up</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Opposite arm and leg movement is fundamental to natural walking</li>
+                        <li>All animation tracks must be same length for proper cycling</li>
+                        <li>Weight and mass communicated through hip compression and timing</li>
+                        <li>Starting over often yields better results than fixing complex problems</li>
+                        <li>Mixamo provides excellent motion capture reference for walk cycles</li>
+                        <li>Rigify offers comprehensive character rigging but requires proper setup</li>
+                        <li>Visual reference and motion paths help analyze animation quality</li>
+                        <li>Practice and iteration are essential for mastering walk cycles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

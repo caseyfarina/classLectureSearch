@@ -31,7 +31,7 @@ async function loadChapters() {
             fields: ['title', 'transcript_segment', 'course', 'formatted_date'],
             storeFields: ['course', 'semester', 'date', 'formatted_date', 'sort_date', 'timestamp', 'seconds', 'title', 'video_id', 'transcript_segment', 'thumbnail'],
             searchOptions: {
-                boost: { title: 3, transcript_segment: 1 },
+                boost: { title: 5, transcript_segment: 1 },
                 prefix: true,  // Enable prefix matching ("rend" matches "render")
                 fuzzy: 0.2     // Light fuzzy matching for typos only
             }
@@ -54,6 +54,14 @@ async function loadChapters() {
     }
 }
 
+// Recency boost - gentle curve favoring newer content
+function getRecencyBoost(sortDate) {
+    if (!sortDate) return 1.0;
+    const daysAgo = (new Date() - new Date(sortDate)) / 86400000;
+    // Recent (today): 1.5x, 6 months: ~1.18x, 1 year: ~1.07x, old: ~1.0x
+    return 1.0 + 0.5 * Math.exp(-daysAgo / 180);
+}
+
 // Search function
 function performSearch() {
     const query = searchInput.value.trim();
@@ -71,12 +79,28 @@ function performSearch() {
             )
             .map(chapter => ({ item: chapter, query: '' }));
     } else {
-        // Perform MiniSearch with course and semester filter
-        const searchResults = miniSearch.search(query, {
-            filter: (result) =>
-                enabledCourses.includes(result.course) &&
-                enabledSemesters.includes(result.semester)
+        const filterFn = (result) =>
+            enabledCourses.includes(result.course) &&
+            enabledSemesters.includes(result.semester);
+
+        const boostFn = (id, term, storedFields) =>
+            getRecencyBoost(storedFields.sort_date);
+
+        // Use AND semantics for multi-word queries
+        let searchResults = miniSearch.search(query, {
+            combineWith: 'AND',
+            boostDocument: boostFn,
+            filter: filterFn
         });
+
+        // Fall back to OR if AND returns too few results
+        if (searchResults.length < 3 && query.includes(' ')) {
+            searchResults = miniSearch.search(query, {
+                combineWith: 'OR',
+                boostDocument: boostFn,
+                filter: filterFn
+            });
+        }
 
         results = searchResults.map(result => ({
             item: result,

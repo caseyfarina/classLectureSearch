@@ -7,7 +7,7 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
-        .container { max-width: 900px; margin: 0 auto; }
+        .container { max-width: 1600px; margin: 0 auto; }
         .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
         .back-link:hover { text-decoration: underline; }
         .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
@@ -61,9 +61,9 @@
         <div class="week-header">
             <div class="week-label">AVC 200 &bull; Spring 2026</div>
             <h1 class="week-title">Week 12</h1>
-            <div class="week-subtitle">Hologram Shader Graph, UV Packing, and Fishing Mechanic</div>
-            <div class="week-dates">April 13, 2026</div>
-            <div class="week-note">Wednesday lecture not yet available</div>
+            <div class="week-subtitle">Hologram Shader Graph, UV Packing, and Fishing Mechanic &amp; Game Prototype Mechanics and Asset Workflows</div>
+            <div class="week-dates">April 13 &ndash; 15, 2026</div>
+            
             <div class="week-nav">
                 <a href="AVC200_week11.html">&larr; Week 11</a>
                 <a href="AVC200_week13.html">Week 13 &rarr;</a>
@@ -72,7 +72,7 @@
 
         <div class="overview">
             <h2>Week Overview</h2>
-            <p>Covered Unity Shader Graph setup for a hologram effect using Fresnel node for edge glow and transparency. Demonstrated UV packing for multi-object characters in Blender to share a single texture set, then showed how to bring multi-object characters into Substance Painter correctly. Ended with implementing a fishing mechanic using physics forces, tags, and a countdown timer to trigger game state changes.</p>
+            <p>Monday covers covered Unity Shader Graph setup for a hologram effect using Fresnel node for edge glow and transparency. Demonstrated UV packing for multi-object characters in Blender to share a single texture set, then showed how to bring multi-object characters into Substance Painter correctly. Ended with implementing a fishing mechanic using physics forces, tags, and a countdown timer to trigger game state changes. Wednesday focuses on students present progress on their individual game prototypes, covering modular asset creation, interactive puzzle logic, and character animation. The instructor demonstrates technical solutions for cross-platform scaling between Unity and Blender, advanced particle effects, and UI inventory management.</p>
             <div class="key-topics">
                 <span class="topic-tag">Shader Graph</span>
                 <span class="topic-tag">Fresnel Node</span>
@@ -82,12 +82,18 @@
                 <span class="topic-tag">Unity Physics</span>
                 <span class="topic-tag">Game Mechanics</span>
                 <span class="topic-tag">Timer</span>
+                <span class="topic-tag">Unity Development</span>
+                <span class="topic-tag">3D Modeling</span>
+                <span class="topic-tag">Animation Workflow</span>
+                <span class="topic-tag">Particle Systems</span>
+                <span class="topic-tag">Level Design</span>
             </div>
         </div>
 
         
-        <div class="day-column">
-            
+        <div class="columns">
+            <div class="day-column">
+                
                 <div class="day-header">
                     <div class="day-label">Monday</div>
                     <div class="day-date">April 13, 2026</div>
@@ -187,6 +193,164 @@
                         <li>Timer component: set Count Up to false for countdown; use SetActive to disable game objects on timer end</li>
                     </ul>
                 </div>
+            </div>
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">April 15, 2026</div>
+                    <h2 class="day-title">Game Prototype Mechanics and Asset Workflows</h2>
+                    <p class="day-summary">Students present progress on their individual game prototypes, covering modular asset creation, interactive puzzle logic, and character animation. The instructor demonstrates technical solutions for cross-platform scaling between Unity and Blender, advanced particle effects, and UI inventory management.</p>
+                    <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Asset Workflow and Troubleshooting</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Project Overview</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=142s" target="_blank" class="timestamp-link">2:22</a>
+                            <span class="timestamp-title">Troubleshooting Missing Scripts in Unity</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=808s" target="_blank" class="timestamp-link">13:28</a>
+                            <span class="timestamp-title">Exporting FBX Assets from Unity to Blender</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=1441s" target="_blank" class="timestamp-link">24:01</a>
+                            <span class="timestamp-title">Diagnosing Missing Script Errors</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=3462s" target="_blank" class="timestamp-link">57:42</a>
+                            <span class="timestamp-title">Semester Deadlines and Project Momentum</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Character Rigging and Animation</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=522s" target="_blank" class="timestamp-link">8:42</a>
+                            <span class="timestamp-title">Student Feedback: Character Scaling and Mindset</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=2134s" target="_blank" class="timestamp-link">35:34</a>
+                            <span class="timestamp-title">Custom Character Rigs and Mixamo Compatibility</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=2732s" target="_blank" class="timestamp-link">45:32</a>
+                            <span class="timestamp-title">Manual Animation Clips and Sharp Transitions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Student Project Feedback</div>
+                        <span class="section-count">9 projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=3672s" target="_blank" class="timestamp-link">1:01:12</a>
+                            <span class="timestamp-title">Student Feedback: Puzzle Logic and Door Mechanics</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=4164s" target="_blank" class="timestamp-link">1:09:24</a>
+                            <span class="timestamp-title">Student Feedback: Modular Environment Assets</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=4695s" target="_blank" class="timestamp-link">1:18:15</a>
+                            <span class="timestamp-title">Student Feedback: Component Interaction and Rotation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=5463s" target="_blank" class="timestamp-link">1:31:03</a>
+                            <span class="timestamp-title">Student Feedback: Quest Progress and UI Logic</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=6367s" target="_blank" class="timestamp-link">1:46:07</a>
+                            <span class="timestamp-title">Student Feedback: 2D Collage Art in 3D Space</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=7329s" target="_blank" class="timestamp-link">2:02:09</a>
+                            <span class="timestamp-title">Student Feedback: Minimalist Art and Parallax Backgrounds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Advanced Unity Techniques</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=5038s" target="_blank" class="timestamp-link">1:23:58</a>
+                            <span class="timestamp-title">Camera Framing and Cinemachine Extensions</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=5635s" target="_blank" class="timestamp-link">1:33:55</a>
+                            <span class="timestamp-title">Using LookAt Constraints for 2D Sprites</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=6062s" target="_blank" class="timestamp-link">1:41:02</a>
+                            <span class="timestamp-title">Inventory Management and Collection Logic</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=7951s" target="_blank" class="timestamp-link">2:12:31</a>
+                            <span class="timestamp-title">Rendering 3D Meshes in Particle Systems</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Texturing and 3D Modeling</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=3830s" target="_blank" class="timestamp-link">1:03:50</a>
+                            <span class="timestamp-title">Game Design: Creating Fair Player Clues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=6758s" target="_blank" class="timestamp-link">1:52:38</a>
+                            <span class="timestamp-title">Substance Painter: Terrain Brushes and Textures</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=7644s" target="_blank" class="timestamp-link">2:07:24</a>
+                            <span class="timestamp-title">Shader Graph: Enhancing Hologram Effects</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=1J5GVsYp5eM&t=8254s" target="_blank" class="timestamp-link">2:17:34</a>
+                            <span class="timestamp-title">Blender: Box Modeling and Subdivision Surfaces</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Restarting Unity is often a necessary first step when script references fail to load properly.</li>
+                        <li>The FBX Exporter package allows developers to bring scaled Unity objects back into Blender for reference modeling.</li>
+                        <li>LookAt constraints enable 2D character sprites to always face the 3D player camera, simulating depth.</li>
+                        <li>Fair puzzle design requires providing the player with environmental clues rather than relying on random chance.</li>
+                        <li>Particle systems can efficiently render thousands of 3D meshes by instantiating them on the GPU.</li>
+                        <li>Subdivision surface modeling in Blender requires quad-based geometry to avoid shading artifacts.</li>
+                        <li>Inventory systems can be linked to collection managers to update UI elements as players gather items.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </body>

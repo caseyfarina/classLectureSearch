@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 185 - Week 14 - Spring 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #D904A0; margin-bottom: 10px; font-weight: 500; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #D904A0; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #D904A0; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #D904A0; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #D904A0; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #D904A0; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #D904A0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 185 &bull; Spring 2026</div>
+            <h1 class="week-title">Week 14</h1>
+            <div class="week-subtitle">Cycles Rendering Optimization and Realistic Glass Simulation &amp; Virtual Production, Compositing, and Cinematic Animation</div>
+            <div class="week-dates">April 27 &ndash; 29, 2026</div>
+            
+            <div class="week-nav">
+                <a href="AVC185_week13.html">&larr; Week 13</a>
+                <a href="AVC185_week15.html">Week 15 &rarr;</a>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>Monday covers this lecture explores the transition from Eevee to the Cycles engine, focusing on physically accurate path tracing and render optimization. Students learn to balance sample counts with denoising and GPU acceleration while mastering the creation of realistic glass through the screw modifier and refractive material settings. Wednesday focuses on this lecture explores advanced Blender workflows including lattice deformation, cinematic camera movement, and technical optimization. Students learn about virtual production industry standards like LED Volumes alongside practical post-production in After Effects.</p>
+            <div class="key-topics">
+                <span class="topic-tag">Cycles Renderer</span>
+                <span class="topic-tag">Path Tracing</span>
+                <span class="topic-tag">GPU Optimization</span>
+                <span class="topic-tag">Denoising</span>
+                <span class="topic-tag">Glass Materials</span>
+                <span class="topic-tag">Refraction</span>
+                <span class="topic-tag">Virtual Production</span>
+                <span class="topic-tag">Cinematic Animation</span>
+                <span class="topic-tag">Compositing</span>
+                <span class="topic-tag">Mesh Deformation</span>
+                <span class="topic-tag">After Effects</span>
+            </div>
+        </div>
+
+        
+        <div class="columns">
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">April 27, 2026</div>
+                    <h2 class="day-title">Cycles Rendering Optimization and Realistic Glass Simulation</h2>
+                    <p class="day-summary">This lecture explores the transition from Eevee to the Cycles engine, focusing on physically accurate path tracing and render optimization. Students learn to balance sample counts with denoising and GPU acceleration while mastering the creation of realistic glass through the screw modifier and refractive material settings.</p>
+                    <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">The Fundamentals of Cycles</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction to Cycles and Physically Accurate Rendering</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=158s" target="_blank" class="timestamp-link">2:38</a>
+                            <span class="timestamp-title">Understanding Path Tracing and Photons</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=231s" target="_blank" class="timestamp-link">3:51</a>
+                            <span class="timestamp-title">The Relationship Between Samples and Fidelity</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=550s" target="_blank" class="timestamp-link">9:10</a>
+                            <span class="timestamp-title">Diminishing Returns in Render Quality</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Hardware and Software Optimization</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=751s" target="_blank" class="timestamp-link">12:31</a>
+                            <span class="timestamp-title">Optimizing Default Render Settings</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=886s" target="_blank" class="timestamp-link">14:46</a>
+                            <span class="timestamp-title">Viewport vs. Render Resource Management</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=1384s" target="_blank" class="timestamp-link">23:04</a>
+                            <span class="timestamp-title">Switching from CPU to GPU Rendering</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=1849s" target="_blank" class="timestamp-link">30:49</a>
+                            <span class="timestamp-title">Benchmarking with Render Slots</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Advanced Denoising and Time Management</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=2390s" target="_blank" class="timestamp-link">39:50</a>
+                            <span class="timestamp-title">Denoising Algorithms and Noise Reduction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=3120s" target="_blank" class="timestamp-link">52:00</a>
+                            <span class="timestamp-title">Identifying Workflow Bottlenecks</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=3749s" target="_blank" class="timestamp-link">1:02:29</a>
+                            <span class="timestamp-title">Using Time Limits for Render Optimization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Camera Optics and HDR Backgrounds</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=4340s" target="_blank" class="timestamp-link">1:12:20</a>
+                            <span class="timestamp-title">Real-time Viewport Denoising and Composition</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=4681s" target="_blank" class="timestamp-link">1:18:01</a>
+                            <span class="timestamp-title">HDR Backgrounds and Depth of Field Strategies</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=4983s" target="_blank" class="timestamp-link">1:23:03</a>
+                            <span class="timestamp-title">F-Stop Settings and Bokeh Quality</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Procedural Glass and Material Refinement</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=5476s" target="_blank" class="timestamp-link">1:31:16</a>
+                            <span class="timestamp-title">Modeling Glass with the Screw Modifier</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=6310s" target="_blank" class="timestamp-link">1:45:10</a>
+                            <span class="timestamp-title">Glass Material: Transmission and Roughness</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=6575s" target="_blank" class="timestamp-link">1:49:35</a>
+                            <span class="timestamp-title">Index of Refraction (IOR) for Realistic Materials</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=7709s" target="_blank" class="timestamp-link">2:08:29</a>
+                            <span class="timestamp-title">Adding Surface Imperfections with Noise Nodes</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AbnYltEZ7GI&t=8370s" target="_blank" class="timestamp-link">2:19:30</a>
+                            <span class="timestamp-title">Using Color Ramps for Roughness Variation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Cycles uses path tracing to simulate real-world photons for physically accurate lighting.</li>
+                        <li>GPU rendering is significantly faster than CPU rendering for graphics-intensive calculations.</li>
+                        <li>Denoising allows for high-quality images with dramatically lower sample counts.</li>
+                        <li>The Viewport should be set to Solid mode when performing a final render to avoid resource splitting.</li>
+                        <li>The Index of Refraction (IOR) dictates how light bends through transparent materials like glass.</li>
+                        <li>The Screw modifier is the primary tool for creating radially symmetric objects like wine glasses.</li>
+                        <li>Procedural noise nodes and Color Ramps can add &#x27;wobble&#x27; and surface grime for realism.</li>
+                        <li>A lower F-stop number creates a shallower depth of field and more pronounced bokeh.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">April 29, 2026</div>
+                    <h2 class="day-title">Virtual Production, Compositing, and Cinematic Animation</h2>
+                    <p class="day-summary">This lecture explores advanced Blender workflows including lattice deformation, cinematic camera movement, and technical optimization. Students learn about virtual production industry standards like LED Volumes alongside practical post-production in After Effects.</p>
+                    <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Student Project Reviews</div>
+                        <span class="section-count">5 projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Student Project Feedback</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=438s" target="_blank" class="timestamp-link">7:18</a>
+                            <span class="timestamp-title">Post-Simulation Art Direction and Sculpting</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Technical Optimization &amp; Duplication</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=1004s" target="_blank" class="timestamp-link">16:44</a>
+                            <span class="timestamp-title">Managing System Resources and VRAM</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=1304s" target="_blank" class="timestamp-link">21:44</a>
+                            <span class="timestamp-title">Instances vs. Duplicates in Blender</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=1570s" target="_blank" class="timestamp-link">26:10</a>
+                            <span class="timestamp-title">Using Lattice Deformers for Meshes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Lens Physics &amp; Visual Effects</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=2073s" target="_blank" class="timestamp-link">34:33</a>
+                            <span class="timestamp-title">Compositing Challenges and GPU Stability</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=2581s" target="_blank" class="timestamp-link">43:01</a>
+                            <span class="timestamp-title">Mastering Depth of Field and Bokeh</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=3058s" target="_blank" class="timestamp-link">50:58</a>
+                            <span class="timestamp-title">Digital Doubles and Skin Shaders</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Industry Trends: Virtual Production</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=3382s" target="_blank" class="timestamp-link">56:22</a>
+                            <span class="timestamp-title">Virtual Production and LED Volumes</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=3767s" target="_blank" class="timestamp-link">01:02:47</a>
+                            <span class="timestamp-title">Camera Tracking and Parallax Techniques</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=4143s" target="_blank" class="timestamp-link">01:09:03</a>
+                            <span class="timestamp-title">Phone and Mouse Camera Control</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Advanced Texturing &amp; Simulations</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=4440s" target="_blank" class="timestamp-link">01:14:00</a>
+                            <span class="timestamp-title">Refining Texture Scale and Lighting</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=5008s" target="_blank" class="timestamp-link">01:23:28</a>
+                            <span class="timestamp-title">Anamorphic Flares and Chromatic Aberration</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=5482s" target="_blank" class="timestamp-link">01:31:22</a>
+                            <span class="timestamp-title">Tablecloth Simulations and Napkin Folds</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=6061s" target="_blank" class="timestamp-link">01:41:01</a>
+                            <span class="timestamp-title">Fingerprint Textures and Tri-Planar Mapping</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=6798s" target="_blank" class="timestamp-link">01:53:18</a>
+                            <span class="timestamp-title">Color Ramps and Levels in Nodes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">6</div>
+                        <div class="section-name">Cinematic Movement &amp; Post-Production</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=7125s" target="_blank" class="timestamp-link">01:58:45</a>
+                            <span class="timestamp-title">Cinematic Camera Keyframing Techniques</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=7624s" target="_blank" class="timestamp-link">02:07:04</a>
+                            <span class="timestamp-title">After Effects Image Sequence Workflow</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Q0cZp1Z3Hzw&t=9107s" target="_blank" class="timestamp-link">02:31:47</a>
+                            <span class="timestamp-title">Assignment Overview: Table Showcase Film</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Use the Sculpting brush to art-direct cloth meshes after the simulation is frozen.</li>
+                        <li>Alt-D creates instances that save VRAM by reading the same memory slot in the GPU.</li>
+                        <li>Lattice deformers allow for complex, non-destructive shaping of high-poly meshes.</li>
+                        <li>Real-world camera physics: focal length and f-stop both influence the depth of field.</li>
+                        <li>LED Volumes (&#x27;The Volume&#x27;) allow for real-time in-camera reflections and lighting for actors.</li>
+                        <li>Set camera keyframes to &#x27;Linear&#x27; instead of &#x27;Bezier&#x27; to avoid unsinematic easing.</li>
+                        <li>Render to PNG image sequences to prevent file corruption and allow for post-processing.</li>
+                        <li>Tri-planar mapping solves texturing issues on meshes without clean UV unwrap data.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

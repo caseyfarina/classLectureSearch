@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 185 - Week 15 - Spring 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #D904A0; margin-bottom: 10px; font-weight: 500; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #D904A0; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #D904A0; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #D904A0; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #D904A0; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #D904A0; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #D904A0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 185 &bull; Spring 2026</div>
+            <h1 class="week-title">Week 15</h1>
+            <div class="week-subtitle">3D Portfolio Presentation and Stylized Rendering &amp; Advanced Rendering, Cinematography, and Material Nodes</div>
+            <div class="week-dates">May 04 &ndash; 6, 2026</div>
+            
+            <div class="week-nav">
+                <a href="AVC185_week14.html">&larr; Week 14</a>
+                <a href="AVC185_week16.html">Week 16 &rarr;</a>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>Monday covers this lecture covers the final steps for presenting 3D work online using SketchFab and explores non-photorealistic rendering (NPR) techniques in Blender. Students learn how to export optimized web models, use compositing nodes for painterly effects, and implement Grease Pencil line art for stylized visuals. Wednesday focuses on this lecture reviews final 3D kitchen scene projects, focusing on the transition from basic modeling to professional-grade cinematography. Students explore advanced Cycles rendering settings, node-based material variations for glass, and strategies for balancing render quality with production deadlines.</p>
+            <div class="key-topics">
+                <span class="topic-tag">SketchFab</span>
+                <span class="topic-tag">GLTF Export</span>
+                <span class="topic-tag">Compositing</span>
+                <span class="topic-tag">Grease Pencil</span>
+                <span class="topic-tag">NPR Rendering</span>
+                <span class="topic-tag">Portfolio Design</span>
+                <span class="topic-tag">Blender Cycles</span>
+                <span class="topic-tag">Material Nodes</span>
+                <span class="topic-tag">3D Cinematography</span>
+                <span class="topic-tag">Render Optimization</span>
+                <span class="topic-tag">Compositing Passes</span>
+            </div>
+        </div>
+
+        
+        <div class="columns">
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">May 04, 2026</div>
+                    <h2 class="day-title">3D Portfolio Presentation and Stylized Rendering</h2>
+                    <p class="day-summary">This lecture covers the final steps for presenting 3D work online using SketchFab and explores non-photorealistic rendering (NPR) techniques in Blender. Students learn how to export optimized web models, use compositing nodes for painterly effects, and implement Grease Pencil line art for stylized visuals.</p>
+                    <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Finals and Program Logistics</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Course Updates and Final Logistics</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=750s" target="_blank" class="timestamp-link">12:30</a>
+                            <span class="timestamp-title">Student Art Awards and Screening</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=890s" target="_blank" class="timestamp-link">14:50</a>
+                            <span class="timestamp-title">Attendance Policies and Fall Schedule</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=1665s" target="_blank" class="timestamp-link">27:45</a>
+                            <span class="timestamp-title">STEAMworks Building and Virtual Reality</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Web-Based 3D Presentations</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=1800s" target="_blank" class="timestamp-link">30:00</a>
+                            <span class="timestamp-title">SketchFab for Online 3D Portfolios</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=2205s" target="_blank" class="timestamp-link">36:45</a>
+                            <span class="timestamp-title">Exporting Models for Web Performance</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=2760s" target="_blank" class="timestamp-link">46:00</a>
+                            <span class="timestamp-title">Managing Texture Compression and Formats</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=2950s" target="_blank" class="timestamp-link">49:10</a>
+                            <span class="timestamp-title">Writing Professional Project Descriptions</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=3735s" target="_blank" class="timestamp-link">1:02:15</a>
+                            <span class="timestamp-title">Optimizing Scenes for Web Uploads</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Stylized Rendering Techniques</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=3970s" target="_blank" class="timestamp-link">1:06:10</a>
+                            <span class="timestamp-title">Introduction to Non-Photorealistic Rendering</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=4245s" target="_blank" class="timestamp-link">1:10:45</a>
+                            <span class="timestamp-title">Compositing Nodes for Painterly Effects</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=4990s" target="_blank" class="timestamp-link">1:23:10</a>
+                            <span class="timestamp-title">Implementing Grease Pencil Line Art</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Advanced Compositing and Passes</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=5660s" target="_blank" class="timestamp-link">1:34:20</a>
+                            <span class="timestamp-title">Using Depth and Mist Passes</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=6220s" target="_blank" class="timestamp-link">1:43:40</a>
+                            <span class="timestamp-title">Isolating Objects with Cryptomatte</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=6915s" target="_blank" class="timestamp-link">1:55:15</a>
+                            <span class="timestamp-title">Exporting Render Layers for Photoshop</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Line Art and Final Review</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=7565s" target="_blank" class="timestamp-link">2:06:05</a>
+                            <span class="timestamp-title">Stylizing Lines with Modifiers</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=8875s" target="_blank" class="timestamp-link">2:27:55</a>
+                            <span class="timestamp-title">Finalizing SketchFab Lighting and Materials</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wwN-r3gsUGY&t=9080s" target="_blank" class="timestamp-link">2:31:20</a>
+                            <span class="timestamp-title">Final Portfolio Requirements Overview</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Optimizing 3D models for the web requires converting textures from PNG to JPEG and using GLB/GLTF formats.</li>
+                        <li>SketchFab provides an interactive 3D viewer that can be embedded into digital portfolios for interactive student feedback.</li>
+                        <li>Non-photorealistic rendering (NPR) uses compositing nodes like Kuwahara and Posterize to create painterly or graphic looks.</li>
+                        <li>Grease Pencil Line Art modifiers allow for procedural outlines that update dynamically with the camera view.</li>
+                        <li>Cryptomatte is an efficient tool for isolating specific objects in a render for targeted post-processing.</li>
+                        <li>Exporting render layers via the File Output node enables high-fidelity editing in external imaging software.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">May 06, 2026</div>
+                    <h2 class="day-title">Advanced Rendering, Cinematography, and Material Nodes</h2>
+                    <p class="day-summary">This lecture reviews final 3D kitchen scene projects, focusing on the transition from basic modeling to professional-grade cinematography. Students explore advanced Cycles rendering settings, node-based material variations for glass, and strategies for balancing render quality with production deadlines.</p>
+                    <a href="https://www.youtube.com/watch?v=5WHINDFxcEs" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Project Critiques: Kitchen Scenes</div>
+                        <span class="section-count">6 projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=22s" target="_blank" class="timestamp-link">0:22</a>
+                            <span class="timestamp-title">Student Feedback: Kitchen Scene Storytelling</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=1173s" target="_blank" class="timestamp-link">19:33</a>
+                            <span class="timestamp-title">Student Feedback: Glass Material Reflections</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=3261s" target="_blank" class="timestamp-link">54:21</a>
+                            <span class="timestamp-title">Student Feedback: Modeling Goblets and Animation Data</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=6041s" target="_blank" class="timestamp-link">1:40:41</a>
+                            <span class="timestamp-title">Student Feedback: Specular Silhouette and Lighting</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=7375s" target="_blank" class="timestamp-link">2:02:55</a>
+                            <span class="timestamp-title">Student Feedback: Screw Modifiers and Viewport Lag</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=8165s" target="_blank" class="timestamp-link">2:16:05</a>
+                            <span class="timestamp-title">Student Feedback: Glare and Composited Effects</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Advanced Material and Node Editing</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=1753s" target="_blank" class="timestamp-link">29:13</a>
+                            <span class="timestamp-title">Node Editing: Using Color Ramps for Roughness</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=4115s" target="_blank" class="timestamp-link">1:08:35</a>
+                            <span class="timestamp-title">Techniques for 2.5D Billboards and Image Planes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Rendering Theory and Performance</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=2435s" target="_blank" class="timestamp-link">40:35</a>
+                            <span class="timestamp-title">Analyzing Render Times and CPU/GPU Modes</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=2860s" target="_blank" class="timestamp-link">47:40</a>
+                            <span class="timestamp-title">Understanding Compositing Passes and Data Layers</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=4455s" target="_blank" class="timestamp-link">1:14:15</a>
+                            <span class="timestamp-title">Animation Stability and Denoising Artifacts</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=4860s" target="_blank" class="timestamp-link">1:21:00</a>
+                            <span class="timestamp-title">Optimizing Render Settings for Deadlines</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=8662s" target="_blank" class="timestamp-link">2:24:22</a>
+                            <span class="timestamp-title">Scaling Production with Render Farms</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Cinematography and Production Standards</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=284s" target="_blank" class="timestamp-link">4:44</a>
+                            <span class="timestamp-title">Cinematography vs. Basic Camera Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=5415s" target="_blank" class="timestamp-link">1:30:15</a>
+                            <span class="timestamp-title">Perceptual Depth and Eyetracking Technology</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=6268s" target="_blank" class="timestamp-link">1:44:28</a>
+                            <span class="timestamp-title">Case Study: Small Teams and Award-Winning Production</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=6852s" target="_blank" class="timestamp-link">1:54:12</a>
+                            <span class="timestamp-title">Real-World Cinematography: Dolly Tracks and Rigs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Academic Planning and Industry Insights</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction and Screen Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5WHINDFxcEs&t=5799s" target="_blank" class="timestamp-link">1:36:39</a>
+                            <span class="timestamp-title">Future Course Recommendations and Pathways</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Believable 3D animation requires camera movements that reference real-world cinematography techniques.</li>
+                        <li>Cycles rendering provides realistic physics, but material thickness and IOR settings are critical for accurate glass.</li>
+                        <li>Denoising tools are effective for stills but can cause &#x27;wobbliness&#x27; in animation without sufficient sample counts.</li>
+                        <li>Node-based workflows using Color Ramps allow for precise control over surface roughness and specular variation.</li>
+                        <li>Resource-saving techniques like 2.5D image planes can be indistinguishable from 3D models at a distance.</li>
+                        <li>Optimizing render time can be achieved by setting hard time limits per frame in the Blender render settings.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

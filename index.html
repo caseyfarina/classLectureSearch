@@ -16,157 +16,164 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="hero">
         <div class="container">
-            <h1>Animation Lecture Search</h1>
-            <p class="subtitle">Search timestamps across AVC 185, AVC 200, AVC 240, and AVC 287 lectures</p>
-        </div>
-    </header>
+            <span class="eyebrow">GCC Digital Media Arts &amp; Animation</span>
 
-    <main class="container">
-        <div class="search-section">
-            <div class="search-box">
+            <div class="search-shell">
                 <input
                     type="text"
                     id="searchInput"
-                    placeholder="Search for topics, techniques, or keywords..."
+                    placeholder="rigging, topology, compositing&hellip;"
                     autofocus
                 >
                 <button id="searchButton">Search</button>
             </div>
-
-            <div class="filters semester-filters">
-                <span class="filter-label">Semester:</span>
-                <label>
-                    <input type="checkbox" id="filterFall2026" class="checkbox-semester" checked>
-                    Fall 2026
-                </label>
-                <label>
-                    <input type="checkbox" id="filterSpring2026" class="checkbox-semester">
-                    Spring 2026
-                </label>
-                <label>
-                    <input type="checkbox" id="filterFall2025" class="checkbox-semester">
-                    Fall 2025
-                </label>
-            </div>
-
-            <div class="filters">
-                <span class="filter-label">Course:</span>
-                <label>
-                    <input type="checkbox" id="filterAVC185" class="checkbox-avc185" checked>
-                    AVC 185 &ndash; 3D Modeling and Animation
-                </label>
-                <label>
-                    <input type="checkbox" id="filterAVC200" class="checkbox-avc200" checked>
-                    AVC 200 &ndash; Animation and Interactivity
-                </label>
-                <label>
-                    <input type="checkbox" id="filterAVC240" class="checkbox-avc240" checked>
-                    AVC 240 &ndash; Cinematography and Directing
-                </label>
-                <label>
-                    <input type="checkbox" id="filterAVC287" class="checkbox-avc287">
-                    AVC 287 &ndash; 3D Character Animation
-                </label>
-            </div>
-
-            <details class="outline-archive" open>
-                <summary>Fall 2026 (current semester)</summary>
-                <!-- WEEK-LINKS-START -->
-                <div class="course-links">
-                    <span class="course-links-label">Fall 2026 Weekly Outlines:</span>
-                </div>
-                <div class="week-links">
-                    <p class="outline-placeholder">Outlines will appear here automatically as each week's lectures are processed.</p>
-                </div>
-                <!-- WEEK-LINKS-END -->
-            </details>
-
-            <details class="outline-archive">
-                <summary>Spring 2026 (archived)</summary>
-                <div class="course-links">
-                    <span class="course-links-label">Spring 2026 Weekly Outlines:</span>
-                </div>
-                <div class="week-links">
-                    <div class="week-links-course">
-                        <span class="course-label avc185">AVC 185</span>
-                        <span class="week-label">Wk</span>
-                        <a href="AVC185_week01.html">1</a>
-                        <a href="AVC185_week02.html">2</a>
-                        <a href="AVC185_week03.html">3</a>
-                        <a href="AVC185_week04.html">4</a>
-                        <a href="AVC185_week05.html">5</a>
-                        <a href="AVC185_week06.html">6</a>
-                        <a href="AVC185_week07.html">7</a>
-                        <a href="AVC185_week08.html">8</a>
-                        <a href="AVC185_week09.html">9</a>
-                        <a href="AVC185_week10.html">10</a>
-                        <a href="AVC185_week11.html">11</a>
-                        <a href="AVC185_week12.html">12</a>
-                        <a href="AVC185_week13.html">13</a>
-                        <a href="AVC185_week14.html">14</a>
-                        <a href="AVC185_week15.html">15</a>
-                    </div>
-                    <div class="week-links-course">
-                        <span class="course-label avc200">AVC 200</span>
-                        <span class="week-label">Wk</span>
-                        <a href="AVC200_week01.html">1</a>
-                        <a href="AVC200_week02.html">2</a>
-                        <a href="AVC200_week03.html">3</a>
-                        <a href="AVC200_week04.html">4</a>
-                        <a href="AVC200_week05.html">5</a>
-                        <a href="AVC200_week06.html">6</a>
-                        <a href="AVC200_week07.html">7</a>
-                        <a href="AVC200_week08.html">8</a>
-                        <a href="AVC200_week09.html">9</a>
-                        <a href="AVC200_week10.html">10</a>
-                        <a href="AVC200_week11.html">11</a>
-                        <a href="AVC200_week12.html">12</a>
-                        <a href="AVC200_week13.html">13</a>
-                        <a href="AVC200_week14.html">14</a>
-                        <a href="AVC200_week15.html">15</a>
-                    </div>
-                    <div class="week-links-course">
-                        <span class="course-label avc287">AVC 287</span>
-                        <span class="week-label">Wk</span>
-                        <a href="AVC287_week01.html">1</a>
-                        <a href="AVC287_week02.html">2</a>
-                        <a href="AVC287_week03.html">3</a>
-                        <a href="AVC287_week04.html">4</a>
-                        <a href="AVC287_week05.html">5</a>
-                        <a href="AVC287_week06.html">6</a>
-                        <a href="AVC287_week07.html">7</a>
-                        <a href="AVC287_week08.html">8</a>
-                        <a href="AVC287_week09.html">9</a>
-                        <a href="AVC287_week10.html">10</a>
-                        <a href="AVC287_week11.html">11</a>
-                        <a href="AVC287_week12.html">12</a>
-                        <a href="AVC287_week13.html">13</a>
-                        <a href="AVC287_week14.html">14</a>
-                        <a href="AVC287_week15.html">15</a>
-                    </div>
-                </div>
-            </details>
         </div>
+    </header>
+
+    <main class="container">
+        <details class="config-drawer">
+            <summary>
+                <span class="config-icon" aria-hidden="true"></span>
+                Configure search
+            </summary>
+
+            <div class="config-panel">
+                <div class="config-group">
+                    <span class="config-label">Semester</span>
+                    <div class="chip-row">
+                        <label class="chip">
+                            <input type="checkbox" id="filterFall2026" class="chip-input checkbox-semester" checked>
+                            <span>Fall 2026</span>
+                        </label>
+                        <label class="chip">
+                            <input type="checkbox" id="filterSpring2026" class="chip-input checkbox-semester">
+                            <span>Spring 2026</span>
+                        </label>
+                        <label class="chip">
+                            <input type="checkbox" id="filterFall2025" class="chip-input checkbox-semester">
+                            <span>Fall 2025</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="config-group">
+                    <span class="config-label">Course</span>
+                    <div class="chip-row">
+                        <label class="chip">
+                            <input type="checkbox" id="filterAVC185" class="chip-input checkbox-avc185" checked>
+                            <span>AVC 185 &ndash; 3D Modeling and Animation</span>
+                        </label>
+                        <label class="chip">
+                            <input type="checkbox" id="filterAVC200" class="chip-input checkbox-avc200" checked>
+                            <span>AVC 200 &ndash; Animation and Interactivity</span>
+                        </label>
+                        <label class="chip">
+                            <input type="checkbox" id="filterAVC240" class="chip-input checkbox-avc240" checked>
+                            <span>AVC 240 &ndash; Cinematography and Directing</span>
+                        </label>
+                        <label class="chip">
+                            <input type="checkbox" id="filterAVC287" class="chip-input checkbox-avc287">
+                            <span>AVC 287 &ndash; 3D Character Animation</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="config-group">
+                    <span class="config-label">Weekly outlines</span>
+
+                    <details class="outline-archive" open>
+                        <summary>Fall 2026 (current semester)</summary>
+                        <!-- WEEK-LINKS-START -->
+                        <div class="course-links">
+                            <span class="course-links-label">Fall 2026 Weekly Outlines:</span>
+                        </div>
+                        <div class="week-links">
+                            <p class="outline-placeholder">Outlines will appear here automatically as each week's lectures are processed.</p>
+                        </div>
+                        <!-- WEEK-LINKS-END -->
+                    </details>
+
+                    <details class="outline-archive">
+                        <summary>Spring 2026 (archived)</summary>
+                        <div class="course-links">
+                            <span class="course-links-label">Spring 2026 Weekly Outlines:</span>
+                        </div>
+                        <div class="week-links">
+                            <div class="week-links-course">
+                                <span class="course-label avc185">AVC 185</span>
+                                <span class="week-label">Wk</span>
+                                <a href="AVC185_week01.html">1</a>
+                                <a href="AVC185_week02.html">2</a>
+                                <a href="AVC185_week03.html">3</a>
+                                <a href="AVC185_week04.html">4</a>
+                                <a href="AVC185_week05.html">5</a>
+                                <a href="AVC185_week06.html">6</a>
+                                <a href="AVC185_week07.html">7</a>
+                                <a href="AVC185_week08.html">8</a>
+                                <a href="AVC185_week09.html">9</a>
+                                <a href="AVC185_week10.html">10</a>
+                                <a href="AVC185_week11.html">11</a>
+                                <a href="AVC185_week12.html">12</a>
+                                <a href="AVC185_week13.html">13</a>
+                                <a href="AVC185_week14.html">14</a>
+                                <a href="AVC185_week15.html">15</a>
+                            </div>
+                            <div class="week-links-course">
+                                <span class="course-label avc200">AVC 200</span>
+                                <span class="week-label">Wk</span>
+                                <a href="AVC200_week01.html">1</a>
+                                <a href="AVC200_week02.html">2</a>
+                                <a href="AVC200_week03.html">3</a>
+                                <a href="AVC200_week04.html">4</a>
+                                <a href="AVC200_week05.html">5</a>
+                                <a href="AVC200_week06.html">6</a>
+                                <a href="AVC200_week07.html">7</a>
+                                <a href="AVC200_week08.html">8</a>
+                                <a href="AVC200_week09.html">9</a>
+                                <a href="AVC200_week10.html">10</a>
+                                <a href="AVC200_week11.html">11</a>
+                                <a href="AVC200_week12.html">12</a>
+                                <a href="AVC200_week13.html">13</a>
+                                <a href="AVC200_week14.html">14</a>
+                                <a href="AVC200_week15.html">15</a>
+                            </div>
+                            <div class="week-links-course">
+                                <span class="course-label avc287">AVC 287</span>
+                                <span class="week-label">Wk</span>
+                                <a href="AVC287_week01.html">1</a>
+                                <a href="AVC287_week02.html">2</a>
+                                <a href="AVC287_week03.html">3</a>
+                                <a href="AVC287_week04.html">4</a>
+                                <a href="AVC287_week05.html">5</a>
+                                <a href="AVC287_week06.html">6</a>
+                                <a href="AVC287_week07.html">7</a>
+                                <a href="AVC287_week08.html">8</a>
+                                <a href="AVC287_week09.html">9</a>
+                                <a href="AVC287_week10.html">10</a>
+                                <a href="AVC287_week11.html">11</a>
+                                <a href="AVC287_week12.html">12</a>
+                                <a href="AVC287_week13.html">13</a>
+                                <a href="AVC287_week14.html">14</a>
+                                <a href="AVC287_week15.html">15</a>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </details>
 
         <div id="stats" class="stats"></div>
 
         <div id="results" class="results">
-            <div class="loading">Loading lecture data...</div>
+            <div class="loading">Loading lecture data&hellip;</div>
         </div>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>GCC Digital Media Arts and Animation</p>
-            <p>Searchable lecture timestamps - Updated weekly</p>
-        </div>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/minisearch@6.3.0/dist/umd/index.min.js"></script>
     <script src="search.js"></script>

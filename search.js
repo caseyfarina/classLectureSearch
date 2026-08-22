@@ -11,6 +11,7 @@ const filterAVC185 = document.getElementById('filterAVC185');
 const filterAVC200 = document.getElementById('filterAVC200');
 const filterAVC240 = document.getElementById('filterAVC240');
 const filterAVC287 = document.getElementById('filterAVC287');
+const filterFall2026 = document.getElementById('filterFall2026');
 const filterSpring2026 = document.getElementById('filterSpring2026');
 const filterFall2025 = document.getElementById('filterFall2025');
 
@@ -128,6 +129,7 @@ function getEnabledCourses() {
 // Get enabled semesters from checkboxes
 function getEnabledSemesters() {
     const semesters = [];
+    if (filterFall2026.checked) semesters.push('Fall 2026');
     if (filterSpring2026.checked) semesters.push('Spring 2026');
     if (filterFall2025.checked) semesters.push('Fall 2025');
     return semesters;
@@ -296,6 +298,7 @@ filterAVC240.addEventListener('change', performSearch);
 filterAVC287.addEventListener('change', performSearch);
 
 // Filter changes - semesters
+filterFall2026.addEventListener('change', performSearch);
 filterSpring2026.addEventListener('change', performSearch);
 filterFall2025.addEventListener('change', performSearch);
 

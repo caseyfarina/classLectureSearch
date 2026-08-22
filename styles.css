@@ -189,6 +189,37 @@ main {
     color: #000000;
 }
 
+/* Outline archive (fold/unfold per semester) */
+.outline-archive {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #252222;
+}
+
+.outline-archive summary {
+    color: #888888;
+    font-size: 0.95rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.outline-archive summary:hover {
+    color: #a1186a;
+}
+
+.outline-archive .course-links {
+    margin-top: 0.75rem;
+    padding-top: 0;
+    border-top: none;
+}
+
+.outline-placeholder {
+    color: #666666;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
 /* Week Links */
 .week-links {
     display: flex;

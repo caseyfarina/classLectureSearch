@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 240 - Week 3 - Fall 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #FF7A00; margin-bottom: 10px; font-weight: 500; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #FF7A00; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #FF7A00; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #FF7A00; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #FF7A00; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #FF7A00; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #FF7A00; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 240 &bull; Fall 2026</div>
+            <h1 class="week-title">Week 3</h1>
+            <div class="week-subtitle">Depth of Field Critiques and Shutter Speed</div>
+            <div class="week-dates">September 09, 2026</div>
+            <div class="week-note">Monday was a holiday &ndash; No class</div>
+            <div class="week-nav">
+                <a href="AVC240_week02.html">&larr; Week 2</a>
+                <a href="AVC240_week04.html">Week 4 &rarr;</a>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>This session begins with critiques of student aperture and depth of field projects, covering dolly zoom technique, pulling focus, and bokeh effects, including discussion of real-world references like Vertigo and tilt-shift photography. The second half introduces shutter speed and motion blur in Blender, along with practical tips for managing Blender Kit assets and viewport performance.</p>
+            <div class="key-topics">
+                <span class="topic-tag">Depth of Field</span>
+                <span class="topic-tag">Dolly Zoom</span>
+                <span class="topic-tag">Bokeh</span>
+                <span class="topic-tag">Shutter Speed</span>
+                <span class="topic-tag">Motion Blur</span>
+                <span class="topic-tag">Blender Workflow</span>
+            </div>
+        </div>
+
+        
+        <div class="day-column">
+            
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">September 09, 2026</div>
+                    <h2 class="day-title">Depth of Field Critiques and Shutter Speed</h2>
+                    <p class="day-summary">This session begins with critiques of student aperture and depth of field projects, covering dolly zoom technique, pulling focus, and bokeh effects, including discussion of real-world references like Vertigo and tilt-shift photography. The second half introduces shutter speed and motion blur in Blender, along with practical tips for managing Blender Kit assets and viewport performance.</p>
+                    <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Introduction and Announcements</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Class Intro and Housekeeping</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Student Project Critiques</div>
+                        <span class="section-count">12 projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=159s" target="_blank" class="timestamp-link">2:39</a>
+                            <span class="timestamp-title">Student Feedback: Dolly Zoom and Focus Pull</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=494s" target="_blank" class="timestamp-link">8:14</a>
+                            <span class="timestamp-title">Student Feedback: Dolly Zoom Demo</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=851s" target="_blank" class="timestamp-link">14:11</a>
+                            <span class="timestamp-title">Student Feedback: Camera Theory Assignment</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=1228s" target="_blank" class="timestamp-link">20:28</a>
+                            <span class="timestamp-title">Student Feedback: Pokemon-Themed Scene</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=2115s" target="_blank" class="timestamp-link">35:15</a>
+                            <span class="timestamp-title">Student Feedback: Game Character Renders</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=2461s" target="_blank" class="timestamp-link">41:01</a>
+                            <span class="timestamp-title">Student Feedback: Blender Numpad Navigation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=3353s" target="_blank" class="timestamp-link">55:53</a>
+                            <span class="timestamp-title">Student Feedback: Bokeh Shape Experiments</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=4223s" target="_blank" class="timestamp-link">1:10:23</a>
+                            <span class="timestamp-title">Student Feedback: Toy Car Scale Illusion</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=5308s" target="_blank" class="timestamp-link">1:28:28</a>
+                            <span class="timestamp-title">Student Feedback: Hand-Painted Fish Model</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=6131s" target="_blank" class="timestamp-link">1:42:11</a>
+                            <span class="timestamp-title">Student Feedback: Magic Fox Bokeh Scene</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=7166s" target="_blank" class="timestamp-link">1:59:26</a>
+                            <span class="timestamp-title">Student Feedback: Dragon Scale Effects</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Cinematography Theory and References</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=1223s" target="_blank" class="timestamp-link">20:23</a>
+                            <span class="timestamp-title">Vertigo and Jaws Dolly Zoom History</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=3769s" target="_blank" class="timestamp-link">1:02:49</a>
+                            <span class="timestamp-title">Macro Photography and Tilt-Shift Effects</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Shutter Speed and Motion Blur</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=7541s" target="_blank" class="timestamp-link">2:05:41</a>
+                            <span class="timestamp-title">Introducing Shutter Speed Concepts</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=8099s" target="_blank" class="timestamp-link">2:14:59</a>
+                            <span class="timestamp-title">Blender Motion Blur Demonstration</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Kx3P7brI5S8&t=8611s" target="_blank" class="timestamp-link">2:23:31</a>
+                            <span class="timestamp-title">Shutter Speed Assignment and Blender Kit Tips</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Dolly zoom requires linked keyframes on both camera position and focal length to keep the subject size constant</li>
+                        <li>Linear keyframes (or cutting clip edges) prevent unwanted acceleration/deceleration, keeping motion cinematic</li>
+                        <li>Aperture f-stop number is inversely related to hole size: higher number means smaller aperture and deeper focus</li>
+                        <li>Depth of field interacts with real-world object scale; shallow focus on large objects makes them look miniature (tilt-shift effect)</li>
+                        <li>Shutter speed controls motion blur and is not visible in the viewport—must render (F12) to preview results</li>
+                        <li>Bokeh shape is determined by the number of blades in the aperture iris, not just its size</li>
+                        <li>Lowering render resolution percentage is the fastest way to speed up renders when time is limited</li>
+                        <li>Check scene statistics (VRAM, memory, face count) in Blender preferences to avoid overloading the computer with heavy assets</li>
+                    </ul>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

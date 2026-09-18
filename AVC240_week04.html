@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 240 - Week 4 - Fall 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #FF7A00; margin-bottom: 10px; font-weight: 500; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #FF7A00; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #FF7A00; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #FF7A00; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #FF7A00; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #FF7A00; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #FF7A00; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 240 &bull; Fall 2026</div>
+            <h1 class="week-title">Week 4</h1>
+            <div class="week-subtitle">VR Headset Setup and Motion Blur &amp; Camera Effects: Tilt Shift and Motion Blur</div>
+            <div class="week-dates">September 14 &ndash; 16, 2026</div>
+            
+            <div class="week-nav">
+                <a href="AVC240_week03.html">&larr; Week 3</a>
+                <a href="AVC240_week05.html">Week 5 &rarr;</a>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>Monday covers this lecture covers the complete process of configuring and troubleshooting Vive VR headsets with Blender for content creation, followed by an in-depth demonstration of using shutter speed and motion blur to convey speed in a car scene, including camera rigging, lighting, volumetric fog, and rendering settings. Wednesday focuses on this lecture reviews student projects exploring tilt shift miniature effects and shutter speed motion blur in Blender, covering depth of field, focal length, and aperture settings. The instructor also demonstrates rigid body physics simulation with motion blur and troubleshoots VRAM and performance issues.</p>
+            <div class="key-topics">
+                <span class="topic-tag">VR Setup</span>
+                <span class="topic-tag">Blender VR</span>
+                <span class="topic-tag">Motion Blur</span>
+                <span class="topic-tag">Shutter Speed</span>
+                <span class="topic-tag">Cinematography</span>
+                <span class="topic-tag">Lighting</span>
+                <span class="topic-tag">Tilt Shift</span>
+                <span class="topic-tag">Depth of Field</span>
+                <span class="topic-tag">Rigid Body Physics</span>
+                <span class="topic-tag">Blender Performance</span>
+            </div>
+        </div>
+
+        
+        <div class="columns">
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">September 14, 2026</div>
+                    <h2 class="day-title">VR Headset Setup and Motion Blur</h2>
+                    <p class="day-summary">This lecture covers the complete process of configuring and troubleshooting Vive VR headsets with Blender for content creation, followed by an in-depth demonstration of using shutter speed and motion blur to convey speed in a car scene, including camera rigging, lighting, volumetric fog, and rendering settings.</p>
+                    <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">VR Headset Configuration</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">VR Headset Setup Introduction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=61s" target="_blank" class="timestamp-link">1:01</a>
+                            <span class="timestamp-title">Per-Account Per-Computer Configuration</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=318s" target="_blank" class="timestamp-link">5:18</a>
+                            <span class="timestamp-title">Installing VR Software Center App</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=555s" target="_blank" class="timestamp-link">9:15</a>
+                            <span class="timestamp-title">Launching Vive Streaming Application</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Blender VR Integration</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=786s" target="_blank" class="timestamp-link">13:06</a>
+                            <span class="timestamp-title">Installing Blender VR Add-on</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=1259s" target="_blank" class="timestamp-link">20:59</a>
+                            <span class="timestamp-title">Understanding VR Displays and IPD</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=1621s" target="_blank" class="timestamp-link">27:01</a>
+                            <span class="timestamp-title">Teleport Movement and Motion Sickness</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">VR for Content Creation</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=1954s" target="_blank" class="timestamp-link">32:34</a>
+                            <span class="timestamp-title">Why VR Content Authoring Matters</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=2401s" target="_blank" class="timestamp-link">40:01</a>
+                            <span class="timestamp-title">Location Scouting in VR</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=2504s" target="_blank" class="timestamp-link">41:44</a>
+                            <span class="timestamp-title">Rendering Modes and Performance Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=3417s" target="_blank" class="timestamp-link">56:57</a>
+                            <span class="timestamp-title">Troubleshooting VR Frame Rate Drops</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Motion Blur Fundamentals</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=3716s" target="_blank" class="timestamp-link">1:01:56</a>
+                            <span class="timestamp-title">Shutter Speed and Motion Blur Overview</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=3847s" target="_blank" class="timestamp-link">1:04:07</a>
+                            <span class="timestamp-title">Building the Car Scene</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=4448s" target="_blank" class="timestamp-link">1:14:08</a>
+                            <span class="timestamp-title">Parenting Camera to Moving Car</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=4829s" target="_blank" class="timestamp-link">1:20:29</a>
+                            <span class="timestamp-title">Adding Camera Shake with Noise Modifier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Advanced Lighting and Fog Effects</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=5376s" target="_blank" class="timestamp-link">1:29:36</a>
+                            <span class="timestamp-title">Street Lights and Nighttime Lighting</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=5855s" target="_blank" class="timestamp-link">1:37:35</a>
+                            <span class="timestamp-title">Motion Blur Steps and Ray Tracing</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=6433s" target="_blank" class="timestamp-link">1:47:13</a>
+                            <span class="timestamp-title">Headlights with Volumetric Fog</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">6</div>
+                        <div class="section-name">Stationary Shots and Real-World References</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=6973s" target="_blank" class="timestamp-link">1:56:13</a>
+                            <span class="timestamp-title">Stationary Camera Blur Shot</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=YcPLPRkKrYo&t=8194s" target="_blank" class="timestamp-link">2:16:34</a>
+                            <span class="timestamp-title">Real-World Long Exposure Examples</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>VR headset configuration is per-account and per-computer, requiring re-setup on different machines</li>
+                        <li>VR requires stereoscopic rendering, meaning double the computational work compared to flat screens</li>
+                        <li>Teleport movement reduces motion sickness compared to joystick-based movement in VR</li>
+                        <li>Frame rate drops in VR can cause motion sickness because visuals lag behind head movement</li>
+                        <li>VR content authoring makes 3D creation more physical and intuitive compared to mouse-based tools</li>
+                        <li>Motion blur can convey speed either from a moving object&#x27;s POV (background blurred) or a stationary observer&#x27;s POV (object blurred)</li>
+                        <li>Key render settings like motion blur steps, shutter length, and volume resolution significantly affect render quality and time</li>
+                        <li>Volumetric lighting combined with spotlights creates visible headlight beams and fog effects</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">September 16, 2026</div>
+                    <h2 class="day-title">Camera Effects: Tilt Shift and Motion Blur</h2>
+                    <p class="day-summary">This lecture reviews student projects exploring tilt shift miniature effects and shutter speed motion blur in Blender, covering depth of field, focal length, and aperture settings. The instructor also demonstrates rigid body physics simulation with motion blur and troubleshoots VRAM and performance issues.</p>
+                    <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Class Setup and Technical Difficulties</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Class Startup and Tech Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=3536s" target="_blank" class="timestamp-link">58:56</a>
+                            <span class="timestamp-title">Persistent AV Equipment Malfunctions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Camera Effects Fundamentals</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=273s" target="_blank" class="timestamp-link">4:33</a>
+                            <span class="timestamp-title">Student Feedback: Miniature Scene Showcase</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=619s" target="_blank" class="timestamp-link">10:19</a>
+                            <span class="timestamp-title">Aperture, Shutter, and Tilt Shift Theory</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Student Project Reviews</div>
+                        <span class="section-count">10 projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=877s" target="_blank" class="timestamp-link">14:37</a>
+                            <span class="timestamp-title">Student Feedback: Farm Tilt Shift Scene</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=1080s" target="_blank" class="timestamp-link">18:00</a>
+                            <span class="timestamp-title">Student Feedback: Curve Scatter Effects</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=1762s" target="_blank" class="timestamp-link">29:22</a>
+                            <span class="timestamp-title">Student Feedback: Low Poly City Scene</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=1960s" target="_blank" class="timestamp-link">32:40</a>
+                            <span class="timestamp-title">Student Feedback: Shutter Speed Showcase</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=2488s" target="_blank" class="timestamp-link">41:28</a>
+                            <span class="timestamp-title">Student Feedback: Car and Speed Scene</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=2827s" target="_blank" class="timestamp-link">47:07</a>
+                            <span class="timestamp-title">Student Feedback: Realize Instances Issue</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=3887s" target="_blank" class="timestamp-link">1:04:47</a>
+                            <span class="timestamp-title">Student Feedback: Disco Ball and HDR Lighting</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=4798s" target="_blank" class="timestamp-link">1:19:58</a>
+                            <span class="timestamp-title">Student Feedback: Fixing Depth of Field</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Performance and Optimization</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=2294s" target="_blank" class="timestamp-link">38:14</a>
+                            <span class="timestamp-title">VRAM Limits and Texture Optimization</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=2641s" target="_blank" class="timestamp-link">44:01</a>
+                            <span class="timestamp-title">Blender Preferences and Memory Monitoring</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Simulation Demo and Assignment</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=5152s" target="_blank" class="timestamp-link">1:25:52</a>
+                            <span class="timestamp-title">Student Feedback: Fluid Simulation Experiments</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=5708s" target="_blank" class="timestamp-link">1:35:08</a>
+                            <span class="timestamp-title">Live Demo: Rigid Body Dice Simulation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hBNiBxh6PVE&t=6437s" target="_blank" class="timestamp-link">1:47:17</a>
+                            <span class="timestamp-title">Weekly Assignment and Wrap-Up</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Tilt shift effects rely on shallow depth of field combined with a camera angle that creates varying distances between foreground, subject, and background</li>
+                        <li>Focal length and depth of field work together: compressing angles with focal length while blurring foreground/background creates a miniature look</li>
+                        <li>The viewport cannot accurately display motion blur because it only shows a single frame in time; motion blur requires rendering across multiple frames</li>
+                        <li>Longer shutter speed values let in more light and increase motion blur, communicating faster velocity of moving objects</li>
+                        <li>Realize Instances should typically be unchecked in the Array modifier for better performance unless individual instance modification is needed</li>
+                        <li>High-resolution textures (not mesh complexity) are usually the main cause of high VRAM usage and potential crashes in Blender</li>
+                        <li>Rigid body simulations require setting moving objects to Active and stationary objects to Passive, then increasing solver iterations for smoother results</li>
+                        <li>Real-world f-stop and focal length values only behave realistically when scene objects are scaled to real-world proportions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

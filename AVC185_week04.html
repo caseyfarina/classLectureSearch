@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 185 - Week 4 - Fall 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #D904A0; margin-bottom: 10px; font-weight: 500; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #D904A0; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #D904A0; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #D904A0; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #D904A0; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #D904A0; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #D904A0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 185 &bull; Fall 2026</div>
+            <h1 class="week-title">Week 4</h1>
+            <div class="week-subtitle">Entering VR and Subdivision Surface Modeling &amp; Forest &amp; Cabin Scene Critiques and Techniques</div>
+            <div class="week-dates">September 14 &ndash; 16, 2026</div>
+            
+            <div class="week-nav">
+                <a href="AVC185_week03.html">&larr; Week 3</a>
+                <a href="AVC185_week05.html">Week 5 &rarr;</a>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>Monday covers this lecture covers the full setup process for Vive VR headsets in Blender, including troubleshooting connection issues, exploring stereoscopic rendering and 360 panorama/video capture, followed by an in-depth tutorial on subdivision surface modeling techniques used to create organic shapes like cakes, raspberries, and a mug with a handle. Wednesday focuses on this session reviews student forest and cabin scene projects, covering common issues like array instancing, cylinder topology, and shade smoothing, while demonstrating new techniques such as lanterns, snow/icing effects, metaballs, geometry nodes, and compositing bloom. It closes with an introduction to next week&#x27;s assignment: modeling a cabin interior using puffy subdivision surface techniques.</p>
+            <div class="key-topics">
+                <span class="topic-tag">Virtual Reality</span>
+                <span class="topic-tag">Blender</span>
+                <span class="topic-tag">Vive Headset</span>
+                <span class="topic-tag">Subdivision Surface</span>
+                <span class="topic-tag">3D Modeling</span>
+                <span class="topic-tag">360 Video</span>
+                <span class="topic-tag">Array Modifiers</span>
+                <span class="topic-tag">Grease Pencil</span>
+                <span class="topic-tag">Lighting</span>
+                <span class="topic-tag">Compositing</span>
+                <span class="topic-tag">Metaballs</span>
+            </div>
+        </div>
+
+        
+        <div class="columns">
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">September 14, 2026</div>
+                    <h2 class="day-title">Entering VR and Subdivision Surface Modeling</h2>
+                    <p class="day-summary">This lecture covers the full setup process for Vive VR headsets in Blender, including troubleshooting connection issues, exploring stereoscopic rendering and 360 panorama/video capture, followed by an in-depth tutorial on subdivision surface modeling techniques used to create organic shapes like cakes, raspberries, and a mug with a handle.</p>
+                    <a href="https://www.youtube.com/watch?v=60SvDoCumJw" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">VR Headset Setup and Troubleshooting</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">VR Headset Setup Introduction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=216s" target="_blank" class="timestamp-link">3:36</a>
+                            <span class="timestamp-title">Vive Headset Hardware Overview</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=372s" target="_blank" class="timestamp-link">6:12</a>
+                            <span class="timestamp-title">Software Center Installation Steps</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=555s" target="_blank" class="timestamp-link">9:15</a>
+                            <span class="timestamp-title">Troubleshooting Headset Connections</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=838s" target="_blank" class="timestamp-link">13:58</a>
+                            <span class="timestamp-title">Launching Blender VR Add-on</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Exploring VR in Blender</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=1719s" target="_blank" class="timestamp-link">28:39</a>
+                            <span class="timestamp-title">Navigating and Rendering in VR</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=2046s" target="_blank" class="timestamp-link">34:06</a>
+                            <span class="timestamp-title">Stereoscopic Vision Explained</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=2806s" target="_blank" class="timestamp-link">46:46</a>
+                            <span class="timestamp-title">Recap and Next VR Tools</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">360 Content Creation Examples</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=3004s" target="_blank" class="timestamp-link">50:04</a>
+                            <span class="timestamp-title">360 Panorama Rendering Demo</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=3289s" target="_blank" class="timestamp-link">54:49</a>
+                            <span class="timestamp-title">360 Camera Capture Examples</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Subdivision Surface Modeling Techniques</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=3481s" target="_blank" class="timestamp-link">58:01</a>
+                            <span class="timestamp-title">Subdivision Surface Modeling Basics</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=4699s" target="_blank" class="timestamp-link">1:18:19</a>
+                            <span class="timestamp-title">Building a Raspberry with Scatter</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=5403s" target="_blank" class="timestamp-link">1:30:03</a>
+                            <span class="timestamp-title">Shrink Wrap and Sphere Topology</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=6242s" target="_blank" class="timestamp-link">1:44:02</a>
+                            <span class="timestamp-title">Controlling Edges for Mug Shape</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=7924s" target="_blank" class="timestamp-link">2:12:04</a>
+                            <span class="timestamp-title">Modeling Mug Handle with Bridge Tool</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Lecture Wrap-Up</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=60SvDoCumJw&t=8419s" target="_blank" class="timestamp-link">2:20:19</a>
+                            <span class="timestamp-title">Wrap-Up and Upcoming Assignments</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>VR headset setup requires per-computer, per-student configuration via Software Center and Vive Streaming</li>
+                        <li>Headsets charge via a separate charging station, not through the data-only USB cable</li>
+                        <li>Stereoscopic vision requires rendering two separate camera views (one per eye), doubling computation cost</li>
+                        <li>360 panoramas and videos let viewers look around pre-rendered scenes without needing Blender or a live VR session</li>
+                        <li>Subdivision surface modeling smooths simple low-poly meshes using the Catmull-Clark algorithm</li>
+                        <li>Controlling edges (via loop cuts, insets, and extrudes) let you selectively sharpen areas of an otherwise smooth mesh</li>
+                        <li>Subdivision surface modeling works best with quad topology; triangles and n-gons cause shading problems</li>
+                        <li>Level of detail (smoothness) should match how much space an object takes up in the camera frame, not its absolute size</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">September 16, 2026</div>
+                    <h2 class="day-title">Forest &amp; Cabin Scene Critiques and Techniques</h2>
+                    <p class="day-summary">This session reviews student forest and cabin scene projects, covering common issues like array instancing, cylinder topology, and shade smoothing, while demonstrating new techniques such as lanterns, snow/icing effects, metaballs, geometry nodes, and compositing bloom. It closes with an introduction to next week&#x27;s assignment: modeling a cabin interior using puffy subdivision surface techniques.</p>
+                    <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Student Project Critiques: Cabins &amp; Trees</div>
+                        <span class="section-count">5 projects reviewed</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Forest and Cabin Scene Critique</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=383s" target="_blank" class="timestamp-link">6:23</a>
+                            <span class="timestamp-title">Cylinder Subdivision Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=660s" target="_blank" class="timestamp-link">11:00</a>
+                            <span class="timestamp-title">Shingle Roof and Kayak Techniques</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=900s" target="_blank" class="timestamp-link">15:00</a>
+                            <span class="timestamp-title">Cone Topology and Subdivision Surfaces</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=1064s" target="_blank" class="timestamp-link">17:44</a>
+                            <span class="timestamp-title">Array Instancing and Solidify Modifier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Lighting and Atmosphere Tips</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=1298s" target="_blank" class="timestamp-link">21:38</a>
+                            <span class="timestamp-title">Nighttime Lighting Tips</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=1416s" target="_blank" class="timestamp-link">23:36</a>
+                            <span class="timestamp-title">Campfire and Mushroom Modeling</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=1799s" target="_blank" class="timestamp-link">29:59</a>
+                            <span class="timestamp-title">Building a Spooky Lantern</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">More Student Renders and Techniques</div>
+                        <span class="section-count">5 projects reviewed</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=2078s" target="_blank" class="timestamp-link">34:38</a>
+                            <span class="timestamp-title">Grease Pencil Tree Techniques</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=2399s" target="_blank" class="timestamp-link">39:59</a>
+                            <span class="timestamp-title">Metaballs for Organic Shapes</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=2534s" target="_blank" class="timestamp-link">42:14</a>
+                            <span class="timestamp-title">Scaling and Shade Smooth Fixes</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=2918s" target="_blank" class="timestamp-link">48:38</a>
+                            <span class="timestamp-title">Curve to Tube Conversion Help</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=3360s" target="_blank" class="timestamp-link">56:00</a>
+                            <span class="timestamp-title">Assigning Multiple Materials</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">2D/3D Integration and Node Tools</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=3611s" target="_blank" class="timestamp-link">1:00:11</a>
+                            <span class="timestamp-title">2D Grease Pencil Over 3D Renders</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=4249s" target="_blank" class="timestamp-link">1:10:49</a>
+                            <span class="timestamp-title">Geometry Nodes for Shingles</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=4349s" target="_blank" class="timestamp-link">1:12:29</a>
+                            <span class="timestamp-title">Sleeping Bear Animation Demo</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=4506s" target="_blank" class="timestamp-link">1:15:06</a>
+                            <span class="timestamp-title">Building Snow and Icing Effects</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Final Round of Renders</div>
+                        <span class="section-count">4 projects reviewed</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=5065s" target="_blank" class="timestamp-link">1:24:25</a>
+                            <span class="timestamp-title">Street Lamps and Emissive Lighting</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=5479s" target="_blank" class="timestamp-link">1:31:19</a>
+                            <span class="timestamp-title">Compositing Bloom and Glow</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=5853s" target="_blank" class="timestamp-link">1:37:33</a>
+                            <span class="timestamp-title">Grass Clumps and Scatter Modifiers</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=6508s" target="_blank" class="timestamp-link">1:48:28</a>
+                            <span class="timestamp-title">Bridge and Bush Scatter Scene</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">6</div>
+                        <div class="section-name">Next Week: Interior Modeling</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=6712s" target="_blank" class="timestamp-link">1:51:52</a>
+                            <span class="timestamp-title">Next Assignment: Cabin Interior</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=7143s" target="_blank" class="timestamp-link">1:59:03</a>
+                            <span class="timestamp-title">Editing Multi-Object Meshes</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=7539s" target="_blank" class="timestamp-link">2:05:39</a>
+                            <span class="timestamp-title">Extrude Along Normals Explained</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=AmrKVgXUbHQ&t=7879s" target="_blank" class="timestamp-link">2:11:19</a>
+                            <span class="timestamp-title">Sculpting a Bundt Cake Shape</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Cylinder primitives default to 32 subdivisions, which is often excessive for simple objects</li>
+                        <li>Cones are poor candidates for subdivision surface modeling due to triangle and n-gon topology</li>
+                        <li>The &#x27;Realize Instances&#x27; checkbox determines whether array-generated geometry can be further modified or converted to mesh</li>
+                        <li>Weight painting is an effective way to control density of scattered objects like trees and stones</li>
+                        <li>Metaballs create smooshy, organic blob shapes that must be converted to mesh before using standard modifiers</li>
+                        <li>Combining an emissive material with an actual light object sells convincing light sources like lanterns and lamps</li>
+                        <li>The Inset Faces tool with &#x27;Individual&#x27; enabled allows insetting multiple selected faces independently</li>
+                        <li>Compositing bloom/glow adds a professional finishing touch to emissive elements in a render</li>
+                        <li>Extrude Along Normals and Individual Origins scaling are key tools for building radial shapes like a bundt cake</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

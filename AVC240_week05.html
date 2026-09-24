@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 240 - Week 5 - Fall 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #FF7A00; margin-bottom: 10px; font-weight: 500; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #FF7A00; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #FF7A00; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #FF7A00; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #FF7A00; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #FF7A00; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #FF7A00; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 240 &bull; Fall 2026</div>
+            <h1 class="week-title">Week 5</h1>
+            <div class="week-subtitle">Aspect Ratio History and Mixamo Character Setup &amp; Motion Blur, Rigid Body Sims &amp; Render Optimization</div>
+            <div class="week-dates">September 21 &ndash; 23, 2026</div>
+            
+            <div class="week-nav">
+                <a href="AVC240_week04.html">&larr; Week 4</a>
+                <a href="AVC240_week06.html">Week 6 &rarr;</a>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>Monday covers this lecture covers bringing Mixamo characters into Blender, editing motion capture animation, and building a beach environment with HDRI backgrounds and sculpted sand. The second half explores the history, aesthetics, and technical delivery of aspect ratios, culminating in practical Blender and After Effects workflows for combining different aspect ratios into a final 16:9 deliverable. Wednesday focuses on this lecture reviews student projects exploring moving vs. stationary camera shots, rigid body physics simulations, and custom motion blur designs in Blender, followed by an in-depth demonstration of optimizing Blender Kit assets, comparing render engines (viewport, Eevee, Cycles), and using compositing and After Effects techniques to create stylized camera looks (handheld phone footage, retro TV, cinematic titles).</p>
+            <div class="key-topics">
+                <span class="topic-tag">Aspect Ratio</span>
+                <span class="topic-tag">Mixamo</span>
+                <span class="topic-tag">Motion Capture</span>
+                <span class="topic-tag">HDRI Lighting</span>
+                <span class="topic-tag">Blender Compositing</span>
+                <span class="topic-tag">Film History</span>
+                <span class="topic-tag">Motion Blur</span>
+                <span class="topic-tag">Rigid Body Simulation</span>
+                <span class="topic-tag">Blender Rendering</span>
+                <span class="topic-tag">Compositing</span>
+                <span class="topic-tag">Camera Techniques</span>
+                <span class="topic-tag">After Effects</span>
+            </div>
+        </div>
+
+        
+        <div class="columns">
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">September 21, 2026</div>
+                    <h2 class="day-title">Aspect Ratio History and Mixamo Character Setup</h2>
+                    <p class="day-summary">This lecture covers bringing Mixamo characters into Blender, editing motion capture animation, and building a beach environment with HDRI backgrounds and sculpted sand. The second half explores the history, aesthetics, and technical delivery of aspect ratios, culminating in practical Blender and After Effects workflows for combining different aspect ratios into a final 16:9 deliverable.</p>
+                    <a href="https://www.youtube.com/watch?v=JpCwo93qksw" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Class Intro and Recap</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Welcome and Building Opening Recap</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=398s" target="_blank" class="timestamp-link">6:38</a>
+                            <span class="timestamp-title">Camera Basics Review and Class Plan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Mixamo and Character Animation</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=630s" target="_blank" class="timestamp-link">10:30</a>
+                            <span class="timestamp-title">Introducing Mixamo for Character Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=931s" target="_blank" class="timestamp-link">15:31</a>
+                            <span class="timestamp-title">Understanding FK vs IK Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=1234s" target="_blank" class="timestamp-link">20:34</a>
+                            <span class="timestamp-title">Importing FBX Files Into Blender</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=1313s" target="_blank" class="timestamp-link">21:53</a>
+                            <span class="timestamp-title">Making Animations Loop Cyclically</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=1721s" target="_blank" class="timestamp-link">28:41</a>
+                            <span class="timestamp-title">Simplifying Motion Capture With Decimate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Building the Beach Environment</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=2183s" target="_blank" class="timestamp-link">36:23</a>
+                            <span class="timestamp-title">Building a Beach Scene With HDRIs</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=2539s" target="_blank" class="timestamp-link">42:19</a>
+                            <span class="timestamp-title">Understanding HDR Formats and Mapping</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=2719s" target="_blank" class="timestamp-link">45:19</a>
+                            <span class="timestamp-title">Sculpting Sand With Displacement</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=3603s" target="_blank" class="timestamp-link">1:00:03</a>
+                            <span class="timestamp-title">Art Directing Terrain With Sculpting</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">History and Theory of Aspect Ratio</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=3974s" target="_blank" class="timestamp-link">1:06:14</a>
+                            <span class="timestamp-title">History and Perception of Aspect Ratio</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=4779s" target="_blank" class="timestamp-link">1:19:39</a>
+                            <span class="timestamp-title">Cinematic Language and Epic Framing</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=5345s" target="_blank" class="timestamp-link">1:29:05</a>
+                            <span class="timestamp-title">Aspect Ratio Shifts in Film Examples</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Rendering and Delivering Aspect Ratios</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=5741s" target="_blank" class="timestamp-link">1:35:41</a>
+                            <span class="timestamp-title">Setting Up Cameras and Render Presets</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=6226s" target="_blank" class="timestamp-link">1:43:46</a>
+                            <span class="timestamp-title">Resolution Standards: HD, 4K, NTSC/PAL</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=6661s" target="_blank" class="timestamp-link">1:51:01</a>
+                            <span class="timestamp-title">Rendering Multiple Aspect Ratio Versions</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=7153s" target="_blank" class="timestamp-link">1:59:13</a>
+                            <span class="timestamp-title">Combining Aspect Ratios in After Effects</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=7737s" target="_blank" class="timestamp-link">2:08:57</a>
+                            <span class="timestamp-title">Pixel Aspect Ratio Pitfalls Explained</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=8026s" target="_blank" class="timestamp-link">2:13:46</a>
+                            <span class="timestamp-title">Fixing Blurry HDR With Depth of Field</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">6</div>
+                        <div class="section-name">Wrap-Up</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=JpCwo93qksw&t=8337s" target="_blank" class="timestamp-link">2:18:57</a>
+                            <span class="timestamp-title">Wrap-Up and Next Class Preview</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Mixamo provides separate character models and motion-capture animation clips that can be mixed and matched, then exported as FBX files with mesh, bones, and animation combined.</li>
+                        <li>Motion capture data has a keyframe on every frame using forward kinematics (FK); the Decimate tool in the Graph Editor reduces keyframe density to make editing easier.</li>
+                        <li>Cyclic animations (Make Cyclic in the Graph Editor) allow looping and repeat in both directions around the original keyframes.</li>
+                        <li>Displacement mapping requires actual subdivided geometry to move, unlike bump/normal maps which fake detail without altering geometry.</li>
+                        <li>Aspect ratio has both a perceptual basis (matching human peripheral vision, which favors wider formats) and a historical/technological basis driven by camera and display capabilities plus commercial competition.</li>
+                        <li>Modern media makers are &#x27;postmodern&#x27; in that they can freely choose any aspect ratio as an artistic and historical reference rather than being limited by technology.</li>
+                        <li>Delivered video should only have black bars on top/bottom OR left/right—never on all four sides—when fitting a different aspect ratio into a 16:9 frame.</li>
+                        <li>Pixel aspect ratio should always remain 1:1 (square pixels); changing it distorts the image, unlike the frame aspect ratio which is an intentional creative choice.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">September 23, 2026</div>
+                    <h2 class="day-title">Motion Blur, Rigid Body Sims &amp; Render Optimization</h2>
+                    <p class="day-summary">This lecture reviews student projects exploring moving vs. stationary camera shots, rigid body physics simulations, and custom motion blur designs in Blender, followed by an in-depth demonstration of optimizing Blender Kit assets, comparing render engines (viewport, Eevee, Cycles), and using compositing and After Effects techniques to create stylized camera looks (handheld phone footage, retro TV, cinematic titles).</p>
+                    <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Introduction and Concepts</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Class Setup and Audio Fixes</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=205s" target="_blank" class="timestamp-link">3:25</a>
+                            <span class="timestamp-title">Moving vs Stationary Camera Shots</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=389s" target="_blank" class="timestamp-link">6:29</a>
+                            <span class="timestamp-title">Rigid Body Train Simulation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Student Project Showcases</div>
+                        <span class="section-count">9 student projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=704s" target="_blank" class="timestamp-link">11:44</a>
+                            <span class="timestamp-title">Student Showcase: Blender Vehicle Blur</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=1049s" target="_blank" class="timestamp-link">17:29</a>
+                            <span class="timestamp-title">Student Showcase: Pool Ball Physics</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=1278s" target="_blank" class="timestamp-link">21:18</a>
+                            <span class="timestamp-title">Discussing Rigid Body Physics Pitfalls</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=2032s" target="_blank" class="timestamp-link">33:52</a>
+                            <span class="timestamp-title">Student Showcase: Space Scene and Cloth Sim</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=2621s" target="_blank" class="timestamp-link">43:41</a>
+                            <span class="timestamp-title">Student Showcase: Fireflies and Butterfly Scene</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=2943s" target="_blank" class="timestamp-link">49:03</a>
+                            <span class="timestamp-title">Student Showcase: Crash Renders</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Render Optimization Techniques</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=3300s" target="_blank" class="timestamp-link">55:00</a>
+                            <span class="timestamp-title">Optimizing Blender Kit Assets</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=3939s" target="_blank" class="timestamp-link">1:05:39</a>
+                            <span class="timestamp-title">Comparing Render Engines: Viewport, Eevee, Cycles</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Industry Resources and Inspiration</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=5044s" target="_blank" class="timestamp-link">1:24:04</a>
+                            <span class="timestamp-title">Flow Film and Blender Con Resources</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Camera Setup and Aspect Ratios</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=5870s" target="_blank" class="timestamp-link">1:37:50</a>
+                            <span class="timestamp-title">Aspect Ratio Tricks in Blender</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=6386s" target="_blank" class="timestamp-link">1:46:26</a>
+                            <span class="timestamp-title">Building a Handheld Phone Camera Look</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">6</div>
+                        <div class="section-name">Compositing and Post-Production Styling</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=7283s" target="_blank" class="timestamp-link">2:01:23</a>
+                            <span class="timestamp-title">Compositing: Bloom, Grain, Chromatic Aberration</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=8019s" target="_blank" class="timestamp-link">2:13:39</a>
+                            <span class="timestamp-title">After Effects Retro TV Styling</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=r4g0tvEn_Ng&t=8650s" target="_blank" class="timestamp-link">2:24:10</a>
+                            <span class="timestamp-title">Title Design and Layer Styles</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Moving camera shots keep the subject in focus while blurring the background; stationary shots do the opposite</li>
+                        <li>Rigid body physics simulations can save time but are harder to control precisely than keyframed animation</li>
+                        <li>Blender Kit and Sketchfab assets vary widely in quality; scanned models often have excessive polygons and texture sizes</li>
+                        <li>Use the decimate modifier and texture resizing (text ops add-on) to optimize heavy imported assets</li>
+                        <li>Cycles renders can be extremely slow at default settings; using GPU rendering with denoising and low sample counts drastically improves speed</li>
+                        <li>Blender&#x27;s play blast is a fast way to preview renders directly from the viewport</li>
+                        <li>Parenting cameras and lights to objects, or using constraints like Damped Track, creates dynamic tracking shots</li>
+                        <li>Compositing nodes in Blender (bloom, grain, chromatic aberration) can mimic real camera artifacts without heavy render costs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

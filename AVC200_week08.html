@@ -7,7 +7,7 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
-        .container { max-width: 900px; margin: 0 auto; }
+        .container { max-width: 1600px; margin: 0 auto; }
         .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
         .back-link:hover { text-decoration: underline; }
         .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
@@ -61,9 +61,9 @@
         <div class="week-header">
             <div class="week-label">AVC 200 &bull; Fall 2026</div>
             <h1 class="week-title">Week 8</h1>
-            <div class="week-subtitle">2D World Building and Pixel Art Workshop</div>
-            <div class="week-dates">October 14, 2026</div>
-            <div class="week-note">Monday was a holiday &ndash; No class</div>
+            <div class="week-subtitle">2D Character Animation with State Machines &amp; 2D World Building and Pixel Art Workshop</div>
+            <div class="week-dates">October 12 &ndash; 14, 2026</div>
+            
             <div class="week-nav">
                 <a href="AVC200_week07.html">&larr; Week 7</a>
                 <a href="AVC200_week09.html">Week 9 &rarr;</a>
@@ -72,8 +72,14 @@
 
         <div class="overview">
             <h2>Week Overview</h2>
-            <p>This lecture is a project critique session where students present their week-seven 2D platformer assignments focused on world building, sprite techniques, and animation. The instructor demonstrates key Unity techniques including emission shaders for glow effects, Cinemachine camera switching for cutscenes, parallax depth, particle system fixes, and polygon colliders, while discussing broader questions about pixel art&#x27;s place in a professional portfolio.</p>
+            <p>Monday covers this lecture covers building a character animation state machine in Unity&#x27;s Animator, connecting controller scripts to animation parameters (speed and grounded), and constructing both sprite-sheet and multi-part characters with idle, walk/run, and jump animations. The session also touches on semester logistics, modular design principles, and balancing animation speed with gameplay movement speed. Wednesday focuses on this lecture is a project critique session where students present their week-seven 2D platformer assignments focused on world building, sprite techniques, and animation. The instructor demonstrates key Unity techniques including emission shaders for glow effects, Cinemachine camera switching for cutscenes, parallax depth, particle system fixes, and polygon colliders, while discussing broader questions about pixel art&#x27;s place in a professional portfolio.</p>
             <div class="key-topics">
+                <span class="topic-tag">Unity Animator</span>
+                <span class="topic-tag">State Machines</span>
+                <span class="topic-tag">2D Character Animation</span>
+                <span class="topic-tag">Sprite Sheets</span>
+                <span class="topic-tag">Game Development</span>
+                <span class="topic-tag">Modular Design</span>
                 <span class="topic-tag">2D Game Design</span>
                 <span class="topic-tag">Unity</span>
                 <span class="topic-tag">Pixel Art</span>
@@ -84,8 +90,142 @@
         </div>
 
         
-        <div class="day-column">
-            
+        <div class="columns">
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">October 12, 2026</div>
+                    <h2 class="day-title">2D Character Animation with State Machines</h2>
+                    <p class="day-summary">This lecture covers building a character animation state machine in Unity&#x27;s Animator, connecting controller scripts to animation parameters (speed and grounded), and constructing both sprite-sheet and multi-part characters with idle, walk/run, and jump animations. The session also touches on semester logistics, modular design principles, and balancing animation speed with gameplay movement speed.</p>
+                    <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Course Logistics and Roadmap</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Semester Roadmap and Expectations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Animator Fundamentals</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=430s" target="_blank" class="timestamp-link">7:10</a>
+                            <span class="timestamp-title">Introducing Character Animation Concepts</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=573s" target="_blank" class="timestamp-link">9:33</a>
+                            <span class="timestamp-title">Controller-to-Animator Communication</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=867s" target="_blank" class="timestamp-link">14:27</a>
+                            <span class="timestamp-title">Setting Up Animator Parameters</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=1217s" target="_blank" class="timestamp-link">20:17</a>
+                            <span class="timestamp-title">Modular Design and Dependencies</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Sprite Sheet Animation Workflow</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=1604s" target="_blank" class="timestamp-link">26:44</a>
+                            <span class="timestamp-title">Creating Idle and Walk Animations</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=1926s" target="_blank" class="timestamp-link">32:06</a>
+                            <span class="timestamp-title">Building Animation Transitions</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=2225s" target="_blank" class="timestamp-link">37:05</a>
+                            <span class="timestamp-title">Understanding Conditionals in Code</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=2653s" target="_blank" class="timestamp-link">44:13</a>
+                            <span class="timestamp-title">Adding Jump Animation State</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=3153s" target="_blank" class="timestamp-link">52:33</a>
+                            <span class="timestamp-title">Adjusting Animation Playback Speed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Multi-Part Character Rigging</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=3452s" target="_blank" class="timestamp-link">57:32</a>
+                            <span class="timestamp-title">Multi-Part Character Construction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=4267s" target="_blank" class="timestamp-link">1:11:07</a>
+                            <span class="timestamp-title">Sprite Import and Sorting Layers</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=4886s" target="_blank" class="timestamp-link">1:21:26</a>
+                            <span class="timestamp-title">Animating the Multi-Part Idle</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Full Animation Integration</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=5433s" target="_blank" class="timestamp-link">1:30:33</a>
+                            <span class="timestamp-title">Animating Run Cycle with Parts</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=6679s" target="_blank" class="timestamp-link">1:51:19</a>
+                            <span class="timestamp-title">Jump Animation Timing and Balance</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=_EVRcuk-Q3c&t=7864s" target="_blank" class="timestamp-link">2:11:04</a>
+                            <span class="timestamp-title">Expanding Character State Variety</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Animator state machines switch between animation clips based on parameters like speed (float) and grounded (bool)</li>
+                        <li>Controller scripts and animators are kept modular and independent to reduce dependencies and increase flexibility</li>
+                        <li>Conditionals (if statements) are the decision-making logic that drives animation transitions</li>
+                        <li>Uncheck &#x27;Has Exit Time&#x27; for responsive transitions; use it only when animations must finish before switching</li>
+                        <li>Character movement speed (gameplay) and animation playback speed (visual) are separate values that must be balanced to avoid a &#x27;skating&#x27; look</li>
+                        <li>Sprites should be scaled via Pixels Per Unit rather than changing transform scale, keeping all scale values at 1,1,1</li>
+                        <li>When building multi-part characters, start walk/run cycles with one leg forward and one back, not feet together, to avoid unnatural transitions</li>
+                        <li>Sorting layers and z-position must be managed carefully to control draw order for multi-part 2D characters</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="day-column">
+                
                 <div class="day-header">
                     <div class="day-label">Wednesday</div>
                     <div class="day-date">October 14, 2026</div>
@@ -258,6 +398,7 @@
                         <li>Pixel art&#x27;s size/resolution should remain consistent across assets to avoid mismatched pixel scale when combining sprites of different canvas sizes</li>
                     </ul>
                 </div>
+            </div>
         </div>
     </div>
 </body>

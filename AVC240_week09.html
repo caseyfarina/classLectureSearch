@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 240 - Week 9 - Fall 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #FF7A00; margin-bottom: 10px; font-weight: 500; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #FF7A00; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #FF7A00; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #FF7A00; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #FF7A00; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #FF7A00; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #FF7A00; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 240 &bull; Fall 2026</div>
+            <h1 class="week-title">Week 9</h1>
+            <div class="week-subtitle">180 Degree Rule and Mixamo Animation Mixing &amp; Composition Critiques and 180-Degree Rule Setup</div>
+            <div class="week-dates">October 19 &ndash; 21, 2026</div>
+            
+            <div class="week-nav">
+                <a href="AVC240_week08.html">&larr; Week 8</a>
+                <a href="AVC240_week10.html">Week 10 &rarr;</a>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>Monday covers this lecture covers the 180 degree rule for cinematography and audience orientation, demonstrated with film examples, then transitions into a full workflow of recording dialogue, importing it into Blender, and mixing Mixamo animations across multiple tracks to create a dialogue scene with proper camera staging and depth of field. Wednesday focuses on students presented their elements-of-composition projects, showcasing original Blender renders paired with real-world film and game references for concepts like point, line, shape, depth, balance, and color. The lecture closes with a new assignment introducing the 180-degree rule, dialogue scenes with Mixamo characters, and a helpful audio visualizer add-on for Blender.</p>
+            <div class="key-topics">
+                <span class="topic-tag">180 Degree Rule</span>
+                <span class="topic-tag">Mixamo</span>
+                <span class="topic-tag">Blender Animation</span>
+                <span class="topic-tag">Cinematography</span>
+                <span class="topic-tag">Audio Recording</span>
+                <span class="topic-tag">Character Rigging</span>
+                <span class="topic-tag">Composition Principles</span>
+                <span class="topic-tag">Blender Rendering</span>
+                <span class="topic-tag">Film References</span>
+                <span class="topic-tag">Mixamo Characters</span>
+                <span class="topic-tag">Student Critiques</span>
+            </div>
+        </div>
+
+        
+        <div class="columns">
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">October 19, 2026</div>
+                    <h2 class="day-title">180 Degree Rule and Mixamo Animation Mixing</h2>
+                    <p class="day-summary">This lecture covers the 180 degree rule for cinematography and audience orientation, demonstrated with film examples, then transitions into a full workflow of recording dialogue, importing it into Blender, and mixing Mixamo animations across multiple tracks to create a dialogue scene with proper camera staging and depth of field.</p>
+                    <a href="https://www.youtube.com/watch?v=gJDf325jJt4" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">The 180 Degree Rule</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=gJDf325jJt4&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Class Setup and Intro</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=gJDf325jJt4&t=206s" target="_blank" class="timestamp-link">3:26</a>
+                            <span class="timestamp-title">Introducing the 180 Degree Rule</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=gJDf325jJt4&t=473s" target="_blank" class="timestamp-link">7:53</a>
+                            <span class="timestamp-title">Setting Up Cameras in Blender</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=gJDf325jJt4&t=720s" target="_blank" class="timestamp-link">12:00</a>
+                            <span class="timestamp-title">Breaking the Rule: Disorientation Example</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Recording and Importing Dialogue</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=gJDf325jJt4&t=1026s" target="_blank" class="timestamp-link">17:06</a>
+                            <span class="timestamp-title">Recording Dialogue in Audition</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=gJDf325jJt4&t=1257s" target="_blank" class="timestamp-link">20:57</a>
+                            <span class="timestamp-title">Importing Audio into Blender</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Working with Mixamo Animations</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=gJDf325jJt4&t=2075s" target="_blank" class="timestamp-link">34:35</a>
+                            <span class="timestamp-title">Bringing in Mixamo Characters</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=gJDf325jJt4&t=2559s" target="_blank" class="timestamp-link">42:39</a>
+                            <span class="timestamp-title">Mixing Animations with Tracks and Blending</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=gJDf325jJt4&t=3066s" target="_blank" class="timestamp-link">51:06</a>
+                            <span class="timestamp-title">Sequencing Two Characters Together</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Scene Staging and Camera Work</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=gJDf325jJt4&t=3611s" target="_blank" class="timestamp-link">1:00:11</a>
+                            <span class="timestamp-title">Staging the Scene and Cinematography</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=gJDf325jJt4&t=4056s" target="_blank" class="timestamp-link">1:07:36</a>
+                            <span class="timestamp-title">Depth of Field and Camera Cuts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Custom Characters and Rigging</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=gJDf325jJt4&t=4621s" target="_blank" class="timestamp-link">1:17:01</a>
+                            <span class="timestamp-title">Uploading Custom Meshes to Mixamo</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=gJDf325jJt4&t=4940s" target="_blank" class="timestamp-link">1:22:20</a>
+                            <span class="timestamp-title">Auto-Rigging and Round Tripping</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">6</div>
+                        <div class="section-name">Wrap-up and Student Questions</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=gJDf325jJt4&t=5075s" target="_blank" class="timestamp-link">1:24:35</a>
+                            <span class="timestamp-title">Q&amp;A: Walking and Movement Tips</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=gJDf325jJt4&t=5320s" target="_blank" class="timestamp-link">1:28:40</a>
+                            <span class="timestamp-title">Closing Remarks and Work Time</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>The 180 degree rule keeps the camera on one side of an imaginary line between characters to prevent audience disorientation</li>
+                        <li>Breaking the 180 degree rule can be used intentionally to create disorientation as a narrative effect</li>
+                        <li>A typical dialogue scene uses an establishing two-shot plus over-the-shoulder shots for each character</li>
+                        <li>Audio recorded in Adobe Audition produces both a project file and a separate wave file needed for import</li>
+                        <li>In Blender&#x27;s NLE, animations must be pushed down into strips and placed on separate tracks to mix multiple actions on one character</li>
+                        <li>Blend values are required on animation strips or newer actions will completely override earlier ones with no transition</li>
+                        <li>Custom meshes must be joined into a single continuous mesh before uploading to Mixamo for auto-rigging</li>
+                        <li>Depth of field and longer focal lengths help focus attention on the speaking character during cuts</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">October 21, 2026</div>
+                    <h2 class="day-title">Composition Critiques and 180-Degree Rule Setup</h2>
+                    <p class="day-summary">Students presented their elements-of-composition projects, showcasing original Blender renders paired with real-world film and game references for concepts like point, line, shape, depth, balance, and color. The lecture closes with a new assignment introducing the 180-degree rule, dialogue scenes with Mixamo characters, and a helpful audio visualizer add-on for Blender.</p>
+                    <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Opening Banter and Updates</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Class Check-in and Updates</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Composition Fundamentals Discussion</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=216s" target="_blank" class="timestamp-link">3:36</a>
+                            <span class="timestamp-title">Student Feedback: Composition Examples (Point, Shape)</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=421s" target="_blank" class="timestamp-link">7:01</a>
+                            <span class="timestamp-title">Chladni Plates and Sound Vibration Tangent</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=541s" target="_blank" class="timestamp-link">9:01</a>
+                            <span class="timestamp-title">Movie Box Office Statistics Discussion</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Student Project Presentations</div>
+                        <span class="section-count">12 student projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=792s" target="_blank" class="timestamp-link">13:12</a>
+                            <span class="timestamp-title">Student Feedback: Depth and Shape Renders</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=1296s" target="_blank" class="timestamp-link">21:36</a>
+                            <span class="timestamp-title">Student Feedback: K-Pop and Film References</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=2090s" target="_blank" class="timestamp-link">34:50</a>
+                            <span class="timestamp-title">Student Feedback: Referenced Scene Recreations</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=2383s" target="_blank" class="timestamp-link">39:43</a>
+                            <span class="timestamp-title">Chuck E. Cheese and Pizza Tangent</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=2385s" target="_blank" class="timestamp-link">39:45</a>
+                            <span class="timestamp-title">Student Feedback: Scale and Depth Composition</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=2997s" target="_blank" class="timestamp-link">49:57</a>
+                            <span class="timestamp-title">Student Feedback: Animated Clip References</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=3657s" target="_blank" class="timestamp-link">1:00:57</a>
+                            <span class="timestamp-title">Student Feedback: Concept Art Style Renders</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=3831s" target="_blank" class="timestamp-link">1:03:51</a>
+                            <span class="timestamp-title">Student Feedback: Point and Balance Studies</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=4280s" target="_blank" class="timestamp-link">1:11:20</a>
+                            <span class="timestamp-title">Student Feedback: Minecraft and Film Clips</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=4879s" target="_blank" class="timestamp-link">1:21:19</a>
+                            <span class="timestamp-title">Student Feedback: Video Format Compositions</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=5391s" target="_blank" class="timestamp-link">1:29:51</a>
+                            <span class="timestamp-title">Student Feedback: After Effects Compositions</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=5779s" target="_blank" class="timestamp-link">1:36:19</a>
+                            <span class="timestamp-title">Student Feedback: Miro Presented Renders</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">New Assignment Introduction</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=6404s" target="_blank" class="timestamp-link">1:46:44</a>
+                            <span class="timestamp-title">New Assignment: 180 Degree Rule</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=6678s" target="_blank" class="timestamp-link">1:51:18</a>
+                            <span class="timestamp-title">Audio Visualizer Add-on Demo</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=6955s" target="_blank" class="timestamp-link">1:55:55</a>
+                            <span class="timestamp-title">Directing Roles and Render Budget</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Closing Remarks</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=wy1QphP_jOQ&t=7366s" target="_blank" class="timestamp-link">2:02:46</a>
+                            <span class="timestamp-title">Wrap-up and Next Week Preview</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Composition elements (point, line, shape, depth, balance, color, pattern, texture) work together simultaneously in any image rather than appearing in isolation</li>
+                        <li>Depth of field can be used both as a stylistic camera technique and practically to hide low-resolution textures</li>
+                        <li>Balance in composition is about understanding visual weight distribution, not strict symmetry</li>
+                        <li>Studying real-world film and game references and &#x27;reverse engineering&#x27; why a shot works is a powerful way to improve personal composition skills</li>
+                        <li>Render time budgeting matters: students must balance visual style ambitions against practical rendering constraints</li>
+                        <li>The 180-degree rule keeps camera placement consistent on one side of an imaginary line between characters to maintain spatial continuity</li>
+                        <li>An NLA audio visualizer add-on simplifies syncing animation and dialogue timing in Blender</li>
+                        <li>Students take on multiple roles (director, voice actor, cinematographer, render wrangler) and must manage trade-offs like a producer managing budget</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

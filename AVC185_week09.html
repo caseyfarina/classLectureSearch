@@ -7,7 +7,7 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
-        .container { max-width: 900px; margin: 0 auto; }
+        .container { max-width: 1600px; margin: 0 auto; }
         .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
         .back-link:hover { text-decoration: underline; }
         .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
@@ -61,9 +61,9 @@
         <div class="week-header">
             <div class="week-label">AVC 185 &bull; Fall 2026</div>
             <h1 class="week-title">Week 9</h1>
-            <div class="week-subtitle">UV Unwrapping Review and Substance Painter Texturing</div>
-            <div class="week-dates">October 21, 2026</div>
-            <div class="week-note">Monday was a holiday &ndash; No class</div>
+            <div class="week-subtitle">High-to-Low Poly Baking and Substance Texturing &amp; UV Unwrapping Review and Substance Painter Texturing</div>
+            <div class="week-dates">October 19 &ndash; 21, 2026</div>
+            
             <div class="week-nav">
                 <a href="AVC185_week08.html">&larr; Week 8</a>
                 <a href="AVC185_week10.html">Week 10 &rarr;</a>
@@ -72,10 +72,15 @@
 
         <div class="overview">
             <h2>Week Overview</h2>
-            <p>This lecture reviews student UV unwrapping tests and Suzanne model texturing projects, with extensive troubleshooting of Substance Painter to Blender USD import issues. The instructor demonstrates live UV correction techniques on a mug model and covers advanced Substance Painter texturing methods including decals, stencils, symmetry painting, and height-based effects for an upcoming skull texturing assignment.</p>
+            <p>Monday covers this lecture covers the high-poly to low-poly sculpt baking workflow using a skull asset, including UV packing, exporting FBX files, and baking mesh maps in Substance Painter. It then explores sourcing materials from Substance Community, building custom substances in Substance Sampler, and advanced masking techniques (manual painting, mesh/UV fill, and smart masks) to create a detailed, realistic skull texture. Wednesday focuses on this lecture reviews student UV unwrapping tests and Suzanne model texturing projects, with extensive troubleshooting of Substance Painter to Blender USD import issues. The instructor demonstrates live UV correction techniques on a mug model and covers advanced Substance Painter texturing methods including decals, stencils, symmetry painting, and height-based effects for an upcoming skull texturing assignment.</p>
             <div class="key-topics">
-                <span class="topic-tag">UV Unwrapping</span>
                 <span class="topic-tag">Substance Painter</span>
+                <span class="topic-tag">High to Low Poly Baking</span>
+                <span class="topic-tag">UV Packing</span>
+                <span class="topic-tag">Substance Sampler</span>
+                <span class="topic-tag">Masking Techniques</span>
+                <span class="topic-tag">Smart Materials</span>
+                <span class="topic-tag">UV Unwrapping</span>
                 <span class="topic-tag">USD Import</span>
                 <span class="topic-tag">Texturing Techniques</span>
                 <span class="topic-tag">3D Modeling</span>
@@ -84,8 +89,196 @@
         </div>
 
         
-        <div class="day-column">
-            
+        <div class="columns">
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">October 19, 2026</div>
+                    <h2 class="day-title">High-to-Low Poly Baking and Substance Texturing</h2>
+                    <p class="day-summary">This lecture covers the high-poly to low-poly sculpt baking workflow using a skull asset, including UV packing, exporting FBX files, and baking mesh maps in Substance Painter. It then explores sourcing materials from Substance Community, building custom substances in Substance Sampler, and advanced masking techniques (manual painting, mesh/UV fill, and smart masks) to create a detailed, realistic skull texture.</p>
+                    <a href="https://www.youtube.com/watch?v=tixB2dz8iXs" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Base Mesh and UV Prep</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Class Start and Attendance</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=110s" target="_blank" class="timestamp-link">1:50</a>
+                            <span class="timestamp-title">Exploring Multi-Res Base Mesh</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=382s" target="_blank" class="timestamp-link">6:22</a>
+                            <span class="timestamp-title">High Poly vs Low Poly Overview</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=573s" target="_blank" class="timestamp-link">9:33</a>
+                            <span class="timestamp-title">Checking and Packing UVs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Exporting and Baking Mesh Maps</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=819s" target="_blank" class="timestamp-link">13:39</a>
+                            <span class="timestamp-title">Preparing High Poly for Export</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=948s" target="_blank" class="timestamp-link">15:48</a>
+                            <span class="timestamp-title">Exporting FBX Files</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=1083s" target="_blank" class="timestamp-link">18:03</a>
+                            <span class="timestamp-title">Setting Up Substance Painter Project</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=1274s" target="_blank" class="timestamp-link">21:14</a>
+                            <span class="timestamp-title">Baking High to Low Poly Detail</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=1539s" target="_blank" class="timestamp-link">25:39</a>
+                            <span class="timestamp-title">Why Bake Detail: Real-Time Uses</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Bake Cage and Sculpt Detail</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=1743s" target="_blank" class="timestamp-link">29:03</a>
+                            <span class="timestamp-title">Understanding the Bake Cage</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=1898s" target="_blank" class="timestamp-link">31:38</a>
+                            <span class="timestamp-title">Sculpting Extra Detail and Rebaking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Materials from Substance Community</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=2439s" target="_blank" class="timestamp-link">40:39</a>
+                            <span class="timestamp-title">Substance Community Materials</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=2684s" target="_blank" class="timestamp-link">44:44</a>
+                            <span class="timestamp-title">Triplanar Projection Over Seams</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=2796s" target="_blank" class="timestamp-link">46:36</a>
+                            <span class="timestamp-title">Smart Materials and World Coordinates</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Building Custom Substances</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=3186s" target="_blank" class="timestamp-link">53:06</a>
+                            <span class="timestamp-title">Intro to Substance Sampler</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=3481s" target="_blank" class="timestamp-link">58:01</a>
+                            <span class="timestamp-title">Building a Rusty Metal Substance</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=3857s" target="_blank" class="timestamp-link">1:04:17</a>
+                            <span class="timestamp-title">Creating a Dirty Denim Substance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">6</div>
+                        <div class="section-name">Painting and Masking Workflows</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=4295s" target="_blank" class="timestamp-link">1:11:35</a>
+                            <span class="timestamp-title">Paint Layers and Vector Tools</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=4883s" target="_blank" class="timestamp-link">1:21:23</a>
+                            <span class="timestamp-title">Diagnosing Height Channel Blending</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=5153s" target="_blank" class="timestamp-link">1:25:53</a>
+                            <span class="timestamp-title">Smart Masks Versus Manual Masking</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=5690s" target="_blank" class="timestamp-link">1:34:50</a>
+                            <span class="timestamp-title">Mesh Fill and UV Chunk Masking</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=6291s" target="_blank" class="timestamp-link">1:44:51</a>
+                            <span class="timestamp-title">Mask Builder Using Curvature and AO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">7</div>
+                        <div class="section-name">Final Skull Texture Build</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=6741s" target="_blank" class="timestamp-link">1:52:21</a>
+                            <span class="timestamp-title">Building a Realistic Skull Texture</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=7389s" target="_blank" class="timestamp-link">2:03:09</a>
+                            <span class="timestamp-title">Edge Scratches with Curvature Masks</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=tixB2dz8iXs&t=7871s" target="_blank" class="timestamp-link">2:11:11</a>
+                            <span class="timestamp-title">Wrap Up and Next Class Preview</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>High-to-low poly baking transfers sculpted detail from a heavy mesh into normal, curvature, and AO maps on a lightweight, game-ready mesh</li>
+                        <li>A proper bake requires a sculpted high poly mesh, a matching-silhouette low poly mesh, and clean UVs with packed islands</li>
+                        <li>Average Island Scale balances UV space allocation so small and large parts get proportional texture resolution</li>
+                        <li>The bake cage distance determines what high poly detail is captured; too small a cage causes errors and artifacts</li>
+                        <li>Triplanar projection avoids visible seams when projecting tiling materials onto unwrapped UVs</li>
+                        <li>Smart materials and smart masks use baked mesh map data (curvature, AO, world normals) to dynamically generate realistic wear and texture patterns</li>
+                        <li>Masking can be done by hand-painting, using mesh/UV chunk fills for clean boundaries, or using procedurally generated smart masks</li>
+                        <li>Each texture channel (color, height, normal, roughness) has its own blend mode, which explains why underlying detail can show through or get covered unexpectedly</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="day-column">
+                
                 <div class="day-header">
                     <div class="day-label">Wednesday</div>
                     <div class="day-date">October 21, 2026</div>
@@ -245,6 +438,7 @@
                         <li>Blur and Bevel filters on height-channel masks create smoother, more realistic surface detail</li>
                     </ul>
                 </div>
+            </div>
         </div>
     </div>
 </body>

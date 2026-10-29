@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 240 - Week 10 - Fall 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #FF7A00; margin-bottom: 10px; font-weight: 500; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #FF7A00; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #FF7A00; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #FF7A00; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #FF7A00; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #FF7A00; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #FF7A00; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 240 &bull; Fall 2026</div>
+            <h1 class="week-title">Week 10</h1>
+            <div class="week-subtitle">Lighting Fundamentals in Blender &amp; Lighting Theory and High/Low Key Setups</div>
+            <div class="week-dates">October 26 &ndash; 28, 2026</div>
+            
+            <div class="week-nav">
+                <a href="AVC240_week09.html">&larr; Week 9</a>
+                <a href="AVC240_week11.html">Week 11 &rarr;</a>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>Monday covers this lecture covers core lighting principles in Blender, including the inverse square law, exposure and bit depth, Cycles rendering with denoising, three-point lighting setups with spot and area lights, color temperature, and building a studio environment with a cyclorama and room for realistic light bounce. The session concludes with an assignment to demonstrate these techniques and replicate lighting from reference scenes. Wednesday focuses on this lecture covers core cinematic lighting concepts including the inverse square law, color temperature, hard vs soft light, and high-key vs low-key lighting, followed by a live Blender demonstration building studio lighting setups, gobo/cookie shadow patterns, volumetric smoke, and film noir-style compositing.</p>
+            <div class="key-topics">
+                <span class="topic-tag">3D Lighting</span>
+                <span class="topic-tag">Blender Cycles</span>
+                <span class="topic-tag">Color Temperature</span>
+                <span class="topic-tag">Exposure &amp; Bit Depth</span>
+                <span class="topic-tag">Three-Point Lighting</span>
+                <span class="topic-tag">Denoising</span>
+                <span class="topic-tag">Lighting Theory</span>
+                <span class="topic-tag">Blender Compositing</span>
+                <span class="topic-tag">High Key Low Key</span>
+                <span class="topic-tag">Volumetrics</span>
+                <span class="topic-tag">Film Noir</span>
+            </div>
+        </div>
+
+        
+        <div class="columns">
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">October 26, 2026</div>
+                    <h2 class="day-title">Lighting Fundamentals in Blender</h2>
+                    <p class="day-summary">This lecture covers core lighting principles in Blender, including the inverse square law, exposure and bit depth, Cycles rendering with denoising, three-point lighting setups with spot and area lights, color temperature, and building a studio environment with a cyclorama and room for realistic light bounce. The session concludes with an assignment to demonstrate these techniques and replicate lighting from reference scenes.</p>
+                    <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Setup and Scene Prep</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Stream Setup and Announcements</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=653s" target="_blank" class="timestamp-link">10:53</a>
+                            <span class="timestamp-title">Inspecting Subject Textures and Assets</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=817s" target="_blank" class="timestamp-link">13:37</a>
+                            <span class="timestamp-title">Building a Cyclorama Backdrop</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=1088s" target="_blank" class="timestamp-link">18:08</a>
+                            <span class="timestamp-title">Darkening the World and Adding Lights</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Lighting Theory Basics</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=1179s" target="_blank" class="timestamp-link">19:39</a>
+                            <span class="timestamp-title">Targeted Spotlights with Track Constraint</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=1492s" target="_blank" class="timestamp-link">24:52</a>
+                            <span class="timestamp-title">Inverse Square Law Explained</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Exposure and Image Data</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=1838s" target="_blank" class="timestamp-link">30:38</a>
+                            <span class="timestamp-title">Render Setup and Image Scopes</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=2221s" target="_blank" class="timestamp-link">37:01</a>
+                            <span class="timestamp-title">Exposure, Bit Depth, and Banding</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=2801s" target="_blank" class="timestamp-link">46:41</a>
+                            <span class="timestamp-title">Levels and Histogram Comparisons</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=3184s" target="_blank" class="timestamp-link">53:04</a>
+                            <span class="timestamp-title">Proper Exposure and Waveform Reading</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Rendering with Cycles</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=3389s" target="_blank" class="timestamp-link">56:29</a>
+                            <span class="timestamp-title">Cycles Samples and Denoising</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Three-Point Lighting Studio</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=4440s" target="_blank" class="timestamp-link">1:14:00</a>
+                            <span class="timestamp-title">Key, Fill, and Edge Lighting Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=5343s" target="_blank" class="timestamp-link">1:29:03</a>
+                            <span class="timestamp-title">Depth of Field and Floor Detailing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">6</div>
+                        <div class="section-name">Color Temperature and Environment</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=5809s" target="_blank" class="timestamp-link">1:36:49</a>
+                            <span class="timestamp-title">Color Temperature and Kelvin Scale</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=6374s" target="_blank" class="timestamp-link">1:46:14</a>
+                            <span class="timestamp-title">Animating a Day-to-Night Sun Cycle</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=6816s" target="_blank" class="timestamp-link">1:53:36</a>
+                            <span class="timestamp-title">Indoor Tungsten Light and Atmosphere</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=7141s" target="_blank" class="timestamp-link">1:59:01</a>
+                            <span class="timestamp-title">Global Illumination and Room Bounce</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">7</div>
+                        <div class="section-name">Advanced Lighting Techniques</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=7958s" target="_blank" class="timestamp-link">2:12:38</a>
+                            <span class="timestamp-title">Area Lights vs Spotlights</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=8416s" target="_blank" class="timestamp-link">2:20:16</a>
+                            <span class="timestamp-title">Stylized Warm-Cool Lighting</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=hh95m9Bg-n0&t=8901s" target="_blank" class="timestamp-link">2:28:21</a>
+                            <span class="timestamp-title">Project Recap and Assignment</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>The inverse square law means light intensity falls off exponentially, not linearly, with distance</li>
+                        <li>Proper exposure stretches pixel values to use the full zero-to-one range, giving more flexibility in post-processing</li>
+                        <li>Low bit depth combined with heavy color correction causes banding/dithering artifacts</li>
+                        <li>Lower Cycles samples with denoising enabled drastically reduces render time while maintaining quality</li>
+                        <li>Key, fill, and edge (rim) lights form the foundation of classic three-point lighting</li>
+                        <li>Area lights produce more realistic soft shadows and specular highlights than point/spot lights, since light comes from a surface rather than a single point</li>
+                        <li>Color temperature (Kelvin) controls the orange-to-blue tint of light, mimicking real-world sources like candles, tungsten bulbs, and daylight</li>
+                        <li>Enclosing a scene in a room enables realistic light bounce (global illumination) via path tracing</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">October 28, 2026</div>
+                    <h2 class="day-title">Lighting Theory and High/Low Key Setups</h2>
+                    <p class="day-summary">This lecture covers core cinematic lighting concepts including the inverse square law, color temperature, hard vs soft light, and high-key vs low-key lighting, followed by a live Blender demonstration building studio lighting setups, gobo/cookie shadow patterns, volumetric smoke, and film noir-style compositing.</p>
+                    <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Announcements and Housekeeping</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Halloween Costumes and Announcements</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Lighting Theory Fundamentals</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=329s" target="_blank" class="timestamp-link">5:29</a>
+                            <span class="timestamp-title">Inverse Square Law of Light</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=409s" target="_blank" class="timestamp-link">6:49</a>
+                            <span class="timestamp-title">Color Temperature and Kelvin Scale</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=600s" target="_blank" class="timestamp-link">10:00</a>
+                            <span class="timestamp-title">Mixed Lighting in Film</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=722s" target="_blank" class="timestamp-link">12:02</a>
+                            <span class="timestamp-title">DP, Gaffer, and LED Panels</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Hard/Soft and Key Lighting Concepts</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=1103s" target="_blank" class="timestamp-link">18:23</a>
+                            <span class="timestamp-title">Hard vs Soft Light Shadows</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=1394s" target="_blank" class="timestamp-link">23:14</a>
+                            <span class="timestamp-title">High Key vs Low Key Lighting</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=1903s" target="_blank" class="timestamp-link">31:43</a>
+                            <span class="timestamp-title">Chiaroscuro Lighting Explained</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Building Studio Lighting in Blender</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=2137s" target="_blank" class="timestamp-link">35:37</a>
+                            <span class="timestamp-title">Building High Key Studio Scene</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=3143s" target="_blank" class="timestamp-link">52:23</a>
+                            <span class="timestamp-title">Building Low Key Studio Scene</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=3611s" target="_blank" class="timestamp-link">1:00:11</a>
+                            <span class="timestamp-title">Compositing Background Mood Adjustments</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=4084s" target="_blank" class="timestamp-link">1:08:04</a>
+                            <span class="timestamp-title">Mist and Depth Passes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Gobos, Smoke, and Noir Looks</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=4752s" target="_blank" class="timestamp-link">1:19:12</a>
+                            <span class="timestamp-title">Gobos and Cookies for Shadows</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=5400s" target="_blank" class="timestamp-link">1:30:00</a>
+                            <span class="timestamp-title">Adding Smoke with Volumetrics</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=5926s" target="_blank" class="timestamp-link">1:38:46</a>
+                            <span class="timestamp-title">Film Noir Compositing Finale</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">6</div>
+                        <div class="section-name">Assignment Review</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=D6yaUNpfRHA&t=6230s" target="_blank" class="timestamp-link">1:43:50</a>
+                            <span class="timestamp-title">Lighting Assignment Requirements Review</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>The inverse square law means light intensity drops off non-linearly, losing 75% when distance doubles</li>
+                        <li>Color temperature in Kelvin: lower numbers appear orange/warm, higher numbers appear blue/cool, with 6500K as neutral white</li>
+                        <li>Hard light comes from small sources and creates defined shadows and specular highlights; soft light comes from large sources and creates diffuse, flattering illumination</li>
+                        <li>High-key lighting evenly illuminates a scene with minimal shadows for a positive mood, while low-key lighting uses strong contrast for a darker, moodier tone</li>
+                        <li>Chiaroscuro is a specific subset of low-key lighting used to emphasize depth and texture</li>
+                        <li>Gobos (or cookies) are black-and-white images placed in a light&#x27;s emission input to cast patterned shadows, like window blinds or the Bat-signal</li>
+                        <li>Volumetric scatter with noise textures can simulate atmospheric smoke or haze within a scene</li>
+                        <li>Compositing techniques like cryptomatte, mist passes, color ramps, and vignettes can further shape mood, separating foreground and background adjustments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

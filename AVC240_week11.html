@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 240 - Week 11 - Fall 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #FF7A00; margin-bottom: 10px; font-weight: 500; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #FF7A00; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #FF7A00; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #FF7A00; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #FF7A00; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #FF7A00; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #FF7A00; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 240 &bull; Fall 2026</div>
+            <h1 class="week-title">Week 11</h1>
+            <div class="week-subtitle">Cinematography: Camera Movement &amp; Storyboarding &amp; 180-Degree Rule Dialogue Scene Critiques</div>
+            <div class="week-dates">November 02 &ndash; 4, 2026</div>
+            
+            <div class="week-nav">
+                <a href="AVC240_week10.html">&larr; Week 10</a>
+                <a href="AVC240_week12.html">Week 12 &rarr;</a>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>Monday covers this lecture covers shot sizing and camera movement terminology (pans, tilts, dollies, cranes, gimbals, drones) with historical context, demonstrates building a virtual crane rig with noise in Blender, introduces a reverse-engineering storyboard assignment, and previews the final music video project with examples from previous students. Wednesday focuses on this lecture reviews student dialogue scene projects focused on applying the 180-degree rule, covering camera framing, over-the-shoulder shots, lighting, rendering optimization, and editing rhythm. The class also discusses BlenderKit asset management, troubleshooting shadow flickering, and previews the upcoming storyboarding assignment for the final music video project.</p>
+            <div class="key-topics">
+                <span class="topic-tag">Storyboarding</span>
+                <span class="topic-tag">Camera Movement</span>
+                <span class="topic-tag">Shot Composition</span>
+                <span class="topic-tag">Blender Rigging</span>
+                <span class="topic-tag">Music Video Project</span>
+                <span class="topic-tag">Cinematography History</span>
+                <span class="topic-tag">180-Degree Rule</span>
+                <span class="topic-tag">Camera Framing</span>
+                <span class="topic-tag">Dialogue Animation</span>
+                <span class="topic-tag">Blender Rendering</span>
+                <span class="topic-tag">Student Critique</span>
+            </div>
+        </div>
+
+        
+        <div class="columns">
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">November 02, 2026</div>
+                    <h2 class="day-title">Cinematography: Camera Movement &amp; Storyboarding</h2>
+                    <p class="day-summary">This lecture covers shot sizing and camera movement terminology (pans, tilts, dollies, cranes, gimbals, drones) with historical context, demonstrates building a virtual crane rig with noise in Blender, introduces a reverse-engineering storyboard assignment, and previews the final music video project with examples from previous students.</p>
+                    <a href="https://www.youtube.com/watch?v=xONFHm18uWM" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Opening and Logistics</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Flooding Chat and Stream Check</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=360s" target="_blank" class="timestamp-link">6:00</a>
+                            <span class="timestamp-title">Assignment Reminders and Due Dates</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Storyboarding and Shot Sizes</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=1018s" target="_blank" class="timestamp-link">16:58</a>
+                            <span class="timestamp-title">Reverse Engineering Storyboard Intro</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=1149s" target="_blank" class="timestamp-link">19:09</a>
+                            <span class="timestamp-title">Shot Size Cheat Sheet Explained</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Camera Movement Deep Dive</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=1797s" target="_blank" class="timestamp-link">29:57</a>
+                            <span class="timestamp-title">Camera Movement Categories Overview</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=2209s" target="_blank" class="timestamp-link">36:49</a>
+                            <span class="timestamp-title">History of Camera Stabilization Hardware</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=2702s" target="_blank" class="timestamp-link">45:02</a>
+                            <span class="timestamp-title">Drones and Future of Camera Movement</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=3028s" target="_blank" class="timestamp-link">50:28</a>
+                            <span class="timestamp-title">Depth of Field and Pulling Focus</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=3412s" target="_blank" class="timestamp-link">56:52</a>
+                            <span class="timestamp-title">Zoom vs Push and Crash Zooms</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=3578s" target="_blank" class="timestamp-link">59:38</a>
+                            <span class="timestamp-title">Roll, Tracking, and Crane Shots</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Blender Camera Rigging Demo</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=4054s" target="_blank" class="timestamp-link">1:07:34</a>
+                            <span class="timestamp-title">Building a Virtual Crane in Blender</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">New Storyboard Assignment</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=4803s" target="_blank" class="timestamp-link">1:20:03</a>
+                            <span class="timestamp-title">Reverse Storyboard Assignment Details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">6</div>
+                        <div class="section-name">Final Music Video Project Examples</div>
+                        <span class="section-count">5 student projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=5014s" target="_blank" class="timestamp-link">1:23:34</a>
+                            <span class="timestamp-title">Final Project: Music Video Overview</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=5342s" target="_blank" class="timestamp-link">1:29:02</a>
+                            <span class="timestamp-title">Student Feedback: Flight of the Conchords Video</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=5841s" target="_blank" class="timestamp-link">1:37:21</a>
+                            <span class="timestamp-title">Student Feedback: Teddy Bear Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=6037s" target="_blank" class="timestamp-link">1:40:37</a>
+                            <span class="timestamp-title">Student Feedback: Dance Club Project</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=6173s" target="_blank" class="timestamp-link">1:42:53</a>
+                            <span class="timestamp-title">Student Feedback: Narrative Lip Sync Project</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=6330s" target="_blank" class="timestamp-link">1:45:30</a>
+                            <span class="timestamp-title">Student Feedback: Atmospheric Classroom Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">7</div>
+                        <div class="section-name">Wrap-Up Discussion</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=xONFHm18uWM&t=6608s" target="_blank" class="timestamp-link">1:50:08</a>
+                            <span class="timestamp-title">Choosing a Song and Wrap-Up</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Shot sizes (extreme close-up through full shot) and camera height form a standardized visual language for communicating framing decisions</li>
+                        <li>Pushing in (moving the camera) and zooming in (changing focal length) produce visually distinct effects, especially regarding depth compression</li>
+                        <li>Camera stabilization technology (tripods, dollies, steadicams, gimbals, drones) has historically shaped what camera movements are feasible, influencing cinematic style over time</li>
+                        <li>Pulling focus keeps a subject sharp as the camera or subject moves, and Blender can automate this using focus tracking on an object</li>
+                        <li>Adding noise to key frame constraints like Damped Track can simulate realistic imperfection in otherwise too-perfect computer-generated camera motion</li>
+                        <li>Stylized transitions like whip pans and crash zooms function as transitional effects rather than moments meant to be visually processed</li>
+                        <li>Reverse-engineering storyboards from existing media requires labeling lensing, shot size, camera angle, camera movement, technique, and lighting for each shot</li>
+                        <li>The final music video project should use a song (any genre, with or without lyrics) and be visually compelling without needing to be strictly narrative</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">November 04, 2026</div>
+                    <h2 class="day-title">180-Degree Rule Dialogue Scene Critiques</h2>
+                    <p class="day-summary">This lecture reviews student dialogue scene projects focused on applying the 180-degree rule, covering camera framing, over-the-shoulder shots, lighting, rendering optimization, and editing rhythm. The class also discusses BlenderKit asset management, troubleshooting shadow flickering, and previews the upcoming storyboarding assignment for the final music video project.</p>
+                    <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Setup and Rule Overview</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Class Start and Setup</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI&t=334s" target="_blank" class="timestamp-link">5:34</a>
+                            <span class="timestamp-title">180 Degree Rule Review Begins</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI&t=534s" target="_blank" class="timestamp-link">8:54</a>
+                            <span class="timestamp-title">BlenderKit Asset Filtering Tips</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Student Project Critiques</div>
+                        <span class="section-count">14 projects reviewed</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI&t=853s" target="_blank" class="timestamp-link">14:13</a>
+                            <span class="timestamp-title">Student Feedback: Night Scene Project</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI&t=1196s" target="_blank" class="timestamp-link">19:56</a>
+                            <span class="timestamp-title">Student Feedback: Kimono Dialogue Scene</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI&t=1334s" target="_blank" class="timestamp-link">22:14</a>
+                            <span class="timestamp-title">Student Feedback: Ninjago Scene Project</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI&t=1658s" target="_blank" class="timestamp-link">27:38</a>
+                            <span class="timestamp-title">Student Feedback: Medieval Dialogue Scene</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI&t=2351s" target="_blank" class="timestamp-link">39:11</a>
+                            <span class="timestamp-title">Student Feedback: Joker and Batman Scene</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI&t=2779s" target="_blank" class="timestamp-link">46:19</a>
+                            <span class="timestamp-title">Student Feedback: Star Trek Parody Scene</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI&t=3780s" target="_blank" class="timestamp-link">1:03:00</a>
+                            <span class="timestamp-title">Student Feedback: Monkey Statue Animation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI&t=4223s" target="_blank" class="timestamp-link">1:10:23</a>
+                            <span class="timestamp-title">Student Feedback: BoJack Horseman Scene</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI&t=4924s" target="_blank" class="timestamp-link">1:22:04</a>
+                            <span class="timestamp-title">Student Feedback: Mascot Interview Scene</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI&t=5296s" target="_blank" class="timestamp-link">1:28:16</a>
+                            <span class="timestamp-title">Student Feedback: Blade Runner Recreation</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI&t=6419s" target="_blank" class="timestamp-link">1:46:59</a>
+                            <span class="timestamp-title">Student Feedback: Star Wars Duel Scene</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Wrap-up and Next Assignment</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=Cd6lxdhFUqI&t=7159s" target="_blank" class="timestamp-link">1:59:19</a>
+                            <span class="timestamp-title">Student Feedback: Office Scene and Final Project Intro</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>The 180-degree rule keeps characters on consistent sides of the screen for spatial coherence</li>
+                        <li>Over-the-shoulder shots should prioritize the character being viewed, using proper rule-of-thirds framing</li>
+                        <li>Cameras may need per-shot adjustments rather than staying fixed, especially with multiple actions in a scene</li>
+                        <li>In Blender Cycles, lower sample counts with denoising and GPU compute drastically reduce render times</li>
+                        <li>Rendering at reduced resolution (e.g., 50%) cuts pixel count to a quarter, saving significant render time</li>
+                        <li>Shadow flickering issues can often be diagnosed using a process-of-elimination (halving) technique and adjusting shadow pixel allocation or using spotlights instead of point lights</li>
+                        <li>Stylistic choices like depth of field and NPR outlines can visually conflict and should be used intentionally</li>
+                        <li>Audio-video sync in Blender requires setting frame dropping to stay aligned during playback</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

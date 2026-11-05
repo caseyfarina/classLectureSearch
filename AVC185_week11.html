@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVC 185 - Week 11 - Fall 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .week-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #333; }
+        .week-label { font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .week-title { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .week-subtitle { font-size: 1.1rem; color: #D904A0; margin-bottom: 10px; font-weight: 500; }
+        .week-dates { color: #666; font-size: 1rem; }
+        .week-note { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 8px; }
+        .week-nav { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+        .week-nav a { color: #4a9eff; text-decoration: none; font-size: 0.9rem; }
+        .week-nav a:hover { text-decoration: underline; }
+        .week-nav span { color: #444; font-size: 0.9rem; }
+        .overview { background: #111; border-radius: 12px; padding: 25px 30px; margin-bottom: 30px; border-left: 4px solid #D904A0; }
+        .overview h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+        .overview p { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .key-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .topic-tag { background: #1a1a1a; color: #D904A0; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid #333; }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 1200px) { .columns { grid-template-columns: 1fr; } }
+        .day-column { background: #111; border-radius: 12px; padding: 25px; }
+        .day-header { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        .day-label { display: inline-block; padding: 4px 12px; background: #D904A0; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .day-date { font-size: 0.85rem; color: #888; margin-bottom: 6px; }
+        .day-title { font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+        .day-summary { color: #999; font-size: 0.9rem; line-height: 1.6; }
+        .video-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #D904A0; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+        .video-link:hover { opacity: 0.9; }
+        .section-group { margin-bottom: 25px; }
+        .section-group:last-child { margin-bottom: 0; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #252525; }
+        .section-icon { background: #D904A0; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; flex-shrink: 0; }
+        .section-name { font-size: 1rem; color: #fff; font-weight: 600; }
+        .section-count { color: #666; font-size: 0.8rem; margin-left: auto; }
+        .timestamps { padding-left: 34px; }
+        .timestamp-item { display: flex; align-items: flex-start; gap: 10px; padding: 5px 0; }
+        .timestamp-item:hover { background: #1a1a1a; margin: 0 -10px; padding: 5px 10px; border-radius: 4px; }
+        .timestamp-link { font-family: 'SF Mono', 'Consolas', monospace; color: #4a9eff; text-decoration: none; min-width: 52px; font-size: 0.82rem; }
+        .timestamp-link:hover { text-decoration: underline; }
+        .timestamp-title { color: #bbb; flex: 1; font-size: 0.88rem; }
+        .concepts { background: #0d0d0d; border-radius: 8px; padding: 15px 20px; margin-top: 20px; }
+        .concepts h4 { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .concepts ul { list-style: none; }
+        .concepts li { color: #999; font-size: 0.85rem; padding: 3px 0; padding-left: 15px; position: relative; }
+        .concepts li::before { content: "\2192"; position: absolute; left: 0; color: #D904A0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Search</a>
+
+        <div class="week-header">
+            <div class="week-label">AVC 185 &bull; Fall 2026</div>
+            <h1 class="week-title">Week 11</h1>
+            <div class="week-subtitle">Spaceship Design with Kit Bashing and Anchor Points &amp; 3D Print Reviews and Substance Painter Emission Techniques</div>
+            <div class="week-dates">November 02 &ndash; 4, 2026</div>
+            
+            <div class="week-nav">
+                <a href="AVC185_week10.html">&larr; Week 10</a>
+                <a href="AVC185_week12.html">Week 12 &rarr;</a>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>Week Overview</h2>
+            <p>Monday covers this lecture introduces the space vehicle project, covering kit bashing and greebling design philosophy inspired by Industrial Light and Magic, followed by an analysis of professional spaceship models to understand the balance between modeled geometry and painted texture detail. The majority of the session is a live demo building a thruster engine part in Blender using modifiers (array, shrink wrap, boolean, solidify) and then texturing it in Substance Painter using advanced anchor point techniques to drive smart materials from painted height detail. Wednesday focuses on this lecture reviews student 3D print models and skull renders, covering manifold checks, slicing, and support structures, followed by an in-depth exploration of emission shaders, bloom effects, and anchor point techniques in Substance Painter. The class concludes with the introduction of a new turbine engine modeling assignment as preparation for a larger spaceship project.</p>
+            <div class="key-topics">
+                <span class="topic-tag">Kit Bashing</span>
+                <span class="topic-tag">Greebling</span>
+                <span class="topic-tag">Blender Modifiers</span>
+                <span class="topic-tag">Substance Painter</span>
+                <span class="topic-tag">Anchor Points</span>
+                <span class="topic-tag">Hard Surface Modeling</span>
+                <span class="topic-tag">3D Printing</span>
+                <span class="topic-tag">Shaders &amp; Emission</span>
+                <span class="topic-tag">Mesh Cleanup</span>
+                <span class="topic-tag">Blender</span>
+            </div>
+        </div>
+
+        
+        <div class="columns">
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Monday</div>
+                    <div class="day-date">November 02, 2026</div>
+                    <h2 class="day-title">Spaceship Design with Kit Bashing and Anchor Points</h2>
+                    <p class="day-summary">This lecture introduces the space vehicle project, covering kit bashing and greebling design philosophy inspired by Industrial Light and Magic, followed by an analysis of professional spaceship models to understand the balance between modeled geometry and painted texture detail. The majority of the session is a live demo building a thruster engine part in Blender using modifiers (array, shrink wrap, boolean, solidify) and then texturing it in Substance Painter using advanced anchor point techniques to drive smart materials from painted height detail.</p>
+                    <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">Project Introduction and Context</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Class Intro and Logistics</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM&t=147s" target="_blank" class="timestamp-link">2:27</a>
+                            <span class="timestamp-title">Introducing the Space Vehicle Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Design Philosophy: Kit Bashing</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM&t=334s" target="_blank" class="timestamp-link">5:34</a>
+                            <span class="timestamp-title">Kit Bashing and Greebling Explained</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM&t=689s" target="_blank" class="timestamp-link">11:29</a>
+                            <span class="timestamp-title">ILM and Adam Savage Examples</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Analyzing Reference Spaceship Models</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM&t=1020s" target="_blank" class="timestamp-link">17:00</a>
+                            <span class="timestamp-title">Analyzing Spaceship Models on SketchFab</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM&t=1745s" target="_blank" class="timestamp-link">29:05</a>
+                            <span class="timestamp-title">Symmetry and Design Considerations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Modeling the Thruster Engine</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM&t=2173s" target="_blank" class="timestamp-link">36:13</a>
+                            <span class="timestamp-title">Building a Thruster Engine in Blender</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM&t=3657s" target="_blank" class="timestamp-link">1:00:57</a>
+                            <span class="timestamp-title">Boolean Cuts for Asymmetric Detail</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM&t=3660s" target="_blank" class="timestamp-link">1:01:00</a>
+                            <span class="timestamp-title">Shrink Wrap Modifier for Surface Details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">UV Unwrapping and Export</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM&t=4343s" target="_blank" class="timestamp-link">1:12:23</a>
+                            <span class="timestamp-title">UV Unwrapping the Engine Parts</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM&t=5040s" target="_blank" class="timestamp-link">1:24:00</a>
+                            <span class="timestamp-title">Exporting to Substance Painter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">6</div>
+                        <div class="section-name">Texturing with Anchor Points</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM&t=5079s" target="_blank" class="timestamp-link">1:24:39</a>
+                            <span class="timestamp-title">Introducing Anchor Points</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM&t=6543s" target="_blank" class="timestamp-link">1:49:03</a>
+                            <span class="timestamp-title">Particle Brushes and Dirt Layers</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM&t=6940s" target="_blank" class="timestamp-link">1:55:40</a>
+                            <span class="timestamp-title">Stencils, Decals, and Emission Glow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">7</div>
+                        <div class="section-name">Wrap-Up and Assignment</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=5YsJsOgPqbM&t=8308s" target="_blank" class="timestamp-link">2:18:28</a>
+                            <span class="timestamp-title">Recap and Next Steps for Spaceship</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Kit bashing is the practice of assembling models from parts of other kits or models, originating from practical effects in films like Star Wars</li>
+                        <li>Greebles are the small detail pieces added to a larger form to suggest complexity and scale</li>
+                        <li>Design decisions should be driven by a vehicle&#x27;s narrative purpose, letting form follow function</li>
+                        <li>Deciding what detail belongs in the mesh versus the texture (height/normal maps) is a key modeling skill</li>
+                        <li>Anchor points in Substance Painter let you read painted height data from one layer into a mask generator on another layer, merging painted and geometric detail</li>
+                        <li>Micro height and micro normal settings must be manually set to true to activate anchor point data in smart materials</li>
+                        <li>Stacking UV islands intentionally allows repeated parts (like fan blades) to share texture space efficiently</li>
+                        <li>Applying scale issues can break modifiers; use Apply Scale or Smart Apply Scale to fix unexpected behavior</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="day-column">
+                
+                <div class="day-header">
+                    <div class="day-label">Wednesday</div>
+                    <div class="day-date">November 04, 2026</div>
+                    <h2 class="day-title">3D Print Reviews and Substance Painter Emission Techniques</h2>
+                    <p class="day-summary">This lecture reviews student 3D print models and skull renders, covering manifold checks, slicing, and support structures, followed by an in-depth exploration of emission shaders, bloom effects, and anchor point techniques in Substance Painter. The class concludes with the introduction of a new turbine engine modeling assignment as preparation for a larger spaceship project.</p>
+                    <a href="https://www.youtube.com/watch?v=e9jho1XOqlA" target="_blank" class="video-link">Watch Full Lecture &rarr;</a>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">1</div>
+                        <div class="section-name">3D Print Model Reviews</div>
+                        <span class="section-count">Student projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=0s" target="_blank" class="timestamp-link">0:00</a>
+                            <span class="timestamp-title">Introduction</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=120s" target="_blank" class="timestamp-link">2:00</a>
+                            <span class="timestamp-title">Introduction and Manifold Check Discussion</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=342s" target="_blank" class="timestamp-link">5:42</a>
+                            <span class="timestamp-title">Student Feedback: Lighthouse 3D Print</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=586s" target="_blank" class="timestamp-link">9:46</a>
+                            <span class="timestamp-title">STL vs G-Code Explanation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">2</div>
+                        <div class="section-name">Shader and Texture Fundamentals</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=633s" target="_blank" class="timestamp-link">10:33</a>
+                            <span class="timestamp-title">Student Feedback: Overhang Support Strategies</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=1098s" target="_blank" class="timestamp-link">18:18</a>
+                            <span class="timestamp-title">Student Feedback: Substance Painter Weathering</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=1261s" target="_blank" class="timestamp-link">21:01</a>
+                            <span class="timestamp-title">Emission Channels and Shader Basics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">3</div>
+                        <div class="section-name">Student Print and Render Feedback</div>
+                        <span class="section-count">Student projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=1792s" target="_blank" class="timestamp-link">29:52</a>
+                            <span class="timestamp-title">Scalar vs Color Textures Explained</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=1920s" target="_blank" class="timestamp-link">32:00</a>
+                            <span class="timestamp-title">Student Feedback: Missing Internal Supports</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=2170s" target="_blank" class="timestamp-link">36:10</a>
+                            <span class="timestamp-title">Student Feedback: Emission Washing Out Renders</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=2349s" target="_blank" class="timestamp-link">39:09</a>
+                            <span class="timestamp-title">Deep Dive: Emission Strength and Bloom</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=2954s" target="_blank" class="timestamp-link">49:14</a>
+                            <span class="timestamp-title">Student Feedback: Manifold Mesh Cleanup</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">4</div>
+                        <div class="section-name">Additional Student Submissions</div>
+                        <span class="section-count">Student projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=3264s" target="_blank" class="timestamp-link">54:24</a>
+                            <span class="timestamp-title">Merge by Distance Technique</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=3698s" target="_blank" class="timestamp-link">1:01:38</a>
+                            <span class="timestamp-title">Student Feedback: Bioluminescent Moss Effect</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=3842s" target="_blank" class="timestamp-link">1:04:02</a>
+                            <span class="timestamp-title">Student Feedback: STL Export File Corruption</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=4551s" target="_blank" class="timestamp-link">1:15:51</a>
+                            <span class="timestamp-title">Student Feedback: Baking and Projection Issues</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=4989s" target="_blank" class="timestamp-link">1:23:09</a>
+                            <span class="timestamp-title">Student Feedback: Clean Tower Print</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">5</div>
+                        <div class="section-name">Mesh Optimization Techniques</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=5413s" target="_blank" class="timestamp-link">1:30:13</a>
+                            <span class="timestamp-title">Student Feedback: Low-Poly Remeshing Challenges</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">6</div>
+                        <div class="section-name">Final Submissions and Styling</div>
+                        <span class="section-count">Student projects</span>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=6301s" target="_blank" class="timestamp-link">1:45:01</a>
+                            <span class="timestamp-title">Decimate Modifier for Print Optimization</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=6660s" target="_blank" class="timestamp-link">1:51:00</a>
+                            <span class="timestamp-title">Student Feedback: Demonic Skull Emission Troubleshooting</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=6961s" target="_blank" class="timestamp-link">1:56:01</a>
+                            <span class="timestamp-title">Substance Painter Warp Filter Demo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <div class="section-header">
+                        <div class="section-icon">7</div>
+                        <div class="section-name">New Assignment and Advanced Techniques</div>
+                    </div>
+                    <div class="timestamps">
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=7080s" target="_blank" class="timestamp-link">1:58:00</a>
+                            <span class="timestamp-title">Student Feedback: Scaling for Print Bed</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=7394s" target="_blank" class="timestamp-link">2:03:14</a>
+                            <span class="timestamp-title">New Assignment: Turbine Engine Modeling</span>
+                        </div>
+                        <div class="timestamp-item">
+                            <a href="https://www.youtube.com/watch?v=e9jho1XOqlA&t=7722s" target="_blank" class="timestamp-link">2:08:42</a>
+                            <span class="timestamp-title">Anchor Points and Smart Materials Tutorial</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concepts">
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li>Manifold checks and warnings indicate mesh properties to evaluate, not errors that always must be zeroed out</li>
+                        <li>Separating objects into parts and reorienting them reduces the need for complex overhang support structures</li>
+                        <li>Emission strength and emission color are independent settings; both must be configured for a proper glow effect</li>
+                        <li>Post-processing effects like bloom/glare are required to visualize emission beyond simple brightness</li>
+                        <li>Merge by distance resolves overlapping vertices that create zero-area faces and printing errors</li>
+                        <li>Anchor points store mesh or layer data that can be read by smart materials above them in the layer stack</li>
+                        <li>The Decimate modifier can reduce polygon count created by subdivision surfaces for faster print processing</li>
+                        <li>UV islands need sufficient pixel space to avoid stretched or blurry textures on larger surface areas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
